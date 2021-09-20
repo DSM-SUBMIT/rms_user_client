@@ -7,10 +7,7 @@ const MainRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/login' component={LoginContainer} />
-<<<<<<< HEAD
         <Route exact path='/mypage' component={MyPageContainer} />
-=======
->>>>>>> main
       </Switch>
     </BrowserRouter>
   );
