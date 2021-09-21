@@ -6,7 +6,7 @@ const MainRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-          <Route exact path='/login' component={LoginContainer} />
+        <Route exact path='/login' component={LoginContainer} />
       </Switch>
     </BrowserRouter>
   );
