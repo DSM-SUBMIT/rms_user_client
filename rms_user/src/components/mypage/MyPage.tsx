@@ -22,11 +22,17 @@ const MyPage = () => {
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
             <S.ProjectList>
-              {' '}
-              {Array(5)
+              {Array(4)
                 .fill(0)
-                .map((v, i) => {
-                  return <ProjectContent key={i} />;
+                .map(content => {
+                  return (
+                    <ProjectContent
+                      classification='팀프로젝트'
+                      title='보고서 관리 시스템'
+                      writer='서브밋'
+                      field={['보안', '웹', '인공지능/빅데이터']}
+                    />
+                  );
                 })}
             </S.ProjectList>
           </S.ProjectBox>

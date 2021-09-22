@@ -11,18 +11,16 @@ export const MyPage = styled.div`
 
 export const Content = styled.div`
   width: 546px;
-  height: 725px;
-  border: 1px solid red;
   margin: 0 auto;
 `;
 
 export const InformationBox = styled.div`
   width: 546px;
   height: 70px;
-  border: 1px solid blue;
   background-color: #ffffff;
-  padding-top: 14px;
+  padding-top: 15px;
   border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 `;
 
 export const NameBox = styled.span`
@@ -56,6 +54,7 @@ export const CreateBox = styled.div`
   margin-top: 16px;
   text-align: center;
   padding-top: 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   img {
     vertical-align: middle;
@@ -72,8 +71,6 @@ export const Crate = styled.span`
 `;
 
 export const ProjectList = styled.div`
-  border: 1px solid black;
   margin-top: 16px;
-  width: 525px;
-  background-color: #ffffff;
+  width: 546px;
 `;
