@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { FC, Suspense } from 'react';
 import Login from '../../components/login';
 
-const LoginContainer = () => {
+const LoginContainer: FC = () => {
   return (
-    <Login />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Login />
+    </Suspense>
   );
 };
 
