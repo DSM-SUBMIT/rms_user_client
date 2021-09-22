@@ -3,18 +3,18 @@ import * as S from './style';
 import { CHOOSEFIELDTITLE, FIELDS, CheckState } from '../../constance/main';
 
 const ChooseField = () => {
-  const [isClick, setIsClick] = useState<CheckState>({
-    web: false,
-    app: false,
-    game: false,
-    embedded: false,
-    security: false,
-    aiAndBigData: false,
-  });
+  //   const [isClick, setIsClick] = useState<CheckState>({
+  //     web: false,
+  //     app: false,
+  //     game: false,
+  //     embedded: false,
+  //     security: false,
+  //     aiAndBigData: false,
+  //   });
 
   const clickBtnHandler = (e: any) => {
     const dataId = e.target.dataset.id;
-    setIsClick({ ...isClick, [dataId]: !isClick[dataId] });
+    // setIsClick({ ...isClick, [dataId]: !isClick[dataId]});
   };
 
   return (
