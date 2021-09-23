@@ -7,6 +7,8 @@ export const Main = styled.main`
     text-align: center;
 `
 
+export const Header = styled.header``
+
 export const Form = styled.form`
     margin: 100px 320px;
 `
