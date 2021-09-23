@@ -5,7 +5,6 @@ const MainRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route />
       </Switch>
     </BrowserRouter>
   );
