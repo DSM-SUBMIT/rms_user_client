@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { color } from '../../../style';
 
 export const Main = styled.main`
     width: 100%;
     display: flex;
-    background-color: #F7F9FD;
+    background-color: ${color.background};
 `
 
 export const Header = styled.header``
@@ -42,7 +43,7 @@ export const ReportContent = styled.section`
         background-color: #FBFBFB;
         padding: 25px;
         font-size: 16px;
-        box-shadow: 2px 2px 5px #E5E5E5;
+        box-shadow: 2px 2px 5px ${color.border};
         margin: 10px;
     }
     input {
@@ -59,15 +60,15 @@ export const FileBox = styled.div`
         height: 40px;
         padding: 0 10px;
         vertical-align: middle;
-        border: 1px solid #E5E5E5;
+        border: 1px solid ${color.border};
         width: 80%;
         color: #999999;
     }
     label {
         padding: 10px 20px;
-        color: #fff;
+        color: white;
         text-align: center;
-        background-color: #386BEE;
+        background-color: ${color.main};
         cursor: pointer;
         margin-right: 10px;
     }
@@ -84,8 +85,8 @@ export const ButtonGroup = styled.div`
         border: none;
         background-color: white;
         border-radius: 10px;
-        box-shadow: 3px 4px 5px #E5E5E5;
-        color: #386BEE;
+        box-shadow: 3px 4px 5px ${color.border};
+        color: ${color.main};
         font-size: 16px;
     }
 `
