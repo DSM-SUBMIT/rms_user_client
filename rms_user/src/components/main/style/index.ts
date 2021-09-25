@@ -21,7 +21,7 @@ export const ChooseField = styled.div`
   border: 1px solid ${color.border};
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  padding: 25px 35px;
+  padding: 30px 35px;
   margin-right: 80px;
   > div > p {
     font-size: 13px;
