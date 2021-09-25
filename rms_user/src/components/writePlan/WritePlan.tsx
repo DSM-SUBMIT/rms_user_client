@@ -1,10 +1,11 @@
 import React from 'react';
 import * as S from './style';
+import Header from '../header';
 
 const WritePlan = () => {
     return (
         <>
-            <S.Header/>
+            <Header/>
             <S.Main>
                 <S.Form name="plan" method="post">
                     <S.Plan>
