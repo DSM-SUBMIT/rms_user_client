@@ -7,8 +7,6 @@ export const Main = styled.main`
     background-color: ${color.background};
 `
 
-export const Header = styled.header``
-
 export const Form = styled.form`
     margin: 100px 320px;
 `

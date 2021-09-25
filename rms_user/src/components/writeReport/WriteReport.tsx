@@ -1,13 +1,14 @@
 import React from 'react';
 import * as S from './style';
 import { Editor } from '@toast-ui/react-editor';
+import Header from '../header';
 
 import '@toast-ui/editor/dist/toastui-editor.css';
 
 const WriteReport = () => {    
     return (
         <>
-            <S.Header/>
+            <Header/>
             <S.Main>
                 <S.Form name="report" method="post">
                     <S.Report>
