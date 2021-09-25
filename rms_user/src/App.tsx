@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalStyle from './style/globalStyle';
-import MainRouter from './route/MainRouter'; 
+import MainRouter from './route/MainRouter';
 import { Provider } from 'react-redux';
 import store from './modules/redux/store';
 
