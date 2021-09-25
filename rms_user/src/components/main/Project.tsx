@@ -15,9 +15,9 @@ const ProjectList: FC<Props> = ({ title, classification, writer, field }) => {
       <S.ProjectTitle>{title}</S.ProjectTitle>
       <S.ProjectWriter>{writer}</S.ProjectWriter>
       <div>
-        {field.map(content => {
+        {field.map((content, i) => {
           return (
-            <S.ProjectField>
+            <S.ProjectField key={i}>
               <p>{content}</p>
             </S.ProjectField>
           );
