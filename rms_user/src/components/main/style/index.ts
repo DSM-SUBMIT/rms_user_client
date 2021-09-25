@@ -62,6 +62,7 @@ export const Project = styled.div`
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   padding: 13px 37px;
   margin-bottom: 10px;
+  cursor: pointer;
   > div {
     display: flex;
     gap: 5px;
@@ -86,7 +87,7 @@ export const ProjectWriter = styled.p`
 `;
 
 export const ProjectField = styled.div`
-  height: 16px;
+  height: 18px;
   padding: 0px 10px;
   border: 1px solid ${color.main};
   border-radius: 16px;
