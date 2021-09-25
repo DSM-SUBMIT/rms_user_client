@@ -19,8 +19,8 @@ const ChooseField = () => {
   });
 
   const clickBtnHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const dataId = event.currentTarget.dataset.id;
-    setIsClick({ ...isClick, [dataId]: !isClick[dataId] });
+    const dataId = String(event.currentTarget.dataset.id);
+    // setIsClick({ ...isClick, [dataId]: !isClick[dataId] });
   };
 
   return (
