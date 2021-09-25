@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { LoginContainer } from '../containers';
 import { WritePlanContainer } from '../containers';
+import { WriteReportContainer } from '../containers';
 
 const MainRouter = () => {
   return (
@@ -9,6 +10,7 @@ const MainRouter = () => {
       <Switch>
         <Route exact path='/login' component={LoginContainer} />
         <Route exact path='/wplan' component={WritePlanContainer}></Route>
+        <Route exact path='/wreport' component={WriteReportContainer}></Route>
       </Switch>
     </BrowserRouter>
   );
