@@ -1,29 +1,37 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import { CHOOSEFIELDTITLE, FIELDS, CheckState } from '../../constance/main';
+import {
+  CHOOSEFIELDTITLE,
+  FIELDS,
+  CheckStateType,
+  FieldMapPropsType,
+  DataIdType,
+} from '../../constance/main';
 
 const ChooseField = () => {
-  //   const [isClick, setIsClick] = useState<CheckState>({
-  //     web: false,
-  //     app: false,
-  //     game: false,
-  //     embedded: false,
-  //     security: false,
-  //     aiAndBigData: false,
-  //   });
+  const [isClick, setIsClick] = useState<CheckStateType>({
+    web: false,
+    app: false,
+    game: false,
+    embedded: false,
+    security: false,
+    aiAndBigData: false,
+  });
 
-  const clickBtnHandler = (e: any) => {
-    const dataId = e.target.dataset.id;
-    // setIsClick({ ...isClick, [dataId]: !isClick[dataId]});
+  const clickBtnHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const dataId: DataIdType = event.currentTarget.dataset.id
+      ? event.currentTarget.dataset.id
+      : 'web';
+    setIsClick({ ...isClick, [dataId]: !isClick[dataId] });
   };
 
   return (
     <S.ChooseField>
       <S.ChooseFieldTitle>{CHOOSEFIELDTITLE}</S.ChooseFieldTitle>
-      {FIELDS.map(props => {
+      {FIELDS.map((props: FieldMapPropsType) => {
         return (
           <S.CheckLine>
-            <S.CheckBox onClick={clickBtnHandler} data-id={props.id} isClick={false} />
+            <S.CheckBox onClick={clickBtnHandler} data-id={props.id} isClick={isClick[props.id]} />
             <p key={props.id}>{props.content}</p>
           </S.CheckLine>
         );
