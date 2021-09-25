@@ -2,6 +2,11 @@ import React from 'react';
 import * as S from './style';
 import Header from '../header';
 
+const Checkbox = [
+    ['report', 'code', 'video', 'etc'],
+    ['결과보고서','프로그램코드','실행물(영상 또는 사진', '기타']
+]
+
 const WritePlan = () => {
     return (
         <>
@@ -28,22 +33,15 @@ const WritePlan = () => {
                         </S.PlanContent>
                         <S.PlanContentResult>
                             <h4>결과물 (해당사항체크)</h4>
-                            <div>
-                                <input type="checkbox" id="report"/>
-                                <label htmlFor="report">결과 보고서</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="code"/>
-                                <label htmlFor="code">프로그램 코드</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="video"/>
-                                <label htmlFor="video">실행물(영상 또는 사진)</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="etc"/>
-                                <label htmlFor="etc">기타</label>
-                            </div>
+                            {Array(4)
+                                .fill(0)
+                                .map((div, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <input type="checkbox" id={Checkbox[0][i]}/>
+                                            <label htmlFor={Checkbox[0][i]}>{Checkbox[1][i]}</label>
+                                        </div>
+                                )})}
                         </S.PlanContentResult>
                     </S.Plan>
                     <S.ButtonGroup>
