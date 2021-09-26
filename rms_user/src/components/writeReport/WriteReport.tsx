@@ -2,13 +2,9 @@ import React from 'react';
 import * as S from './style';
 import { Editor } from '@toast-ui/react-editor';
 import Header from '../header';
+import { ReportContent } from '../../constance/writeReport'
 
 import '@toast-ui/editor/dist/toastui-editor.css';
-
-const ReportContent = [
-    ['I. 프로젝트 진행 동기 및 목적', 'II. 이론적 배경 (기존 사례 또는 문헌 연구 결과)', 'III. 프로젝트 진행 과정', 'IV. 프로젝트 결과', 'V. 결론 및 고찰'],
-    ['프로젝트 진행 동기 및 목적을 작성해 주세요', '이론적 배경을 작성해주세요', '프로젝트의 진행 과정을 작성해주세요', '프로젝트의 결과를 작성해주세요', '결론 및 고찰을 작성해주세요']
-]
 
 const WriteReport = () => {    
     return (
