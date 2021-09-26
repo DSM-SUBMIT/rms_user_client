@@ -1,11 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import Header from '../header';
-
-const Checkbox = [
-    ['report', 'code', 'video', 'etc'],
-    ['결과보고서','프로그램코드','실행물(영상 또는 사진', '기타']
-]
+import { Checkbox } from '../../constance/writePlan';
 
 const WritePlan = () => {
     return (
