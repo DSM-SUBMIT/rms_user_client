@@ -10,7 +10,7 @@ import {
 
 const ReportFirstPage = () => {
   return (
-    <S.ReportFirstPage>
+    <S.ReportPage>
       <S.ReportCover>{REPORT_COVER}</S.ReportCover>
       <S.ReportTitle>{TEAM_PROJECT_REPORT}</S.ReportTitle>
       <S.ReportTitleBox>
@@ -27,7 +27,7 @@ const ReportFirstPage = () => {
         </tr>
       </S.Table>
       <S.SchoolName>{SCHOOL}</S.SchoolName>
-    </S.ReportFirstPage>
+    </S.ReportPage>
   );
 };
 

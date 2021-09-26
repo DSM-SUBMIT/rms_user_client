@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { color } from '../../../style';
 
 export const DetailReport = styled.div`
@@ -7,6 +7,7 @@ export const DetailReport = styled.div`
   height: 100%;
   box-sizing: border-box;
   background-color: ${color.background};
+  padding-bottom: 55px;
   > div:nth-child(2) {
     width: 800px;
     margin: 0 auto;
@@ -19,9 +20,8 @@ export const ReportPage = styled.div`
   height: 1128px;
   background-color: white;
   border: 1px solid black;
+  margin-bottom: 20px;
 `;
-
-export const ReportFirstPage = styled(ReportPage)``;
 
 export const ReportCover = styled.p`
   font-size: 16px;
@@ -82,4 +82,42 @@ export const SchoolName = styled.p`
   font-weight: bold;
   text-align: center;
   margin-top: 128px;
+`;
+
+export const ReportContentBox = styled.div<{ isSecondPage?: boolean }>`
+  width: 676px;
+  ${({ isSecondPage }) => css`
+    height: ${isSecondPage ? '959px' : '974px'};
+    margin: ${isSecondPage ? '10px auto' : '77px auto'};
+  `}
+  border: 1px solid black;
+`;
+
+export const ReportContentTitle = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+  height: 29px;
+  margin-top: 53px;
+  margin: 53px 0px 0px 61px;
+  > span {
+    font-size: 16px;
+    font-weight: 300;
+    margin-right: 10px;
+  }
+`;
+
+export const DownloadBtn = styled.div`
+  width: 150px;
+  height: 50px;
+  background-color: ${color.main};
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px 0px 970px;
+  cursor: pointer;
+  > p {
+    color: white;
+    font-size: 20px;
+  }
 `;
