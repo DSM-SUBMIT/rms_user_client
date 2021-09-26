@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const HeaderBox = styled.div`
   height: 55px;
-  border-bottom: 1px solid blue;
   padding-top: 8px;
+  background: white;
 `;
 
 export const HeaderContent = styled.div`
