@@ -1,13 +1,15 @@
 import React from 'react';
 import * as S from './style';
 import { Editor } from '@toast-ui/react-editor';
+import Header from '../header';
+import { ReportContent } from '../../constance/writeReport'
 
 import '@toast-ui/editor/dist/toastui-editor.css';
 
 const WriteReport = () => {    
     return (
         <>
-            <S.Header/>
+            <Header/>
             <S.Main>
                 <S.Form name="report" method="post">
                     <S.Report>
@@ -17,36 +19,14 @@ const WriteReport = () => {
                             <h5>프로젝트 주제를 작성해주세요</h5>
                             <textarea placeholder="프로젝트의 주제를 작성해주세요"></textarea>
                         </S.ReportContent>
-                        <S.ReportContent>
-                            <h3>I. 프로젝트 진행 동기 및 목적</h3>
-                            <span>프로젝트 진행 동기 및 목적을 작성해 주세요</span>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                            {/* <textarea placeholder="프로젝트 진행 동기 및 목적을 작성해 주세요"></textarea> */}
-                        </S.ReportContent>
-                        <S.ReportContent>
-                            <h3>II. 이론적 배경 (기존 사례 또는 문헌 연구 결과)</h3>
-                            <span>이론적 배경을 작성해주세요</span>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                            {/* <textarea placeholder="이론적 배경을 작성해주세요"></textarea> */}
-                        </S.ReportContent>
-                        <S.ReportContent>
-                            <h3>III. 프로젝트 진행 과정</h3>
-                            <span>프로젝트의 진행 과정을 작성해주세요</span>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                            {/* <textarea placeholder="프로젝트의 진행 과정을 작성해주세요"></textarea> */}
-                        </S.ReportContent>
-                        <S.ReportContent>
-                            <h3>IV. 프로젝트 결과</h3>
-                            <span>프로젝트의 결과를 작성해주세요</span>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                            {/* <textarea placeholder="프로젝트의 결과를 작성해주세요"></textarea> */}
-                        </S.ReportContent>
-                        <S.ReportContent>
-                            <h3>V. 결론 및 고찰</h3>
-                            <span>결론 및 고찰을 작성해주세요</span>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                            {/* <textarea placeholder="결론 및 고찰을 작성해주세요"></textarea> */}
-                        </S.ReportContent>
+                        {ReportContent.map((div, i) => {
+                                return(
+                                    <S.ReportContent key={i}>
+                                        <h3>{ReportContent[i].title}</h3>
+                                        <span>{ReportContent[i].more}</span>
+                                        <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
+                                    </S.ReportContent>
+                            )})}
                         <S.ReportContent>
                             <h5>[참고문헌]</h5>
                             <textarea></textarea>

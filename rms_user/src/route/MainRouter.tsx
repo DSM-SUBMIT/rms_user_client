@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { LoginContainer, MyPageContainer } from '../containers';
+import { LoginContainer, MyPageContainer, WritePlanContainer, WriteReportContainer } from '../containers';
 
 const MainRouter = () => {
   return (
@@ -8,6 +8,9 @@ const MainRouter = () => {
       <Switch>
         <Route exact path='/login' component={LoginContainer} />
         <Route exact path='/mypage' component={MyPageContainer} />
+        <Route exact path='/write/plan' component={WritePlanContainer}></Route>
+        <Route exact path='/write/report' component={WriteReportContainer}></Route>
+        <Route exact path='/' component={MainContainer} />
       </Switch>
     </BrowserRouter>
   );
