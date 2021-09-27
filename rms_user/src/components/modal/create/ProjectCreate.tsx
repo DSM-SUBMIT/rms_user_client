@@ -6,12 +6,19 @@ const ProjectCreate = () => {
   return (
     <>
       <S.ProjectCreateBox>
-        <S.TopBox>
+        <S.CloseBox>
           <img src={Close} />
-          <S.ProjectName />
-          <S.UploadButton />
-        </S.TopBox>
-        {/* 선택 박스 두는 곳 */}
+        </S.CloseBox>
+        <S.ContentBox>
+          <S.TopBox>
+            <S.ProjectNameBox placeholder='프로젝트 명을 입력하세요' />
+            <S.UploadBut />
+          </S.TopBox>
+          <S.FieldChoiceBox>
+            <S.FieldChoice />
+          </S.FieldChoiceBox>
+          <S.SelectBox></S.SelectBox>
+        </S.ContentBox>
       </S.ProjectCreateBox>
     </>
   );
