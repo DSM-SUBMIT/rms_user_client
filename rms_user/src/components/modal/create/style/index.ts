@@ -17,3 +17,5 @@ export const FieldChoiceBox = styled.div``;
 export const FieldChoice = styled.select``;
 
 export const SelectBox = styled.div``;
+
+export const ClassificationSelect = styled.select``;
