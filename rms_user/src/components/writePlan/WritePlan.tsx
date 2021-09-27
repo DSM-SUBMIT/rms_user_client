@@ -1,10 +1,12 @@
 import React from 'react';
 import * as S from './style';
+import Header from '../header';
+import { Checkbox } from '../../constance/writePlan';
 
 const WritePlan = () => {
     return (
         <>
-            <S.Header/>
+            <Header/>
             <S.Main>
                 <S.Form name="plan" method="post">
                     <S.Plan>
@@ -27,22 +29,13 @@ const WritePlan = () => {
                         </S.PlanContent>
                         <S.PlanContentResult>
                             <h4>결과물 (해당사항체크)</h4>
-                            <div>
-                                <input type="checkbox" id="report"/>
-                                <label htmlFor="report">결과 보고서</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="code"/>
-                                <label htmlFor="code">프로그램 코드</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="video"/>
-                                <label htmlFor="video">실행물(영상 또는 사진)</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="etc"/>
-                                <label htmlFor="etc">기타</label>
-                            </div>
+                            {Checkbox.map((div, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <input type="checkbox" id={Checkbox[i].id}/>
+                                            <label htmlFor={Checkbox[i].id}>{Checkbox[i].span}</label>
+                                        </div>
+                                )})}
                         </S.PlanContentResult>
                     </S.Plan>
                     <S.ButtonGroup>
