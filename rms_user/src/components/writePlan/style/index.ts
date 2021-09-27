@@ -1,13 +1,12 @@
 import styled from 'styled-components';
+import { color } from '../../../style';
 
 export const Main = styled.main`
     width: 100%;
     display: flex;
-    background-color: #F7F9FD;
+    background-color: ${color.background};
     text-align: center;
 `
-
-export const Header = styled.header``
 
 export const Form = styled.form`
     margin: 100px 320px;
@@ -39,7 +38,7 @@ export const PlanContent = styled.section`
         background-color: #fbfbfb;
         padding: 25px;
         font-size: 16px;
-        box-shadow: 2px 2px 5px #e5e5e5;
+        box-shadow: 2px 2px 5px ${color.border};
         margin: 10px;
     }
     input {
@@ -69,8 +68,8 @@ export const ButtonGroup = styled.div`
         border: none;
         background-color: white;
         border-radius: 10px;
-        box-shadow: 3px 4px 5px #e5e5e5;
-        color: #386bee;
+        box-shadow: 3px 4px 5px ${color.border};
+        color: ${color.main};
         font-size: 16px;
     }
 `
