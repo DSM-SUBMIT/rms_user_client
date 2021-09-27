@@ -44,10 +44,11 @@ export const SchoolEmailLogin = styled.p`
 export const LoginBtn = styled.div`
   width: 262px;
   height: 40px;
-  text-align: center;
   margin: 0 auto;
   margin-top: 25px;
-  padding: 12px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${color.main};
   color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
