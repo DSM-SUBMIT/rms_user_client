@@ -7,6 +7,7 @@ const global = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     outline: none;
+    font-family: -apple-system, 'Apple SDGothic', Helvetica, sans-serif;
   }
   a {
     text-decoration: none;
