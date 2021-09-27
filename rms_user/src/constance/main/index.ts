@@ -16,10 +16,20 @@ export type CheckStateType = {
   security: boolean;
   aiAndBigData: boolean;
 };
-
 export type DataIdType = 'web' | 'app' | 'game' | 'embedded' | 'security' | 'aiAndBigData';
-
 export type FieldMapPropsType = {
   id: DataIdType;
   content: string;
+};
+export type ProjectListType = {
+  fieldList: Array<string>;
+  id: number;
+  projectName: string;
+  projeectType: string;
+  teamName: string;
+};
+export type MainResponseType = {
+  currentPage: number;
+  projectList: Array<ProjectListType>;
+  totalPages: number;
 };
