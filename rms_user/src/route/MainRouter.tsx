@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { LoginContainer, DetailReportContainer, MainContainer } from '../containers';
-import { WritePlanContainer } from '../containers';
-import { WriteReportContainer } from '../containers';
+import { LoginContainer, DetailReportContainer, MainContainer, WritePlanContainer, WriteReportContainer } from '../containers';
 
 const MainRouter = () => {
   return (
