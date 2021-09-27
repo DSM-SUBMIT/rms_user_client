@@ -7,6 +7,7 @@ const MainRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/login' component={LoginContainer} />
+        <Route exact path='/mypage' component={MyPageContainer} />
         <Route exact path='/write/plan' component={WritePlanContainer}></Route>
         <Route exact path='/write/report' component={WriteReportContainer}></Route>
         <Route exact path='/detail-report/:id' component={DetailReportContainer} />
