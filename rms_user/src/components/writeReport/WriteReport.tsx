@@ -19,13 +19,11 @@ const WriteReport = () => {
                             <h5>프로젝트 주제를 작성해주세요</h5>
                             <textarea placeholder="프로젝트의 주제를 작성해주세요"></textarea>
                         </S.ReportContent>
-                        {Array(5)
-                            .fill(0)
-                            .map((div, i) => {
+                        {ReportContent.map((div, i) => {
                                 return(
                                     <S.ReportContent key={i}>
-                                        <h3>{ReportContent[0][i]}</h3>
-                                        <span>{ReportContent[1][i]}</span>
+                                        <h3>{ReportContent[i].title}</h3>
+                                        <span>{ReportContent[i].more}</span>
                                         <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
                                     </S.ReportContent>
                             )})}
