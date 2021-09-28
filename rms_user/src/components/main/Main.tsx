@@ -1,46 +1,39 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ChooseField from './ChooseField';
 import Project from './Project';
+import { CheckStateType, ProjectListType } from '../../constance/main';
+import { error } from '../../models/error';
 
-const Main = () => {
+interface Props {
+  currentPage: number;
+  projectList: Array<ProjectListType>;
+  totalPages: number;
+  error: error | null;
+  field: CheckStateType;
+  setField: (payload: CheckStateType) => void;
+  setPage: (payload: number) => void;
+}
+
+const Main: FC<Props> = props => {
   return (
     <S.Main>
       <Header />
       <div>
         <ChooseField />
         <div>
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
+          {props.projectList.map(data => {
+            return (
+              <Project
+                projectName={data.projectName}
+                projectType={data.projectType}
+                teamName={data.teamName}
+                fieldList={data.fieldList}
+                key={data.id}
+              />
+            );
+          })}
         </div>
       </div>
     </S.Main>
