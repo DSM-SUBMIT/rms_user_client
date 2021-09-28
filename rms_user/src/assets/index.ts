@@ -1,0 +1,2 @@
+export { default as Profile } from './header/Profile.svg';
+export { default as Plus } from './mypage/Plus.svg';

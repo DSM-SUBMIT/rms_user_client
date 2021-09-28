@@ -1,12 +1,12 @@
 import React, { FC, Suspense } from 'react';
-import Login from '../../components/login';
+import Main from '../../components/main';
 
-const LoginContainer: FC = () => {
+const MainContainer: FC = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Login />
+      <Main />
     </Suspense>
   );
 };
 
-export default LoginContainer;
+export default MainContainer;
