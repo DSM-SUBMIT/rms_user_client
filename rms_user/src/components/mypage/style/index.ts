@@ -18,9 +18,10 @@ export const InformationBox = styled.div`
   width: 546px;
   height: 70px;
   background-color: #ffffff;
-  padding-top: 15px;
   border-radius: 5px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
 `;
 
 export const NameBox = styled.span`
@@ -52,13 +53,11 @@ export const CreateBox = styled.div`
   border-radius: 5px;
   background-color: ${color.main};
   margin-top: 16px;
-  text-align: center;
-  padding-top: 20px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  img {
-    vertical-align: middle;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Crate = styled.span`
@@ -66,7 +65,6 @@ export const Crate = styled.span`
   font-size: 18px;
   font-weight: bold;
   color: #ffffff;
-  vertical-align: middle;
   margin-left: 8px;
 `;
 
