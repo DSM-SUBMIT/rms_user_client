@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getRequest = () => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'https://munchkin.entrydsm.hs.kr',
+    baseURL: 'https://user-api.dsm-rms.com',
     withCredentials: true,
     headers: {
       withCredentials: true,
@@ -18,7 +18,7 @@ export const getRequestWithAccessToken = (
 ) => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'https://munchkin.entrydsm.hs.kr',
+    baseURL: 'https://user-api.dsm-rms.com',
     headers: {
       Authorization: `Bearer ${token}`,
       withCredentials: true,
