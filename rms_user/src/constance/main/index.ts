@@ -25,7 +25,7 @@ export type ProjectListType = {
   fieldList: Array<string>;
   id: number;
   projectName: string;
-  projeectType: string;
+  projectType: string;
   teamName: string;
 };
 export type MainResponseType = {
