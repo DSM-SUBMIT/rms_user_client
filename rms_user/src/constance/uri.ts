@@ -1,5 +1,5 @@
 enum uri {
-  token = '/auth/google/callback',
+  token = '/auth/token',
 }
 
 export default uri;
