@@ -7,7 +7,7 @@ const initState: LoginState = {
   error: null,
 };
 
-const gradeReducer = (state: LoginState = initState, action: loginActionType) => {
+const loginReducer = (state: LoginState = initState, action: loginActionType): LoginState => {
   switch (action.type) {
     case CODE:
       return {
@@ -16,6 +16,7 @@ const gradeReducer = (state: LoginState = initState, action: loginActionType) =>
       };
     case TOKEN_FAILURE:
       return {
+        ...state,
         error: action.payload,
       };
     default:
@@ -23,4 +24,4 @@ const gradeReducer = (state: LoginState = initState, action: loginActionType) =>
   }
 };
 
-export default gradeReducer;
+export default loginReducer;
