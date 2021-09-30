@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
-import { setCode } from '../../modules/redux/action/login';
+import { useDispatch } from 'react-redux';
+import { TOKEN } from '../../modules/redux/action/login/interface';
+import { UseLogin } from '../../util/hooks/login';
 
 const Loading = () => {
+  const { setState } = UseLogin();
+  const dispatch = useDispatch();
   const url = window.location.search;
   useEffect(() => {
-    console.log(1, url);
-    console.log(2, url.slice(6));
-    setCode(url.slice(6));
+    setState.setCode(url.slice(6));
+    dispatch({ type: TOKEN });
   }, [url]);
   return <div>로그인중...</div>;
 };
