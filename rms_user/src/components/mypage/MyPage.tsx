@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ProjectContent from './projectcontent';
-import { PROJECT, CREATE_PROJECT } from '../../constance/mypage';
+import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
+import { error } from '../../models/error';
 
-const MyPage = () => {
+interface Props {
+  email: string;
+  name: string;
+  projectList: Array<ProjectListType>;
+  error: error | null;
+}
+
+const MyPage: FC<Props> = props => {
   return (
     <>
       <Header />
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
-            <S.NameBox>기매교</S.NameBox>
+            <S.NameBox>김해교</S.NameBox>
             <S.EmailBox>201908khk@dsm.hs.kr</S.EmailBox>
           </S.InformationBox>
           <S.ProjectBox>
@@ -22,18 +30,16 @@ const MyPage = () => {
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
             <S.ProjectList>
-              {Array(4)
-                .fill(0)
-                .map(content => {
-                  return (
-                    <ProjectContent
-                      classification='팀프로젝트'
-                      title='보고서 관리 시스템'
-                      writer='서브밋'
-                      field={['보안', '웹', '인공지능/빅데이터']}
-                    />
-                  );
-                })}
+              {props.projectList.map(data => {
+                return (
+                  <ProjectContent
+                    projectName={data.projectName}
+                    projectType={data.projectType}
+                    teamName={data.teamName}
+                    fieldList={data.fieldList}
+                  />
+                );
+              })}
             </S.ProjectList>
           </S.ProjectBox>
         </S.Content>
