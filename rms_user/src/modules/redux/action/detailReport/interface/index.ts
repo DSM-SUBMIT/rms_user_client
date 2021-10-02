@@ -1,3 +1,4 @@
 export const GET_REPORT = 'DETAILREPORT/GET_REPORT' as const;
 export const GET_REPORT_SUCCESS = 'DETAILREPORT/GET_REPORT_SUCCESS' as const;
 export const GET_REPORT_FAILURE = 'DETAILREPORT/GET_REPORT_FAILURE' as const;
+export const ID = 'DETAILREPORT/ID' as const;
