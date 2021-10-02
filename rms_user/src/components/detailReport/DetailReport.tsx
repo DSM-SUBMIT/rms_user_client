@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ReportFirstPage from './ReportFirstPage';
 import WritedReport from './WritedReport';
 import { DOWNLOAD } from '../../constance/detailReport';
+import { useLocation } from 'react-router-dom';
 
-const DetailReport = () => {
+interface Props {
+  content: string;
+  field: Array<string>;
+  writer: string;
+  setId: (payload: string) => void;
+}
+
+const DetailReport: FC<Props> = props => {
+  const { content, field, writer, setId } = props;
+  const path = useLocation().pathname.slice(15);
+
+  useEffect(() => {
+    setId(path);
+  }, [path]);
+
   return (
     <S.DetailReport>
       <Header />
       <div>
-        <ReportFirstPage />
-        <WritedReport isSecondPage />
-        <WritedReport />
+        <ReportFirstPage field={field} writer={writer} />
+        <WritedReport isSecondPage content={content} />
+        <WritedReport content={content} />
       </div>
       <S.DownloadBtn>
         <p>{DOWNLOAD}</p>

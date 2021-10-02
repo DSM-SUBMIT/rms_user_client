@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import {
   REPORT_COVER,
@@ -8,18 +8,24 @@ import {
   SCHOOL,
 } from '../../constance/detailReport';
 
-const ReportFirstPage = () => {
+interface Props {
+  field: Array<string>;
+  writer: string;
+}
+
+const ReportFirstPage: FC<Props> = props => {
+  const { field, writer } = props;
   return (
     <S.ReportPage>
       <S.ReportCover>{REPORT_COVER}</S.ReportCover>
       <S.ReportTitle>{TEAM_PROJECT_REPORT}</S.ReportTitle>
       <S.ReportTitleBox>
-        <p>주제</p>
+        <p>{field.join(', ')}</p>
       </S.ReportTitleBox>
       <S.Table>
         <tr>
           <td>{SUBMITTER}</td>
-          <td>()학년 ()반 ()번</td>
+          <td>()학년 ()반 ()번 {writer}</td>
         </tr>
         <tr>
           <td>{TEACHER}</td>
