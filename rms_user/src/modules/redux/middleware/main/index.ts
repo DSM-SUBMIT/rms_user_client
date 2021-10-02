@@ -13,7 +13,7 @@ const mainGetSaga = function* (): any {
   const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getMain, accessToken, state.page);
+    const response = yield call(getMain, accessToken, state.page, state.field);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
