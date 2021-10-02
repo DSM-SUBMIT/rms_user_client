@@ -12,6 +12,22 @@ export const Main = styled.div`
     justify-content: center;
     padding-top: 54px;
   }
+  .pagination {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+  }
+  .currentPage {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .pageLableBtn {
+    font-size: 14px;
+    font-weight: bold;
+  }
 `;
 
 export const ChooseField = styled.div`
