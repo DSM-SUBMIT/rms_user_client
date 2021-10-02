@@ -3,7 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { GET_MAIN_FEED } from '../../action/main/interface';
 
 const mainGetSaga = function* (): any {
-  const type = 'GET_MAIN_FEED';
+  const type = 'MAIN/GET_MAIN_FEED';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const accessToken = localStorage.getItem('access_token') || '';
