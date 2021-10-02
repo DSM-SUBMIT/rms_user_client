@@ -1,14 +1,19 @@
 import { getMain } from '../../../../util/api/main';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { GET_MAIN_FEED } from '../../action/main/interface';
+import { reducerType } from '../../reducer';
+import MainState from '../../reducer/main/interface';
+
+const getStateFunc = (state: reducerType): MainState => state.main;
 
 const mainGetSaga = function* (): any {
   const type = 'MAIN/GET_MAIN_FEED';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
+  const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getMain, accessToken);
+    const response = yield call(getMain, accessToken, state.page);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
