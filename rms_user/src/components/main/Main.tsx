@@ -4,26 +4,31 @@ import Header from '../header';
 import ChooseField from './ChooseField';
 import Project from './Project';
 import { CheckStateType, ProjectListType } from '../../constance/main';
-import { error } from '../../models/error';
+import ReactPaginate from 'react-paginate';
 
 interface Props {
   currentPage: number;
   projectList: Array<ProjectListType>;
   totalPages: number;
-  error: error | null;
   field: CheckStateType;
   setField: (payload: CheckStateType) => void;
   setPage: (payload: number) => void;
 }
 
 const Main: FC<Props> = props => {
+  const { currentPage, projectList, totalPages, field, setField, setPage } = props;
+
+  const pageBtnClickHandler = (selectedItem: { selected: number }) => {
+    setPage(selectedItem.selected + 1);
+  };
+
   return (
     <S.Main>
       <Header />
       <div>
-        <ChooseField />
+        <ChooseField field={field} setField={setField} />
         <div>
-          {props.projectList.map(data => {
+          {projectList.map(data => {
             return (
               <Project
                 projectName={data.projectName}
@@ -34,6 +39,19 @@ const Main: FC<Props> = props => {
               />
             );
           })}
+          <ReactPaginate
+            pageCount={totalPages}
+            pageRangeDisplayed={4}
+            marginPagesDisplayed={0}
+            breakLabel={''}
+            previousLabel={'<'}
+            nextLabel={'>'}
+            onPageChange={pageBtnClickHandler}
+            containerClassName={'pagination'}
+            activeClassName={'currentPage'}
+            previousClassName={'pageLabelBtn'}
+            nextClassName={'pageLabelBtn'}
+          />
         </div>
       </div>
     </S.Main>
