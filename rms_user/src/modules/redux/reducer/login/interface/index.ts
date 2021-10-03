@@ -2,8 +2,8 @@ import { error } from '../../../../../models/error';
 
 interface LoginState {
   code: string;
+  isSuccessGetToken: boolean | null;
   error: error | null;
-  isSuccessGetToken: boolean | undefined;
 }
 
 export default LoginState;

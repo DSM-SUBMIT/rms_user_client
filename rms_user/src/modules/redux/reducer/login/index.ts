@@ -4,8 +4,8 @@ import LoginState from './interface';
 
 const initState: LoginState = {
   code: '',
+  isSuccessGetToken: null,
   error: null,
-  isSuccessGetToken: undefined,
 };
 
 const loginReducer = (state: LoginState = initState, action: loginActionType): LoginState => {
@@ -18,9 +18,10 @@ const loginReducer = (state: LoginState = initState, action: loginActionType): L
     case TOKEN:
       return {
         ...state,
-        isSuccessGetToken: undefined,
+        isSuccessGetToken: null,
       };
     case TOKEN_SUCCESS:
+      console.log(state.isSuccessGetToken);
       return {
         ...state,
         isSuccessGetToken: true,
