@@ -8,3 +8,12 @@ export type ProjectListType = {
   projectType: string;
   teamName: string;
 };
+
+export type CheckStateType = {
+  web: boolean;
+  app: boolean;
+  game: boolean;
+  embedded: boolean;
+  security: boolean;
+  aiAndBigData: boolean;
+};
