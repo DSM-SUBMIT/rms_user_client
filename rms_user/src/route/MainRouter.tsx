@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Loading } from '../components/login';
 import {
   LoginContainer,
   DetailReportContainer,
@@ -8,6 +7,7 @@ import {
   WritePlanContainer,
   WriteReportContainer,
   MyPageContainer,
+  LoginLoadingContainer,
 } from '../containers';
 
 const MainRouter = () => {
@@ -15,7 +15,7 @@ const MainRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={LoginContainer} />
-        <Route exact path='/auth/token' component={Loading} />
+        <Route exact path='/auth/token' component={LoginLoadingContainer} />
         <Route exact path='/mypage' component={MyPageContainer} />
         <Route exact path='/write/plan' component={WritePlanContainer} />
         <Route exact path='/write/report' component={WriteReportContainer} />
