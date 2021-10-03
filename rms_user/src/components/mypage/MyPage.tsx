@@ -7,8 +7,8 @@ import { Plus } from '../../assets';
 import { error } from '../../models/error';
 
 interface Props {
-  email: string;
   name: string;
+  email: string;
   projectList: Array<ProjectListType>;
   error: error | null;
 }
@@ -20,8 +20,8 @@ const MyPage: FC<Props> = props => {
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
-            <S.NameBox>김해교</S.NameBox>
-            <S.EmailBox>201908khk@dsm.hs.kr</S.EmailBox>
+            <S.NameBox>{props.name}</S.NameBox>
+            <S.EmailBox>{props.email}</S.EmailBox>
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
