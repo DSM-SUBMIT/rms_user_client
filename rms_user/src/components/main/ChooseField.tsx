@@ -25,14 +25,15 @@ const ChooseField: FC<Props> = props => {
   return (
     <S.ChooseField>
       <S.ChooseFieldTitle>{CHOOSEFIELDTITLE}</S.ChooseFieldTitle>
-      {FIELDS.map((props: FieldMapPropsType) => {
-        return (
-          <S.CheckLine>
-            <S.CheckBox onClick={clickBtnHandler} data-id={props.id} isClick={field[props.id]} />
-            <p key={props.id}>{props.content}</p>
-          </S.CheckLine>
-        );
-      })}
+      {FIELDS &&
+        FIELDS.map((props: FieldMapPropsType) => {
+          return (
+            <S.CheckLine>
+              <S.CheckBox onClick={clickBtnHandler} data-id={props.id} isClick={field[props.id]} />
+              <p key={props.id}>{props.content}</p>
+            </S.CheckLine>
+          );
+        })}
     </S.ChooseField>
   );
 };
