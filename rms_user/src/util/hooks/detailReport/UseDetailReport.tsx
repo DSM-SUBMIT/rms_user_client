@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { setId } from '../../../modules/redux/action/detailReport';
-import useSelectState from '../default';
+import { useSelectState } from '../default';
 
 const UseDetailReoprt = () => {
   const dispatch = useDispatch();
