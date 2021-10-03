@@ -28,17 +28,18 @@ const Main: FC<Props> = props => {
       <div>
         <ChooseField field={field} setField={setField} />
         <div>
-          {projectList.map(data => {
-            return (
-              <Project
-                projectName={data.projectName}
-                projectType={data.projectType}
-                teamName={data.teamName}
-                fieldList={data.fieldList}
-                key={data.id}
-              />
-            );
-          })}
+          {projectList &&
+            projectList.map(data => {
+              return (
+                <Project
+                  projectName={data.projectName}
+                  projectType={data.projectType}
+                  teamName={data.teamName}
+                  fieldList={data.fieldList}
+                  key={data.id}
+                />
+              );
+            })}
           <ReactPaginate
             pageCount={totalPages}
             pageRangeDisplayed={4}
