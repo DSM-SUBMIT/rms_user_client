@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import { Close } from '../../../assets';
+import ChooseField from '../../main/ChooseField';
 
 const ProjectCreate = () => {
   return (
@@ -18,12 +19,7 @@ const ProjectCreate = () => {
             <S.FieldChoiceBox>
               <S.FieldChoice>
                 <option value=''>분야 선택</option>
-                <option value=''>웹</option>
-                <option value=''>앱</option>
-                <option value=''>게임</option>
-                <option value=''>임베디드</option>
-                <option value=''>보안</option>
-                <option value=''>인공지능/빅데이터</option>
+                <option value=''>{ChooseField}</option>
               </S.FieldChoice>
             </S.FieldChoiceBox>
             <S.SelectBox>

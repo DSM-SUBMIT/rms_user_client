@@ -11,7 +11,6 @@ import {
   LoginLoadingContainer,
 } from '../containers';
 
-
 const MainRouter = () => {
   return (
     <BrowserRouter>
