@@ -20,7 +20,7 @@ const ReportFirstPage: FC<Props> = props => {
       <S.ReportCover>{REPORT_COVER}</S.ReportCover>
       <S.ReportTitle>{TEAM_PROJECT_REPORT}</S.ReportTitle>
       <S.ReportTitleBox>
-        <p>{field.join(', ')}</p>
+        <p>{field && field.join(', ')}</p>
       </S.ReportTitleBox>
       <S.Table>
         <tr>
