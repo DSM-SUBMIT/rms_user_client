@@ -29,11 +29,11 @@ const WritePlan = () => {
                         </S.PlanContent>
                         <S.PlanContentResult>
                             <h4>결과물 (해당사항체크)</h4>
-                            {Checkbox.map((div, i) => {
+                            {Checkbox.map((v, i) => {
                                     return (
                                         <div key={i}>
-                                            <input type="checkbox" id={Checkbox[i].id}/>
-                                            <label htmlFor={Checkbox[i].id}>{Checkbox[i].span}</label>
+                                            <input type="checkbox" id={v.id}/>
+                                            <label htmlFor={v.id}>{v.span}</label>
                                         </div>
                                 )})}
                         </S.PlanContentResult>
