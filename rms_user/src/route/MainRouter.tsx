@@ -8,6 +8,7 @@ import {
   WriteReportContainer,
   MyPageContainer,
   LoginLoadingContainer,
+  DetailPlanContainer,
 } from '../containers';
 import ProjectViewContainer from '../containers/projectview/ProjectViewContainer';
 
