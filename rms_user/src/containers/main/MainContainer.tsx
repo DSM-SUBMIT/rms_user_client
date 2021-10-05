@@ -10,7 +10,7 @@ const MainContainer: FC = () => {
 
   useEffect(() => {
     dispatch({ type: GET_MAIN_FEED });
-  }, []);
+  }, [state.field, state.page]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

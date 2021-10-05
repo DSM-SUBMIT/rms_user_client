@@ -7,6 +7,7 @@ import {
   GET_MAIN_FEED_SUCCESS,
   FIELD,
   PAGE,
+  CURRENTPROJECTID,
 } from './interface';
 
 export const getMainFeed = createAction(GET_MAIN_FEED)();
@@ -14,10 +15,12 @@ export const getMainFeedSuccess = createAction(GET_MAIN_FEED_SUCCESS)<MainRespon
 export const getMainFeedFailure = createAction(GET_MAIN_FEED_FAILURE)<error>();
 export const setField = createAction(FIELD)<CheckStateType>();
 export const setPage = createAction(PAGE)<number>();
+export const setCurrentProjectId = createAction(CURRENTPROJECTID)<number>();
 
 export type mainActionType =
   | ReturnType<typeof getMainFeed>
   | ReturnType<typeof getMainFeedSuccess>
   | ReturnType<typeof getMainFeedFailure>
   | ReturnType<typeof setField>
-  | ReturnType<typeof setPage>;
+  | ReturnType<typeof setPage>
+  | ReturnType<typeof setCurrentProjectId>;

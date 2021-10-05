@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { CheckStateType } from '../../../constance/main';
-import { setField, setPage } from '../../../modules/redux/action/main';
+import { setCurrentProjectId, setField, setPage } from '../../../modules/redux/action/main';
 import { useSelectState } from '../default';
 
 const useMain = () => {
@@ -12,6 +12,9 @@ const useMain = () => {
     },
     setPage: (payload: number) => {
       dispatch(setPage(payload));
+    },
+    setCurrentProjectId: (payload: number) => {
+      dispatch(setCurrentProjectId(payload));
     },
   };
   return { state, setState };

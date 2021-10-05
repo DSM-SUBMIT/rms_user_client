@@ -4,3 +4,4 @@ export const GET_MAIN_FEED_FAILURE = 'MAIN/GET_MAIN_FEED_FAILURE' as const;
 
 export const FIELD = 'MAIN/FIELD' as const;
 export const PAGE = 'MAIN/PAGE' as const;
+export const CURRENTPROJECTID = 'MAIN/CURRENTPROJECTID' as const;

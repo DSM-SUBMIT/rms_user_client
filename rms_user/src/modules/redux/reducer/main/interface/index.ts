@@ -8,6 +8,7 @@ interface MainState {
   error: error | null;
   field: CheckStateType;
   page: number;
+  currentProjectId: number;
 }
 
 export default MainState;
