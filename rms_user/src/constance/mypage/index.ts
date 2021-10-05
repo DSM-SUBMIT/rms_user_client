@@ -17,3 +17,9 @@ export type CheckStateType = {
   security: boolean;
   aiAndBigData: boolean;
 };
+
+export type MypageResponseType = {
+  name: string;
+  email: string;
+  projectList: Array<ProjectListType>;
+};
