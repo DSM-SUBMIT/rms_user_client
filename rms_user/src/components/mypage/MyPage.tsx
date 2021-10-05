@@ -9,10 +9,14 @@ interface Props {
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
+  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList } = props;
+  const { name, email, projectList, setIsOpenModal } = props;
+  const projectCreateClick = (e: React.MouseEvent<HTMLElement>) => {
+    setIsOpenModal(true);
+  };
   return (
     <>
       <Header />
@@ -24,7 +28,7 @@ const MyPage: FC<Props> = props => {
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
-            <S.CreateBox>
+            <S.CreateBox onClick={projectCreateClick}>
               <img src={Plus} alt='Plus' />
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
