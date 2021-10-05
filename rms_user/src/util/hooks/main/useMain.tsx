@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { CheckStateType } from '../../../constance/main';
 import { setField, setPage } from '../../../modules/redux/action/main';
-import useSelectState from '../default';
+import { useSelectState } from '../default';
 
 const useMain = () => {
   const dispatch = useDispatch();
