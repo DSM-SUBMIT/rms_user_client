@@ -65,6 +65,7 @@ export const ProjectMember = styled.div`
 `;
 
 export const ThisProjectMemberList = styled.div`
+  width: 648px;
   display: flex;
   flex-direction: column;
 `;
@@ -107,9 +108,10 @@ export const ProjectApplicant = styled.div`
 `;
 
 export const ApplicantInfo = styled.div`
-  width: 163px;
+  width: 649px;
   height: 38px;
   font-size: 21px;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
