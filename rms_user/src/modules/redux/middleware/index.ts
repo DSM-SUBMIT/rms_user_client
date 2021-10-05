@@ -3,6 +3,5 @@ import mypage from './mypage';
 import loginSaga from './login';
 
 export default function* rootSaga() {
-  yield all([mypage()]);
-  yield all([loginSaga()]);
+  yield all([loginSaga(), mypage()]);
 }

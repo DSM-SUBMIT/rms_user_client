@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { CheckStateType } from '../../../constance/mypage';
 import { setField } from '../../../modules/redux/action/mypage';
-import useSelectorState from '../default';
+import { useSelectState } from '../default';
 
 const useMypage = () => {
   const dispatch = useDispatch();
