@@ -4,6 +4,7 @@ import {
   GET_MAIN_FEED_FAILURE,
   FIELD,
   PAGE,
+  CURRENTPROJECTID,
 } from '../../action/main/interface';
 import MainState from './interface';
 
@@ -21,6 +22,7 @@ const initState: MainState = {
     aiAndBigData: false,
   },
   page: 1,
+  currentProjectId: 1,
 };
 
 const mainReducer = (state: MainState = initState, action: mainActionType) => {
@@ -53,6 +55,11 @@ const mainReducer = (state: MainState = initState, action: mainActionType) => {
       return {
         ...state,
         page: action.payload,
+      };
+    case CURRENTPROJECTID:
+      return {
+        ...state,
+        currentProjectId: action.payload,
       };
     default:
       return state;
