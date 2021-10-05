@@ -17,10 +17,9 @@ export const DetailReport = styled.div`
 
 export const ReportPage = styled.div`
   width: 800px;
-  height: 1128px;
+  height: 1131px;
   background-color: white;
   border: 1px solid black;
-  margin-bottom: 20px;
 `;
 
 export const ReportCover = styled.p`
