@@ -1,4 +1,5 @@
 enum uri {
+  main = '/',
   token = '/auth/token',
   detailPlan = '/plan',
 }
