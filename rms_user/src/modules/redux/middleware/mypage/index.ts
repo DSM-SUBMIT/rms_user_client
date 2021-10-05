@@ -1,19 +1,25 @@
 import { getMypage } from '../../../../util/api/mypage';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { GET_MYPAGE_FEED } from '../../action/mypage/interface';
+import { reducerType } from '../../reducer';
+import MypageState from '../../reducer/mypage/interface';
+
+const getStateFunc = (state: reducerType): MypageState => state.mypage;
 
 const mypageGetSaga = function* (): any {
-  const type = 'GET_MYPAGE_FEED';
+  const type = 'MYPAGE/GET_MYPAGE_FEED';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
+  const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getMypage, accessToken);
+    const response = yield call(getMypage, accessToken, state.field);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
     });
   } catch (error: any) {
+    console.log(1234, error);
     if (error.response?.data) {
       yield put({
         type: FAILURE,
