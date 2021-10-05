@@ -1,2 +1,1 @@
-import useSelectState from './useSelectState';
-export default useSelectState;
+export { default as useSelectState } from './useSelectState';

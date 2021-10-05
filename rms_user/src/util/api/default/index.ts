@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getRequest = () => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'https://user-api.dsm-rms.com',
+    baseURL: '',
     withCredentials: true,
     headers: {
       withCredentials: true,
