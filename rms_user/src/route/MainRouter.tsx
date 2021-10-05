@@ -10,6 +10,7 @@ import {
   LoginLoadingContainer,
   DetailPlanContainer,
 } from '../containers';
+import ProjectViewContainer from '../containers/projectview/ProjectViewContainer';
 
 const MainRouter = () => {
   return (
@@ -22,7 +23,7 @@ const MainRouter = () => {
         <Route exact path='/write/report' component={WriteReportContainer} />
         <Route exact path='/detail-report/:id' component={DetailReportContainer} />
         <Route exact path='/feed' component={MainContainer} />
-        <Route exact path='/detail-plan/:id' component={DetailPlanContainer} />
+        <Route exact path='/projectview' component={ProjectViewContainer} />
       </Switch>
     </BrowserRouter>
   );
