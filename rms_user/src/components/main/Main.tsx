@@ -1,49 +1,82 @@
-import React from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ChooseField from './ChooseField';
 import Project from './Project';
+import { CheckStateType, ProjectListType } from '../../constance/main';
+import ReactPaginate from 'react-paginate';
+import ProjectView from '../modal/view';
 
-const Main = () => {
+interface Props {
+  currentPage: number;
+  projectList: Array<ProjectListType>;
+  totalPages: number;
+  field: CheckStateType;
+  setField: (payload: CheckStateType) => void;
+  setPage: (payload: number) => void;
+  setCurrentProjectId: (payload: number) => void;
+}
+
+const Main: FC<Props> = props => {
+  const {
+    currentPage,
+    projectList,
+    totalPages,
+    field,
+    setField,
+    setPage,
+    setCurrentProjectId,
+  } = props;
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+
+  const pageBtnClickHandler = (selectedItem: { selected: number }) => {
+    setPage(selectedItem.selected + 1);
+  };
+
+  const projectViewModal = useMemo(() => {
+    if (isOpenModal) return <ProjectView setIsOpenModal={setIsOpenModal} />;
+  }, [isOpenModal]);
+
   return (
-    <S.Main>
-      <Header />
-      <div>
-        <ChooseField />
+    <>
+      {projectViewModal}
+      <S.Main>
+        <Header />
         <div>
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
-          <Project
-            title='보고서 관리 시스템'
-            classification='팀프로젝트'
-            writer='서브밋'
-            field={['보안', '웹', '인공지능/빅데이터']}
-          />
+          <ChooseField field={field} setField={setField} />
+          <div>
+            {projectList &&
+              projectList.map(data => {
+                return (
+                  <Project
+                    id={data.id}
+                    projectName={data.projectName}
+                    projectType={data.projectType}
+                    teamName={data.teamName}
+                    fieldList={data.fieldList}
+                    key={data.id}
+                    setCurrentProjectId={setCurrentProjectId}
+                    setIsOpenModal={setIsOpenModal}
+                  />
+                );
+              })}
+            <ReactPaginate
+              pageCount={totalPages}
+              pageRangeDisplayed={4}
+              marginPagesDisplayed={0}
+              breakLabel={''}
+              previousLabel={'<'}
+              nextLabel={'>'}
+              onPageChange={pageBtnClickHandler}
+              containerClassName={'pagination'}
+              activeClassName={'currentPage'}
+              previousClassName={'pageLabelBtn'}
+              nextClassName={'pageLabelBtn'}
+            />
+          </div>
         </div>
-      </div>
-    </S.Main>
+      </S.Main>
+    </>
   );
 };
 
