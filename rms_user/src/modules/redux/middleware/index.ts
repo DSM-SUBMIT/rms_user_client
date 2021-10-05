@@ -4,6 +4,5 @@ import detailReportSaga from './detailReport';
 import loginSaga from './login';
 
 export default function* rootSaga() {
-  yield all([mainSaga(), detailReportSaga()]);
-  yield all([loginSaga()]);
+  yield all([mainSaga(), detailReportSaga(), loginSaga()]);
 }
