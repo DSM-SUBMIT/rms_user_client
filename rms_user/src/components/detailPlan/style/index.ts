@@ -108,7 +108,7 @@ export const ProjectApplicant = styled.div`
 `;
 
 export const ApplicantInfo = styled.div`
-  width: 649px;
+  width: 162px;
   height: 38px;
   font-size: 21px;
   text-align: center;
