@@ -1,5 +1,5 @@
-import { getToken } from '../../../../util/api/login';
-import { TOKEN } from '../../action/login/interface';
+import { getToken, refreshToken } from '../../../../util/api/login';
+import { REFRESH_TOKEN, TOKEN } from '../../action/login/interface';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { reducerType } from '../../reducer';
 
@@ -33,8 +33,37 @@ const getTokenSaga = function* (): any {
   }
 };
 
+export const refreshTokenSaga = function* (action: any) {
+  const type = 'LOGIN/REFRESH_TOKEN';
+  const SUCCESS = `${type}_SUCCESS`;
+  const FAILURE = `${type}_FAILURE`;
+  const callback = action.payload.callback;
+  try {
+    const response: { access_token: string } = yield call(refreshToken);
+    yield put({ type: SUCCESS });
+    localStorage.setItem('access_token', response.access_token);
+    yield call(callback);
+  } catch (error: any) {
+    if (error.response?.data) {
+      yield put({
+        type: FAILURE,
+        payload: { ...error.response.data, type: type },
+      });
+    } else {
+      yield put({
+        type: FAILURE,
+        payload: {
+          message: `Network Error`,
+          status: 500,
+        },
+      });
+    }
+  }
+};
+
 function* loginSaga() {
   yield takeLatest(TOKEN, getTokenSaga);
+  yield takeLatest(REFRESH_TOKEN, refreshTokenSaga);
 }
 
 export default loginSaga;
