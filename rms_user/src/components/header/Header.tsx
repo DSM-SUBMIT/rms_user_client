@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './style';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Profile } from '../../assets';
+import { UseLogin } from '../../util/hooks/login';
+import { REFRESH_TOKEN } from '../../modules/redux/action/login/interface';
 
 const Header = () => {
+  const loginState = UseLogin();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (loginState.state.error?.status === 401 && loginState.state.error.type === REFRESH_TOKEN) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      history.replace('/');
+    }
+  }, [loginState.state.error]);
+
+  // useEffect(() => {
+  //   const errorStatus =
+  // }, [])
+
+  /*
+  useEffect(() => {
+    const errorStatus = userState.state.error.status;
+    if (errorStatus === 401 || errorStatus === 403) {
+      refreshToken();
+    }
+  }, [userState.state.error]);
+  */
+
   return (
     <S.HeaderBox>
       <S.HeaderContent>
