@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { color } from "../../../style";
+import styled from 'styled-components';
+import { color } from '../../../style';
 
 export const ViewPlanWrapper = styled.div`
   width: 100%;
@@ -65,7 +65,7 @@ export const ProjectMember = styled.div`
 `;
 
 export const ThisProjectMemberList = styled.div`
-  width: 648px;
+  width: 649px;
   display: flex;
   flex-direction: column;
 `;

@@ -56,7 +56,19 @@ const PlanTable: FC<DetailPlanState> = props => {
           </S.ProjectContentWrapper>
           <S.ProjectContentWrapper>
             <S.ProjectInfoFont>프로젝트 내용</S.ProjectInfoFont>
-            <S.ProjectContents>{content}</S.ProjectContents>
+            <S.ProjectContents>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet sodales
+              volutpat. Curabitur ornare ut purus id eleifend. Vivamus porttitor ornare dapibus.
+              Cras varius urna ut urna sodales laoreet. Sed tincidunt iaculis elit. Nunc lacinia
+              tellus mi, vitae viverra justo auctor at. Praesent sit amet enim id nisi tincidunt
+              posuere. Morbi quis enim odio. Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Aliquam in nunc vitae tellus congue tempus id non lectus. Sed nec tortor cursus,
+              tristique elit sed, lobortis lacus. Sed vitae lobortis neque. Donec ante odio, egestas
+              non lobortis a, sodales in nisi. Sed eros quam, efficitur quis varius ut, scelerisque
+              in sapien. Vivamus blandit accumsan neque vitae varius. Morbi vulputate diam felis,
+              nec bibendum ex venenatis a. Proin non rhoncus purus. Nulla et arcu mattis, egestas
+              justo sed, vehicu
+            </S.ProjectContents>
           </S.ProjectContentWrapper>
           <S.ProjectResultWrapper>
             <S.ProjectResult>
