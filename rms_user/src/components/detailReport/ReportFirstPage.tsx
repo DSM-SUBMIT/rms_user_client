@@ -9,18 +9,18 @@ import {
 } from '../../constance/detailReport';
 
 interface Props {
-  field: Array<string>;
+  projectName: string;
   writer: string;
 }
 
 const ReportFirstPage: FC<Props> = props => {
-  const { field, writer } = props;
+  const { projectName, writer } = props;
   return (
     <S.ReportPage>
       <S.ReportCover>{REPORT_COVER}</S.ReportCover>
       <S.ReportTitle>{TEAM_PROJECT_REPORT}</S.ReportTitle>
       <S.ReportTitleBox>
-        <p>{field && field.join(', ')}</p>
+        <p>{projectName}</p>
       </S.ReportTitleBox>
       <S.Table>
         <tr>

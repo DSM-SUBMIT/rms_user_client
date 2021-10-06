@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ReportFirstPage from './ReportFirstPage';
@@ -10,13 +10,13 @@ import jsPDF from 'jspdf';
 
 interface Props {
   content: string;
-  field: Array<string>;
+  projectName: string;
   writer: string;
   setId: (payload: string) => void;
 }
 
 const DetailReport: FC<Props> = props => {
-  const { content, field, writer, setId } = props;
+  const { content, projectName, writer, setId } = props;
   const path = useLocation().pathname.slice(15);
 
   const downloadBtnClickHandler = () => {
@@ -45,6 +45,12 @@ const DetailReport: FC<Props> = props => {
     (document.getElementById('pdf') as HTMLElement).style.paddingTop = '54px';
   };
 
+  const makeContentArray = useMemo(() => {
+    let contentArray: Array<string> = [];
+    contentArray = content.split('!@#$%');
+    return contentArray;
+  }, [content]);
+
   useEffect(() => {
     setId(path);
   }, [path]);
@@ -53,9 +59,10 @@ const DetailReport: FC<Props> = props => {
     <S.DetailReport>
       <Header />
       <div id='pdf'>
-        <ReportFirstPage field={field} writer={writer} />
-        <WritedReport isSecondPage content={content} />
-        <WritedReport content={content} />
+        <ReportFirstPage projectName={projectName} writer={writer} />
+        {makeContentArray.map((data: string, id: number) => {
+          return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
+        })}
       </div>
       <S.DownloadBtn onClick={downloadBtnClickHandler}>
         <p>{DOWNLOAD}</p>

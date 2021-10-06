@@ -22,7 +22,9 @@ const WritedReport: FC<Props> = props => {
   return (
     <S.ReportPage>
       {subTitle}
-      <S.ReportContentBox isSecondPage={isSecondPage}></S.ReportContentBox>
+      <S.ReportContentBox isSecondPage={isSecondPage}>
+        <p>{content}</p>
+      </S.ReportContentBox>
     </S.ReportPage>
   );
 };
