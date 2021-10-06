@@ -11,3 +11,22 @@ export const getToken = async (tokenRequest: string) => {
     throw error;
   }
 };
+
+export const refreshToken = async () => {
+  try {
+    const request = getRequest();
+    const { data } = await request.put<{ access_token: string }>(
+      uri.token,
+      {},
+      {
+        headers: {
+          'X-Refresh-Token': localStorage.getItem('refresh_token'),
+        },
+      },
+    );
+    localStorage.setItem('access_token', data.access_token);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
