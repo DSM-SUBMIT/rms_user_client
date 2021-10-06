@@ -10,6 +10,7 @@ const initState: DetailReportState = {
   videoUrl: '',
   writer: '',
   id: '',
+  isTeam: false,
   error: null,
 };
 
@@ -21,6 +22,7 @@ const detailReportReducer = (
     case GET_REPORT_SUCCESS:
       return {
         ...state,
+        isTeam: action.payload.isTeam,
         content: action.payload.content,
         field: action.payload.field,
         projectName: action.payload.projectName,

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import * as S from './style';
 import {
   REPORT_COVER,
-  TEAM_PROJECT_REPORT,
+  PROJECT_REPORT,
   SUBMITTER,
   TEACHER,
   SCHOOL,
@@ -11,14 +11,20 @@ import {
 interface Props {
   projectName: string;
   writer: string;
+  isTeam: boolean;
 }
 
 const ReportFirstPage: FC<Props> = props => {
-  const { projectName, writer } = props;
+  const { projectName, writer, isTeam } = props;
+  const reportTitle = useMemo(() => {
+    if (isTeam) return <p>팀 {PROJECT_REPORT}</p>;
+    else return <p>개인 {PROJECT_REPORT}</p>;
+  }, [isTeam]);
+
   return (
     <S.ReportPage>
       <S.ReportCover>{REPORT_COVER}</S.ReportCover>
-      <S.ReportTitle>{TEAM_PROJECT_REPORT}</S.ReportTitle>
+      <S.ReportTitle>{reportTitle}</S.ReportTitle>
       <S.ReportTitleBox>
         <p>{projectName}</p>
       </S.ReportTitleBox>

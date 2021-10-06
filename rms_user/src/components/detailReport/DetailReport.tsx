@@ -10,13 +10,14 @@ import jsPDF from 'jspdf';
 
 interface Props {
   content: string;
+  isTeam: boolean;
   projectName: string;
   writer: string;
   setId: (payload: string) => void;
 }
 
 const DetailReport: FC<Props> = props => {
-  const { content, projectName, writer, setId } = props;
+  const { content, projectName, writer, setId, isTeam } = props;
   const path = useLocation().pathname.slice(15);
 
   const downloadBtnClickHandler = () => {
@@ -59,7 +60,7 @@ const DetailReport: FC<Props> = props => {
     <S.DetailReport>
       <Header />
       <div id='pdf'>
-        <ReportFirstPage projectName={projectName} writer={writer} />
+        <ReportFirstPage projectName={projectName} writer={writer} isTeam={isTeam} />
         {makeContentArray.map((data: string, id: number) => {
           return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
         })}

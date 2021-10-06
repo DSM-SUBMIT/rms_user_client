@@ -8,6 +8,7 @@ interface DetailReportState {
   videoUrl: string;
   writer: string;
   id: string;
+  isTeam: boolean;
   error: error | null;
 }
 
