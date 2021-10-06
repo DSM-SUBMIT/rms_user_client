@@ -1,2 +1,2 @@
-import UseDetailPlan from "./useDetailPlan";
+import UseDetailPlan from "./UseDetailPlan";
 export default UseDetailPlan;
