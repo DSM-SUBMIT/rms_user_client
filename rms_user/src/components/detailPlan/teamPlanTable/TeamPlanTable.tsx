@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
 import { MemberType } from '../../../constance/detailPlan';
-import ProjectMember from '../projectMember/ProjectMember';
 import DetailPlanState from '../../../modules/redux/reducer/detailPlan/interface';
+import ProjectMember from '../projectMember/ProjectMember';
 import * as S from '../style';
 
-const PlanTable: FC<DetailPlanState> = props => {
+const TeamPlanTable: FC<DetailPlanState> = props => {
   const {
+    members,
     content,
     goal,
     includeCode,
     includeOthers,
     includeResultReport,
     includeOutcome,
-    members,
     plannedEndData,
     plannedStartData,
     projectName,
@@ -22,7 +22,7 @@ const PlanTable: FC<DetailPlanState> = props => {
   return (
     <>
       <S.ViewPlanTable id='planTable'>
-        <S.PlanTitle>{projectName}</S.PlanTitle>
+        <S.PlanTitle>팀프로젝트 계획서</S.PlanTitle>
         <S.PlanContents>
           <S.ProjectContentWrapper>
             <S.ProjectInfoFont>프로젝트명</S.ProjectInfoFont>
@@ -48,6 +48,9 @@ const PlanTable: FC<DetailPlanState> = props => {
           </S.ProjectContentWrapper>
           <S.ProjectContentWrapper>
             <S.ProjectInfoFont>신청자</S.ProjectInfoFont>
+            <S.ApplicantInfo>학번</S.ApplicantInfo>
+            <S.ApplicantInfo>X학년 X반 X번</S.ApplicantInfo>
+            <S.ApplicantInfo>이름</S.ApplicantInfo>
             <S.ApplicantInfo>{writer}</S.ApplicantInfo>
           </S.ProjectContentWrapper>
           <S.ProjectContentWrapper>
@@ -106,9 +109,9 @@ const PlanTable: FC<DetailPlanState> = props => {
           <S.TeacherConfirmationWrapper>
             <S.TeacherConfirmation>담당교사 확인</S.TeacherConfirmation>
             <S.ThisTeacherConfirmation>
-              <span>2021년 9월 26일</span>
-              <span>직위: 선생님</span>
-              <span>이름: 김지민(인)</span>
+              <span>XXXX년 X월 XX일</span>
+              <span>직위: XXX</span>
+              <span>이름: XXX(인)</span>
             </S.ThisTeacherConfirmation>
           </S.TeacherConfirmationWrapper>
         </S.PlanContents>
@@ -117,4 +120,4 @@ const PlanTable: FC<DetailPlanState> = props => {
   );
 };
 
-export default PlanTable;
+export default TeamPlanTable;

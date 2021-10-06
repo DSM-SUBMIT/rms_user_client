@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import DetailPlanState from '../../modules/redux/reducer/detailPlan/interface';
 import * as S from './style';
-import PlanTable from './planTable/PlanTable';
+import SoloPlanTable from './soloPlanTable/SoloPlanTable';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import TeamPlanTable from './teamPlanTable/TeamPlanTable';
 
 const DetailPlan: FC<DetailPlanState> = props => {
   const onClickPdfDownload = () => {
@@ -35,7 +36,7 @@ const DetailPlan: FC<DetailPlanState> = props => {
   return (
     <>
       <S.ViewPlanWrapper>
-        <PlanTable {...props} />
+        {true ? <SoloPlanTable {...props} /> : <TeamPlanTable {...props} />}
         <S.ButtonsWrapper>
           <S.Button onClick={onClickPdfDownload}>다운로드</S.Button>
         </S.ButtonsWrapper>
