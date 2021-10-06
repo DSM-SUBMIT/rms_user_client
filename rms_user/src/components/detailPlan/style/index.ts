@@ -71,7 +71,7 @@ export const ThisProjectMemberList = styled.div`
 `;
 
 export const ThisProjectMemberWrapper = styled.div`
-  width: 649px;
+  width: 648px;
   height: 35px;
   display: flex;
   flex-direction: row;
