@@ -24,6 +24,7 @@ const MainRouter = () => {
         <Route exact path='/detail-report/:id' component={DetailReportContainer} />
         <Route exact path='/feed' component={MainContainer} />
         <Route exact path='/projectview' component={ProjectViewContainer} />
+        <Route exact path='/detail-plan/:id' component={DetailPlanContainer} />
       </Switch>
     </BrowserRouter>
   );
