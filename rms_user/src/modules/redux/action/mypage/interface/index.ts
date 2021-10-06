@@ -1,4 +1,3 @@
 export const GET_MYPAGE_FEED = 'MYPAGE/GET_MYPAGE_FEED' as const;
 export const GET_MYPAGE_FEED_SUCCESS = 'MYPAGE/GET_MYPAGE_FEED_SUCCESS' as const;
 export const GET_MYPAGE_FEED_FAILURE = 'MYPAGE/GET_MYPAGE_FEED_FAILURE' as const;
-export const FIELD = 'MYPAGE/FIELD' as const;

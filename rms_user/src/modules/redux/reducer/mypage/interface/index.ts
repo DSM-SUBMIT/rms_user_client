@@ -1,4 +1,4 @@
-import { CheckStateType, ProjectListType } from '../../../../../constance/mypage';
+import { ProjectListType } from '../../../../../constance/mypage';
 import { error } from '../../../../../models/error';
 
 interface MypageState {
@@ -6,7 +6,6 @@ interface MypageState {
   name: string;
   projectList: Array<ProjectListType>;
   error: error | null;
-  field: CheckStateType;
 }
 
 export default MypageState;

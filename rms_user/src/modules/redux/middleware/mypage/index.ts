@@ -10,10 +10,9 @@ const mypageGetSaga = function* (): any {
   const type = 'MYPAGE/GET_MYPAGE_FEED';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
-  const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getMypage, accessToken, state.field);
+    const response = yield call(getMypage, accessToken);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,

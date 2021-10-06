@@ -9,15 +9,6 @@ export type ProjectListType = {
   teamName: string;
 };
 
-export type CheckStateType = {
-  web: boolean;
-  app: boolean;
-  game: boolean;
-  embedded: boolean;
-  security: boolean;
-  aiAndBigData: boolean;
-};
-
 export type MypageResponseType = {
   name: string;
   email: string;
