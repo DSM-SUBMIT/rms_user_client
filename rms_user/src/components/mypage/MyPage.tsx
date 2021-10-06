@@ -9,14 +9,17 @@ interface Props {
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
-  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  /*setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>; */
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList, setIsOpenModal } = props;
-  const projectCreateClick = (e: React.MouseEvent<HTMLElement>) => {
+  const { name, email, projectList /*setIsOpenModal*/ } = props;
+  /*const projectCreateClick = (e: React.MouseEvent<HTMLElement>) => {
     setIsOpenModal(true);
-  };
+  };*/
+  /*const projectViewClick = (e: React.MouseEvent<HTMLElement>) => {
+    setIsOpenModal(true);
+  };*/
   return (
     <>
       <Header />
@@ -28,7 +31,7 @@ const MyPage: FC<Props> = props => {
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
-            <S.CreateBox onClick={projectCreateClick}>
+            <S.CreateBox /*onClick={projectCreateClick}*/>
               <img src={Plus} alt='Plus' />
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
@@ -36,6 +39,7 @@ const MyPage: FC<Props> = props => {
               {projectList.map(data => {
                 return (
                   <ProjectContent
+                    /*onClick={projectViewClick}*/
                     projectName={data.projectName}
                     projectType={data.projectType}
                     teamName={data.teamName}
