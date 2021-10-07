@@ -21,7 +21,7 @@ const TeamPlanTable: FC<DetailPlanState> = props => {
 
   return (
     <>
-      <S.ViewPlanTable>
+      <S.ViewPlanTable id='planTable'>
         <S.PlanTitle>팀프로젝트 계획서</S.PlanTitle>
         <S.PlanContents>
           <S.ProjectContentWrapper>
