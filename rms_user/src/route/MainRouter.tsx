@@ -8,7 +8,10 @@ import {
   WriteReportContainer,
   MyPageContainer,
   LoginLoadingContainer,
+  DetailPlanContainer,
+  InfoContainer,
 } from '../containers';
+import ProjectViewContainer from '../containers/projectview/ProjectViewContainer';
 
 const MainRouter = () => {
   return (
@@ -21,7 +24,9 @@ const MainRouter = () => {
         <Route exact path='/write/report' component={WriteReportContainer} />
         <Route exact path='/detail-report/:id' component={DetailReportContainer} />
         <Route exact path='/feed' component={MainContainer} />
-       </Switch>
+        <Route exact path='/projectview' component={ProjectViewContainer} />
+        <Route exact path='/info' component={InfoContainer} />
+      </Switch>
     </BrowserRouter>
   );
 };
