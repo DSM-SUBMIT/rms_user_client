@@ -35,11 +35,15 @@ export const Explain = styled.p`
 `;
 
 export const Input = styled.input`
-  width: 50px;
-  height: 30px;
+  width: 110px;
+  height: 35px;
   border: 1px solid ${color.main};
   border-radius: 5px;
   text-align: center;
+  font-size: 16px;
+  ::placeholder {
+    font-size: 16px;
+  }
 `;
 
 export const InputLine = styled.div`
@@ -47,16 +51,8 @@ export const InputLine = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  gap: 20px;
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    > p {
-      font-size: 16px;
-    }
-  }
+  gap: 5px;
+  flex-direction: column;
 `;
 
 export const InfoBtn = styled.div`
@@ -72,4 +68,9 @@ export const InfoBtn = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   border-radius: 5px;
+`;
+
+export const ErrorComment = styled.p`
+  font-size: 10px;
+  color: red;
 `;
