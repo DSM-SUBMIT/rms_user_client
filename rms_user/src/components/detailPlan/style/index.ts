@@ -8,6 +8,13 @@ export const ViewPlanWrapper = styled.div`
   flex-direction: column;
 `;
 
+export const PlanTableWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const ViewPlanTable = styled.div`
   width: 800px;
   border: 1px solid;

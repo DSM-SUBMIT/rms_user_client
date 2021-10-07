@@ -11,8 +11,9 @@ const DetailPlan: FC<DetailPlanState> = props => {
     const plan = document.getElementById('planTable')!;
 
     html2canvas(plan).then(canvas => {
-      let imgWidth = 200;
-      let pageHeight = 295;
+      let pageWidth = 210;
+      let pageHeight = 297;
+      let imgWidth = pageWidth * 0.9;
       let imgHeight = (canvas.height * imgWidth) / canvas.width;
       let heightLeft = imgHeight;
 
@@ -20,13 +21,13 @@ const DetailPlan: FC<DetailPlanState> = props => {
       const pdf = new jsPDF('p', 'mm');
       let position = 0;
 
-      pdf.addImage(planImg, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.addImage(planImg, 'PNG', 10, position + 10, imgWidth, imgHeight);
       heightLeft -= pageHeight;
 
       while (heightLeft >= 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(planImg, 'PNG', 0, position, imgWidth, imgHeight);
+        pdf.addImage(planImg, 'PNG', 10, position + 18, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
       pdf.save(`${props.projectName}.pdf`);
@@ -36,7 +37,9 @@ const DetailPlan: FC<DetailPlanState> = props => {
   return (
     <>
       <S.ViewPlanWrapper>
-        {true ? <SoloPlanTable {...props} /> : <TeamPlanTable {...props} />}
+        <S.PlanTableWrapper>
+          {props.isTeam ? <TeamPlanTable {...props} /> : <SoloPlanTable {...props} />}
+        </S.PlanTableWrapper>
         <S.ButtonsWrapper>
           <S.Button onClick={onClickPdfDownload}>다운로드</S.Button>
         </S.ButtonsWrapper>
