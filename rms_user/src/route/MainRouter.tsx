@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import {
   LoginContainer,
   DetailReportContainer,
@@ -22,7 +21,7 @@ const MainRouter = () => {
         <Route exact path='/write/report' component={WriteReportContainer} />
         <Route exact path='/detail-report/:id' component={DetailReportContainer} />
         <Route exact path='/feed' component={MainContainer} />
-      </Switch>
+       </Switch>
     </BrowserRouter>
   );
 };
