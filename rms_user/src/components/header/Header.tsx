@@ -1,13 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import * as S from './style';
 import { Link, useHistory } from 'react-router-dom';
 import { Profile } from '../../assets';
 import { UseLogin } from '../../util/hooks/login';
 import { REFRESH_TOKEN } from '../../modules/redux/action/login/interface';
+import { useDispatch } from 'react-redux';
+import { GET_NAME } from '../../modules/redux/action/header/interface';
+import { useHeader } from '../../util/hooks/header';
 
 const Header = () => {
   const loginState = UseLogin();
+  const headerState = useHeader();
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: GET_NAME });
+  }, []);
+
+  const refreshToken = () => {
+    loginState.setState.refreshToken(headerState.setState.getName);
+  };
 
   useEffect(() => {
     if (loginState.state.error?.status === 401 && loginState.state.error.type === REFRESH_TOKEN) {
@@ -17,18 +30,17 @@ const Header = () => {
     }
   }, [loginState.state.error]);
 
-  // useEffect(() => {
-  //   const errorStatus =
-  // }, [])
-
-  /*
   useEffect(() => {
-    const errorStatus = userState.state.error.status;
+    const errorStatus = headerState.state.error?.status;
     if (errorStatus === 401 || errorStatus === 403) {
       refreshToken();
     }
-  }, [userState.state.error]);
-  */
+  }, [headerState.state.error]);
+
+  const userName = useMemo(() => {
+    const { state } = headerState;
+    return <S.UserName>{state.name}</S.UserName>;
+  }, [headerState.state.name]);
 
   return (
     <S.HeaderBox>
@@ -39,7 +51,7 @@ const Header = () => {
         <S.UserBox>
           <Link to={'/mypage'}>
             <img src={Profile} alt='Profile' />
-            <S.UserName>기매교</S.UserName>
+            {userName}
           </Link>
         </S.UserBox>
       </S.HeaderContent>
