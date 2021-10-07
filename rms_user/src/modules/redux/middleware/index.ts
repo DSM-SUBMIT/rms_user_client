@@ -6,6 +6,5 @@ import headerSaga from './header';
 import infoSaga from './info';
 
 export default function* rootSaga() {
-  yield all([mainSaga(), detailReportSaga(), loginSaga()]);
-  yield all([mainSaga(), loginSaga(), headerSaga(), infoSaga()]);
+  yield all([mainSaga(), detailReportSaga(), loginSaga(), headerSaga(), infoSaga()]);
 }
