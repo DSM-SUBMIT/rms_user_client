@@ -15,7 +15,7 @@ export const getToken = async (tokenRequest: string) => {
 export const refreshToken = async () => {
   try {
     const request = getRequest();
-    const { data } = await request.put<{ access_token: string }>(
+    const { data } = await request.put<{ accessToken: string }>(
       uri.token,
       {},
       {
@@ -24,7 +24,7 @@ export const refreshToken = async () => {
         },
       },
     );
-    localStorage.setItem('access_token', data.access_token);
+    localStorage.setItem('access_token', data.accessToken);
     return data;
   } catch (error) {
     throw error;

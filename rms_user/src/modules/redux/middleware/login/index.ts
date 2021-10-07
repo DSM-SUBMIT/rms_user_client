@@ -39,9 +39,9 @@ export const refreshTokenSaga = function* (action: any) {
   const FAILURE = `${type}_FAILURE`;
   const callback = action.payload.callback;
   try {
-    const response: { access_token: string } = yield call(refreshToken);
+    const response: { accessToken: string } = yield call(refreshToken);
     yield put({ type: SUCCESS });
-    localStorage.setItem('access_token', response.access_token);
+    localStorage.setItem('access_token', response.accessToken);
     yield call(callback);
   } catch (error: any) {
     if (error.response?.data) {
