@@ -17,10 +17,9 @@ export const DetailReport = styled.div`
 
 export const ReportPage = styled.div`
   width: 800px;
-  height: 1128px;
+  height: 1131px;
   background-color: white;
   border: 1px solid black;
-  margin-bottom: 20px;
 `;
 
 export const ReportCover = styled.p`
@@ -86,11 +85,15 @@ export const SchoolName = styled.p`
 
 export const ReportContentBox = styled.div<{ isSecondPage?: boolean }>`
   width: 676px;
+  padding: 10px;
   ${({ isSecondPage }) => css`
     height: ${isSecondPage ? '959px' : '974px'};
     margin: ${isSecondPage ? '10px auto' : '77px auto'};
   `}
   border: 1px solid black;
+  > p {
+    font-size: 18px;
+  }
 `;
 
 export const ReportContentTitle = styled.p`
