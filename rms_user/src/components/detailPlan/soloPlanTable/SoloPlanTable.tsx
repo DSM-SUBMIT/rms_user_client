@@ -18,7 +18,7 @@ const SoloPlanTable: FC<DetailPlanState> = props => {
 
   return (
     <>
-      <S.ViewPlanTable id='planTable'>
+      <S.ViewPlanTable>
         <S.PlanTitle>개인프로젝트 계획서</S.PlanTitle>
         <S.PlanContents>
           <S.ProjectContentWrapper>
