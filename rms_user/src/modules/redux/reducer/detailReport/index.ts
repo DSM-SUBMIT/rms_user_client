@@ -10,6 +10,7 @@ const initState: DetailReportState = {
   videoUrl: '',
   writer: '',
   id: '',
+  writerStudentNumber: 1101,
   isTeam: false,
   error: null,
 };
@@ -27,8 +28,8 @@ const detailReportReducer = (
         field: action.payload.field,
         projectName: action.payload.projectName,
         projectType: action.payload.projectType,
-        videoUrl: action.payload.videoUrl,
         writer: action.payload.writer,
+        writerStudentNumber: action.payload.writerStudentNumber
       };
     case GET_REPORT_FAILURE:
       return {

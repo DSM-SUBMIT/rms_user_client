@@ -7,6 +7,7 @@ interface DetailReportState {
   projectType: string;
   videoUrl: string;
   writer: string;
+  writerStudentNumber: number | null;
   id: string;
   isTeam: boolean;
   error: error | null;

@@ -11,7 +11,7 @@ export type DetailReportResponseType = {
   field: Array<string>;
   projectName: string;
   projectType: string;
-  videoUrl: string;
+  writerStudentNumber: number | null;
   isTeam: boolean;
   writer: string;
 };
