@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import * as S from './style';
 import { Close } from '../../../assets';
 import ChooseField from '../../main/ChooseField';
+import ProjectTeam from '../team';
 
 const ProjectCreate = () => {
   return (
@@ -24,7 +25,9 @@ const ProjectCreate = () => {
             </S.FieldChoiceBox>
             <S.SelectBox>
               <S.ClassificationSelect>
-                <option value=''>분류 선택</option>
+                <option value='' disabled selected>
+                  분류 선택
+                </option>
                 <option value=''>프로젝트 실무 1</option>
                 <option value=''>프로젝트 실무 2</option>
                 <option value=''>소프트웨어 공학</option>
@@ -33,7 +36,9 @@ const ProjectCreate = () => {
                 <option value=''>동아리 프로젝트</option>
               </S.ClassificationSelect>
               <S.TeacherSelect>
-                <option value=''>담당 선생님 선택</option>
+                <option value='' disabled selected>
+                  담당 선생님 선택
+                </option>
                 <option value=''>1학년 담당 선생님</option>
                 <option value=''>2학년 담당 선생님</option>
                 <option value=''>3학년 담당 선생님</option>

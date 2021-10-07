@@ -51,8 +51,6 @@ export const TopBox = styled.div`
 export const ProjectNameBox = styled.input`
   width: 258px;
   height: 40px;
-  left: 442px;
-  top: 132px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
@@ -146,7 +144,7 @@ export const TechStackBox = styled.div`
 `;
 
 export const TechStackInput = styled.input`
-  width: 147px;
+  width: 200px;
   height: 26px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
@@ -154,9 +152,9 @@ export const TechStackInput = styled.input`
   border-radius: 5px;
   font-family: Noto Sans KR;
   font-size: 10px;
-  text-align: center;
   color: #aaaaaa;
   margin: 15px;
+  padding: 10px 15px;
 `;
 
 export const TeamBox = styled.div`
@@ -172,7 +170,7 @@ export const TeamBox = styled.div`
 `;
 
 export const TeamInput = styled.input`
-  width: 130px;
+  width: 200px;
   height: 26px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
@@ -182,6 +180,7 @@ export const TeamInput = styled.input`
   font-size: 10px;
   color: #aaaaaa;
   margin: 15px;
+  padding: 10px 15px;
 `;
 
 export const Teammemberbtn = styled.button`
