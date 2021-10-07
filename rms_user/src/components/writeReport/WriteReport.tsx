@@ -2,11 +2,11 @@ import React from 'react';
 import * as S from './style';
 import { Editor } from '@toast-ui/react-editor';
 import Header from '../header';
-import { ReportContent } from '../../constance/writeReport'
+import { ReportForm } from '../../constance/writeReport'
 
 import '@toast-ui/editor/dist/toastui-editor.css';
 
-const WriteReport = () => {    
+const WriteReport = () => {
     return (
         <>
             <Header/>
@@ -19,11 +19,11 @@ const WriteReport = () => {
                             <h5>프로젝트 주제를 작성해주세요</h5>
                             <textarea placeholder="프로젝트의 주제를 작성해주세요"></textarea>
                         </S.ReportContent>
-                        {ReportContent.map((v, i) => {
+                        {ReportForm.map((v, i) => {
                                 return(
                                     <S.ReportContent key={i}>
-                                        <h3>{v.title}</h3>
-                                        <span>{v.more}</span>
+                                        <h3>{v[i]}</h3>
+                                        <span>{v[i]}</span>
                                         <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
                                     </S.ReportContent>
                             )})}
