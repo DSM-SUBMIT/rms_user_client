@@ -9,6 +9,7 @@ const LoginLoadingContainer: FC = () => {
   const history = useHistory();
   const url = window.location.search.slice(6);
   const { state, setState } = UseLogin();
+  const saveNumber = localStorage.getItem('save_number');
 
   useEffect(() => {
     setState.setCode(url);
@@ -17,8 +18,10 @@ const LoginLoadingContainer: FC = () => {
 
   useEffect(() => {
     if (state.isSuccessGetToken !== null) {
-      if (state.isSuccessGetToken) history.push('/feed');
-      else {
+      if (state.isSuccessGetToken) {
+        if (saveNumber === 'true') history.push('/feed');
+        else history.push('/info');
+      } else {
         history.push('/');
         alert('메일 형식을 확인해주세요. @dsm.hs.kr 형태의 메일만 로그인 가능합니다.');
       }
