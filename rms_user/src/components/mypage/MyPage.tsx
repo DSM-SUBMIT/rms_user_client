@@ -4,6 +4,7 @@ import Header from '../header';
 import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT } from '../../constance/mypage';
 import { Plus } from '../../assets';
+import ProjectCreate from '../modal/create';
 
 const MyPage = () => {
   return (
