@@ -1,7 +1,7 @@
 enum uri {
   main = '/',
   token = '/auth/token',
-  header = '/name',
+  writePlan = '/plan/'
 }
 
 export default uri;

@@ -16,3 +16,18 @@ export const Checkbox = [
         span : "기타"
     }
 ]
+
+export interface contentTypeRequest {
+    content : string;
+    goal: string;
+    includeCode: false;
+    includeOthers: string;
+    includeOutcome: false,
+    includeResultReport: false,
+    plannedEndDate : string;
+    plannedStartDate: string;
+}
+
+export interface planStorage {
+    id : number;
+}
