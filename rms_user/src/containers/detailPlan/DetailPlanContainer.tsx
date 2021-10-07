@@ -2,6 +2,7 @@ import React, { FC, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import DetailPlan from '../../components/detailPlan/DetailPlan';
+import Header from '../../components/header';
 import { GET_DETAIL_PLAN } from '../../modules/redux/action/detailPlan/interface';
 import UseDetailPlan from '../../util/hooks/detailPlan';
 
@@ -38,6 +39,7 @@ const DetailPlanContainer: FC = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <Header />
       <DetailPlan {...state} />
     </Suspense>
   );
