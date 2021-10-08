@@ -1,12 +1,15 @@
 import React, { FC } from "react";
+import { MemberType } from "../../../constance/detailPlan";
 import * as S from "../style";
 
-const ProjectMember: FC = () => {
+const ProjectMember: FC<MemberType>= props => {
+  const { name, role } = props;
+
   return (
     <>
       <S.ThisProjectMemberWrapper>
-        <S.ThisProjectMemberName>김지민</S.ThisProjectMemberName>
-        <S.ThisprojectMemberRole>프론트앤드, 비쥬얼</S.ThisprojectMemberRole>
+        <S.ThisProjectMemberName>{name}</S.ThisProjectMemberName>
+        <S.ThisprojectMemberRole>{role}</S.ThisprojectMemberRole>
       </S.ThisProjectMemberWrapper>
     </>
   );
