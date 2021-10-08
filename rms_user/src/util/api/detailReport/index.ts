@@ -1,10 +1,10 @@
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
 
-export const setStdNumber = async (access_token: string, stdNumber: string) => {
+export const getDetailReport = async (access_token: string, reportId: string) => {
   try {
     const request = getRequestWithAccessToken(access_token);
-    return await request.patch(uri.info, { studentNumber: stdNumber });
+    return await request.get(uri.report + `/${reportId}`);
   } catch (error) {
     throw error;
   }

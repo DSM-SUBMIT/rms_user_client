@@ -1,14 +1,18 @@
 import { combineReducers } from 'redux';
+import detailPlanReducer from './detailPlan';
+import detailReportReducer from './detailReport';
+import mainReducer from './main';
 import headerReducer from './header';
 import loginReducer from './login';
-import mainReducer from './main';
 import infoReducer from './info';
 
 const rootReducer = combineReducers({
   main: mainReducer,
+  detailReport: detailReportReducer,
   login: loginReducer,
   header: headerReducer,
   info: infoReducer,
+  detailPlan: detailPlanReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
