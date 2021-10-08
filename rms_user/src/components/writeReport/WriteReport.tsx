@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 import { Editor } from '@toast-ui/react-editor';
 import Header from '../header';
-import { ReportForm } from '../../constance/writeReport'
+import { ReportContentForm } from '../../constance/writeReport'
 
 import '@toast-ui/editor/dist/toastui-editor.css';
 
@@ -13,33 +13,38 @@ const WriteReport = () => {
             <S.Main>
                 <S.Form name="report" method="post">
                     <S.Report>
-                        <h5>[보고서]</h5>
-                        <S.TitleName>보고서 관리 시스템</S.TitleName>
-                        <S.ReportContent>
-                            <h5>프로젝트 주제를 작성해주세요</h5>
-                            <textarea placeholder="프로젝트의 주제를 작성해주세요"></textarea>
-                        </S.ReportContent>
-                        {ReportForm.map((v, i) => {
-                                return(
-                                    <S.ReportContent key={i}>
-                                        <h3>{v[i]}</h3>
-                                        <span>{v[i]}</span>
-                                        <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                                    </S.ReportContent>
-                            )})}
-                        <S.ReportContent>
-                            <h5>[참고문헌]</h5>
-                            <textarea></textarea>
-                        </S.ReportContent>
+                        <S.Section>
+                            <h5>[보고서]</h5>
+                            <S.TitleName>보고서 관리 시스템</S.TitleName>
+                            <S.FormDiv>
+                                <h4>I. 프로젝트 진행 동기 및 목적</h4>
+                                <span className="tab">&#9;</span>
+                                <span>1 - 가 - (1) - 가{')'}</span>
+                                {ReportContentForm.map((v, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <h4>{ReportContentForm[i]}</h4>
+                                            <br/>
+                                        </div>
+                                    )
+                                })}
+                            </S.FormDiv>
+                        </S.Section>
+                        <S.Section>
+                            <Editor initialEditType="wysiwyg" useCommandShortcut height="800px" />
+                        </S.Section>
+                        <S.AddPage>
+                            <S.Button type="button">페이지 추가</S.Button>
+                        </S.AddPage>
                         <S.FileBox>
                             <input type="file" id="file" style={{display:"none"}}/>
                             <label htmlFor="file">파일찾기</label>
-                            <input id="uploadName" value="첨부파일" placeholder="첨부파일"/>
+                            <input id="uploadName" value="첨부파일" placeholder="제출영상 또는 첨부파일"/>
                         </S.FileBox>
                     </S.Report>
                     <S.ButtonGroup>
-                        <button type="button">임시저장</button>
-                        <button type="button">제출</button>
+                        <S.Button type="button">임시저장</S.Button>
+                        <S.Button type="button">제출</S.Button>
                     </S.ButtonGroup>
                 </S.Form>
             </S.Main>
