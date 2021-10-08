@@ -9,6 +9,7 @@ import {
   MyPageContainer,
   LoginLoadingContainer,
   DetailPlanContainer,
+  InfoContainer,
 } from '../containers';
 import ProjectViewContainer from '../containers/projectview/ProjectViewContainer';
 
@@ -25,6 +26,7 @@ const MainRouter = () => {
         <Route exact path='/feed' component={MainContainer} />
         <Route exact path='/projectview' component={ProjectViewContainer} />
         <Route exact path='/detail-plan/:id' component={DetailPlanContainer} />
+        <Route exact path='/info' component={InfoContainer} />
       </Switch>
     </BrowserRouter>
   );

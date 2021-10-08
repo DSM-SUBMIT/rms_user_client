@@ -6,3 +6,4 @@ export { default as WriteReportContainer } from './writeReport';
 export { default as MainContainer } from './main';
 export { default as LoginLoadingContainer } from './loginLoading';
 export { default as DetailPlanContainer } from './detailPlan';
+export { default as InfoContainer } from './info';
