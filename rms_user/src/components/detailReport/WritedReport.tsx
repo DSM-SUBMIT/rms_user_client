@@ -4,9 +4,11 @@ import * as S from './style';
 
 interface Props {
   isSecondPage?: boolean;
+  content: string;
 }
 
-const WritedReport: FC<Props> = ({ isSecondPage }) => {
+const WritedReport: FC<Props> = props => {
+  const { isSecondPage, content } = props;
   const subTitle = useMemo(() => {
     if (isSecondPage)
       return (
@@ -20,7 +22,9 @@ const WritedReport: FC<Props> = ({ isSecondPage }) => {
   return (
     <S.ReportPage>
       {subTitle}
-      <S.ReportContentBox isSecondPage={isSecondPage}></S.ReportContentBox>
+      <S.ReportContentBox isSecondPage={isSecondPage}>
+        <p>{content}</p>
+      </S.ReportContentBox>
     </S.ReportPage>
   );
 };
