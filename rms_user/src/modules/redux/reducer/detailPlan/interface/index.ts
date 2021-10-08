@@ -14,6 +14,7 @@ interface DetailPlanState {
   plannedStartData: string;
   projectName: string;
   writer: string;
+  writerStudentNumber: number;
   id: string;
   error: error | null;
 }

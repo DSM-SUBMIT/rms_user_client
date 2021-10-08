@@ -12,8 +12,8 @@ const rootReducer = combineReducers({
   login: loginReducer,
   header: headerReducer,
   info: infoReducer,
+  detailPlan: detailPlanReducer,
 });
-const rootReducer = combineReducers({main: mainReducer, login: loginReducer, detailPlan: detailPlanReducer });
 
 export type reducerType = ReturnType<typeof rootReducer>;
 export default rootReducer;

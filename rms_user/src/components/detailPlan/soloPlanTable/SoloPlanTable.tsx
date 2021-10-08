@@ -14,6 +14,7 @@ const SoloPlanTable: FC<DetailPlanState> = props => {
     plannedStartData,
     projectName,
     writer,
+    writerStudentNumber,
   } = props;
 
   return (
@@ -34,7 +35,7 @@ const SoloPlanTable: FC<DetailPlanState> = props => {
           <S.ProjectContentWrapper>
             <S.ProjectInfoFont>신청자</S.ProjectInfoFont>
             <S.ApplicantInfo>학번</S.ApplicantInfo>
-            <S.ApplicantInfo>X학년 X반 X번</S.ApplicantInfo>
+            <S.ApplicantInfo>{writerStudentNumber}</S.ApplicantInfo>
             <S.ApplicantInfo>이름</S.ApplicantInfo>
             <S.ApplicantInfo>{writer}</S.ApplicantInfo>
           </S.ProjectContentWrapper>
@@ -94,9 +95,9 @@ const SoloPlanTable: FC<DetailPlanState> = props => {
           <S.TeacherConfirmationWrapper>
             <S.TeacherConfirmation>담당교사 확인</S.TeacherConfirmation>
             <S.ThisTeacherConfirmation>
-              <span>XXXX년 X월 XX일</span>
-              <span>직위: XXX</span>
-              <span>이름: XXX(인)</span>
+              <span> &nbsp;&nbsp;년 &nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;일</span>
+              <span>직위: &nbsp;&nbsp;</span>
+              <span>이름: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(인)</span>
             </S.ThisTeacherConfirmation>
           </S.TeacherConfirmationWrapper>
         </S.PlanContents>

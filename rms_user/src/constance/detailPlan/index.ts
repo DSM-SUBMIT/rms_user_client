@@ -16,4 +16,5 @@ export type DetailPlanResponseType = {
   plannedStartDate: string;
   projectName: string;
   writer: string;
+  writerStudentNumber: number;
 };

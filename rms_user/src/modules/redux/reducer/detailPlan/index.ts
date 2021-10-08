@@ -19,6 +19,7 @@ const initState: DetailPlanState = {
   plannedStartData: '',
   projectName: '',
   writer: '',
+  writerStudentNumber: 0,
   id: '',
   error: null,
 };
@@ -43,6 +44,7 @@ const detailPlanReducer = (
         plannedStartData: action.payload.plannedStartDate,
         projectName: action.payload.projectName,
         writer: action.payload.writer,
+        writerStudentNumber: action.payload.writerStudentNumber,
       };
     case GET_DETAIL_PLAN_FAILURE:
       return {
