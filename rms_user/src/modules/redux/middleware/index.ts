@@ -15,6 +15,6 @@ export default function* rootSaga() {
     headerSaga(),
     infoSaga(),
     detailPlanSaga(),
+    mypageSaga(),
   ]);
-  yield all([mainSaga(), loginSaga(), mypageSaga()]);
 }

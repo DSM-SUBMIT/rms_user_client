@@ -9,13 +9,9 @@ import infoReducer from './info';
 
 const rootReducer = combineReducers({
   main: mainReducer,
-  login: loginReducer,
-  mypage: mypageReducer,
-});
-const rootReducer = combineReducers({
-  main: mainReducer,
   detailReport: detailReportReducer,
   login: loginReducer,
+  mypage: mypageReducer,
   header: headerReducer,
   info: infoReducer,
   detailPlan: detailPlanReducer,
