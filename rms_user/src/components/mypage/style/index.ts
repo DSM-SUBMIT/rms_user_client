@@ -25,17 +25,25 @@ export const InformationBox = styled.div`
   align-items: center;
 `;
 
+export const NumberBox = styled.span`
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  margin-left: 43px;
+`;
+
 export const NameBox = styled.span`
   font-family: Noto Sans KR;
   font-size: 22px;
   font-weight: bold;
-  margin-left: 49px;
+  margin-left: 8px;
 `;
 
 export const EmailBox = styled.span`
   font-family: Noto Sans KR;
   font-size: 15px;
-  margin-left: 28px;
+  margin-left: 18px;
 `;
 
 export const ProjectBox = styled.div`
