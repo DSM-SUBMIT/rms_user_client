@@ -9,12 +9,16 @@ import {
   MyPageContainer,
   LoginLoadingContainer,
   DetailPlanContainer,
+  InfoContainer,
 } from '../containers';
 import ProjectViewContainer from '../containers/projectview/ProjectViewContainer';
+import { useModal } from '../util/hooks/modal';
 
 const MainRouter = () => {
+  const Modal = useModal();
   return (
     <BrowserRouter>
+      {Modal}
       <Switch>
         <Route exact path='/' component={LoginContainer} />
         <Route exact path='/auth/token' component={LoginLoadingContainer} />
@@ -24,6 +28,8 @@ const MainRouter = () => {
         <Route exact path='/detail-report/:id' component={DetailReportContainer} />
         <Route exact path='/feed' component={MainContainer} />
         <Route exact path='/projectview' component={ProjectViewContainer} />
+        <Route exact path='/detail-plan/:id' component={DetailPlanContainer} />
+        <Route exact path='/info' component={InfoContainer} />
       </Switch>
     </BrowserRouter>
   );

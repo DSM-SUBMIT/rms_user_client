@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { color } from '.';
 
 const global = createGlobalStyle`
   * {
@@ -14,6 +15,7 @@ const global = createGlobalStyle`
   }
   body {
     margin: 0;
+    background-color: ${color.background};
   }
 `;
 

@@ -26,6 +26,9 @@ const MyPage: FC<Props> = props => {
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
+            <S.NumberBox>2017</S.NumberBox>
+            <S.NameBox>기매교</S.NameBox>
+            <S.EmailBox>201908khk@dsm.hs.kr</S.EmailBox>
             <S.NameBox>{name}</S.NameBox>
             <S.EmailBox>{email}</S.EmailBox>
           </S.InformationBox>
