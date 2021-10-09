@@ -12,10 +12,13 @@ import {
   InfoContainer,
 } from '../containers';
 import ProjectViewContainer from '../containers/projectview/ProjectViewContainer';
+import { useModal } from '../util/hooks/modal';
 
 const MainRouter = () => {
+  const Modal = useModal();
   return (
     <BrowserRouter>
+      {Modal}
       <Switch>
         <Route exact path='/' component={LoginContainer} />
         <Route exact path='/auth/token' component={LoginLoadingContainer} />
