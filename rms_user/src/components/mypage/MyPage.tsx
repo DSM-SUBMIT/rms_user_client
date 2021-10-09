@@ -12,6 +12,7 @@ const MyPage = () => {
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
+            <S.NumberBox>2017</S.NumberBox>
             <S.NameBox>기매교</S.NameBox>
             <S.EmailBox>201908khk@dsm.hs.kr</S.EmailBox>
           </S.InformationBox>
