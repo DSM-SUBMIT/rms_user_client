@@ -3,6 +3,7 @@ import { color } from '../../../style';
 
 export const MyPage = styled.div`
   width: 100%;
+  min-width: 1440px;
   height: 94vh;
   box-sizing: border-box;
   background-color: ${color.background};

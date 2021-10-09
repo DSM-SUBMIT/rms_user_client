@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import { Close, Github } from '../../../assets';
 import { TechStatck, Plan, Report, Api, Details, GitHub } from '../../../constance/project';
 
-const PorjectView = () => {
+interface Props {
+  setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const PorjectView: FC<Props> = props => {
+  const { setIsOpenModal } = props;
+
+  const closeBoxClickHandler = () => {
+    if (setIsOpenModal !== undefined) setIsOpenModal(false);
+  };
+
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
-        <S.CloseBox>
-          <img src={Close} />
+        <S.CloseBox onClick={closeBoxClickHandler}>
+          <img src={Close} alt={'close'} />
         </S.CloseBox>
         <S.ContentBox>
           <S.TopBox>
