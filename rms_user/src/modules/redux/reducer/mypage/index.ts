@@ -6,6 +6,7 @@ const initState: MypageState = {
   email: '',
   name: '',
   projectList: [],
+  studentNumber: 0,
   error: null,
 };
 
@@ -17,6 +18,7 @@ const mypageReducer = (state: MypageState = initState, action: mypageActionType)
         name: action.payload.name,
         email: action.payload.email,
         projectList: action.payload.projectList,
+        studentNumber: action.payload.studentNumber,
       };
     case GET_MYPAGE_FEED_FAILURE:
       return {

@@ -5,6 +5,7 @@ interface MypageState {
   email: string;
   name: string;
   projectList: Array<ProjectListType>;
+  studentNumber: number;
   error: error | null;
 }
 

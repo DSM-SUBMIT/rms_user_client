@@ -13,4 +13,5 @@ export type MypageResponseType = {
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
+  studentNumber: number;
 };

@@ -9,23 +9,24 @@ interface Props {
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
+  studentNumber: number;
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList } = props;
+  const { name, email, projectList, studentNumber } = props;
   return (
     <>
       <Header />
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
-            <S.NumberBox>2017</S.NumberBox>
+            <S.NumberBox>{studentNumber}</S.NumberBox>
             <S.NameBox>{name}</S.NameBox>
             <S.EmailBox>{email}</S.EmailBox>
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
-            <S.CreateBox /*onClick={projectCreateClick}*/>
+            <S.CreateBox>
               <img src={Plus} alt='Plus' />
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
