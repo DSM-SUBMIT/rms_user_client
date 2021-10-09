@@ -4,8 +4,7 @@ import ProjectViewModal from './view';
 
 const Modal: FC = (): any => {
   const { state, setState } = useModal();
-
-  return <>{state.type === 'projectView' ? <ProjectViewModal {...state} {...setState} /> : null}</>;
+  return <></>;
 };
 
 export default Modal;
