@@ -26,7 +26,6 @@ export const InformationBox = styled.div`
 `;
 
 export const NumberBox = styled.div`
-  border: 1px solid blue;
   width: 40px;
   margin-left: 43px;
   z-index: 3;
