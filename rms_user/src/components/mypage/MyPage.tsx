@@ -1,26 +1,41 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
-
+import { setModalOn } from '../../modules/redux/action/modal';
+import { useModal } from '../../util/hooks/modal';
+import ModfiyNumber from '../modal/number';
 interface Props {
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
   studentNumber: number;
+  setModalOn: (payload: string) => void;
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList, studentNumber } = props;
+  const { name, email, projectList, studentNumber, setModalOn } = props;
+  const { setState } = useModal();
+  // const { setState } = useModal();
+  // const modfiyNumber = () => {
+  //   setState.setModalOn('modifyNumber');
+  // };
+  const onClickChangePasswordModal = () => {
+    alert('QNd');
+    setState.setModalOn('modifyNumber');
+  };
+
   return (
     <>
       <Header />
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
-            <S.NumberBox>{studentNumber}</S.NumberBox>
+            <S.NumberBox onClick={onClickChangePasswordModal}>
+              <S.Number>{studentNumber}</S.Number>
+            </S.NumberBox>
             <S.NameBox>{name}</S.NameBox>
             <S.EmailBox>{email}</S.EmailBox>
           </S.InformationBox>
