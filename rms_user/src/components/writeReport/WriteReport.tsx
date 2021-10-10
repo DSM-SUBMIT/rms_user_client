@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import * as S from './style';
 import { Editor } from '@toast-ui/react-editor';
 import Header from '../header';
@@ -7,6 +7,15 @@ import { ReportContentForm } from '../../constance/writeReport'
 import '@toast-ui/editor/dist/toastui-editor.css';
 
 const WriteReport = () => {
+
+    const [editor, setEditor] = useState(1);
+    const AddPage = (event: React.MouseEvent<HTMLElement>) => {
+        if (window.confirm("페이지를 추가합니다") === true ) {
+            setEditor(prevPage => prevPage + 1);
+        }
+        else return;
+    };
+    
     return (
         <>
             <Header/>
@@ -31,10 +40,18 @@ const WriteReport = () => {
                             </S.FormDiv>
                         </S.Section>
                         <S.Section>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="800px" />
+                            {Array(editor)
+                                .fill(0)
+                                .map((v, i) => {
+                                return (
+                                    <S.Section>
+                                        <Editor initialEditType="wysiwyg" useCommandShortcut height="800px" key={i}/>
+                                    </S.Section>
+                                )
+                            })}
                         </S.Section>
                         <S.AddPage>
-                            <S.Button type="button">페이지 추가</S.Button>
+                            <S.Button type="button" onClick={AddPage}>페이지 추가</S.Button>
                         </S.AddPage>
                         <S.FileBox>
                             <input type="file" id="file" style={{display:"none"}}/>

@@ -86,4 +86,8 @@ export const Button = styled.button`
     box-shadow: 3px 4px 5px ${color.border};
     color: ${color.main};
     font-size: 16px;
+    :hover {
+        background-color: ${color.main};
+        color: white;
+    }
 `
