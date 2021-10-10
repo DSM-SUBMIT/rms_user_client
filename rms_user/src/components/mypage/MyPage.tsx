@@ -6,24 +6,20 @@ import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage
 import { Plus } from '../../assets';
 import { setModalOn } from '../../modules/redux/action/modal';
 import { useModal } from '../../util/hooks/modal';
-import ModfiyNumber from '../modal/number';
 interface Props {
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
   studentNumber: number;
   setModalOn: (payload: string) => void;
+  setModalOff: (payload: string) => void;
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList, studentNumber, setModalOn } = props;
+  const { name, email, projectList, studentNumber, setModalOff } = props;
   const { setState } = useModal();
-  // const { setState } = useModal();
-  // const modfiyNumber = () => {
-  //   setState.setModalOn('modifyNumber');
-  // };
+
   const onClickChangePasswordModal = () => {
-    alert('QNd');
     setState.setModalOn('modifyNumber');
   };
 
