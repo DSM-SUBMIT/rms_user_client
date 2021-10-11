@@ -2,22 +2,22 @@ import React, { FC } from 'react';
 import * as S from './style';
 
 interface Props {
-  projectName: string;
-  projectType: string;
-  teamName: string;
-  fieldList: Array<string>;
+  title: string;
+  classification: string;
+  writer: string;
+  field: Array<string>;
 }
 
-const ProjectContent: FC<Props> = ({ projectName, projectType, teamName, fieldList }) => {
+const ProjectContent: FC<Props> = ({ classification, title, writer, field }) => {
   return (
     <S.ProjectContent>
-      <S.ProjectClassification>[{projectType}]</S.ProjectClassification>
-      <S.ProjectTitle>{projectName}</S.ProjectTitle>
-      <S.ProjectWriter>{teamName}</S.ProjectWriter>
+      <S.ProjectClassification>[{classification}]</S.ProjectClassification>
+      <S.ProjectTitle>{title}</S.ProjectTitle>
+      <S.ProjectWriter>{writer}</S.ProjectWriter>
       <div>
-        {fieldList.map((content, i) => {
+        {field.map(content => {
           return (
-            <S.ProjectField key={i}>
+            <S.ProjectField>
               <p>{content}</p>
             </S.ProjectField>
           );

@@ -2,7 +2,6 @@ import { all } from 'redux-saga/effects';
 import mainSaga from './main';
 import detailReportSaga from './detailReport';
 import loginSaga from './login';
-import mypageSaga from './mypage';
 import detailPlanSaga from './detailPlan';
 import headerSaga from './header';
 import infoSaga from './info';
@@ -15,6 +14,5 @@ export default function* rootSaga() {
     headerSaga(),
     infoSaga(),
     detailPlanSaga(),
-    mypageSaga(),
   ]);
 }

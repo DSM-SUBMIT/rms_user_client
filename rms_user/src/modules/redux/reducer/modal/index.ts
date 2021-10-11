@@ -12,7 +12,7 @@ const ModalReducer = (state: ModalState = initState, action: modalActionType): M
       return { ...state, type: action.payload };
     }
     case MODAL_OFF: {
-      return { ...state, type: action.payload };
+      return { ...state, type: '' };
     }
     default: {
       return state;

@@ -1,39 +1,20 @@
-import React, { FC, useMemo, useState } from 'react';
+import React from 'react';
 import * as S from './style';
 import Header from '../header';
 import ProjectContent from './projectcontent';
-import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
+import { PROJECT, CREATE_PROJECT } from '../../constance/mypage';
 import { Plus } from '../../assets';
-import { setModalOn } from '../../modules/redux/action/modal';
-import { useModal } from '../../util/hooks/modal';
-interface Props {
-  name: string;
-  email: string;
-  projectList: Array<ProjectListType>;
-  studentNumber: number;
-  setModalOn: (payload: string) => void;
-  setModalOff: (payload: string) => void;
-}
 
-const MyPage: FC<Props> = props => {
-  const { name, email, projectList, studentNumber, setModalOff } = props;
-  const { setState } = useModal();
-
-  const onClickChangePasswordModal = () => {
-    setState.setModalOn('modifyNumber');
-  };
-
+const MyPage = () => {
   return (
     <>
       <Header />
       <S.MyPage>
         <S.Content>
           <S.InformationBox>
-            <S.NumberBox onClick={onClickChangePasswordModal}>
-              <S.Number>{studentNumber}</S.Number>
-            </S.NumberBox>
-            <S.NameBox>{name}</S.NameBox>
-            <S.EmailBox>{email}</S.EmailBox>
+            <S.NumberBox>2017</S.NumberBox>
+            <S.NameBox>기매교</S.NameBox>
+            <S.EmailBox>201908khk@dsm.hs.kr</S.EmailBox>
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
@@ -42,16 +23,18 @@ const MyPage: FC<Props> = props => {
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
             <S.ProjectList>
-              {projectList.map(data => {
-                return (
-                  <ProjectContent
-                    projectName={data.projectName}
-                    projectType={data.projectType}
-                    teamName={data.teamName}
-                    fieldList={data.fieldList}
-                  />
-                );
-              })}
+              {Array(4)
+                .fill(0)
+                .map(content => {
+                  return (
+                    <ProjectContent
+                      classification='팀프로젝트'
+                      title='보고서 관리 시스템'
+                      writer='서브밋'
+                      field={['보안', '웹', '인공지능/빅데이터']}
+                    />
+                  );
+                })}
             </S.ProjectList>
           </S.ProjectBox>
         </S.Content>
