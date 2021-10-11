@@ -17,7 +17,6 @@ const ModifyNumber: FC<Props> = props => {
   };
 
   const modifyBtnClickr = () => {
-    alert('뿡');
     dispatch({ type: NUMBER });
     window.location.replace('/mypage');
   };
