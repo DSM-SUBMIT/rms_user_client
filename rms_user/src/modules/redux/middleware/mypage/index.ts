@@ -18,7 +18,6 @@ const mypageGetSaga = function* (): any {
       payload: response ? response.data : null,
     });
   } catch (error: any) {
-    console.log(1234, error);
     if (error.response?.data) {
       yield put({
         type: FAILURE,
