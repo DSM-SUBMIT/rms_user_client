@@ -25,12 +25,18 @@ export const InformationBox = styled.div`
   align-items: center;
 `;
 
-export const NumberBox = styled.span`
+export const NumberBox = styled.div`
+  width: 40px;
+  margin-left: 43px;
+  z-index: 3;
+  cursor: pointer;
+`;
+
+export const Number = styled.span`
   font-family: Noto Sans KR;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  margin-left: 43px;
 `;
 
 export const NameBox = styled.span`
