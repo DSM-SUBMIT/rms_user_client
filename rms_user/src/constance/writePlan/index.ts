@@ -1,33 +1,37 @@
 export const Checkbox = [
     {
+        type: "checkbox",
         id : "report",
-        span : "결과보고서"
+        span : "결과보고서",
+        onChange : "onChangeIncludeResultReport"
     },
     {
+        type: "checkbox",
         id : "code",
-        span : "프로그램코드"
+        span : "프로그램코드",
+        onChage : "onChangeIncludeCode"
     },
     {
+        type: "checkbox",
         id : "video",
-        span : "실행물(영상 또는 사진)"
+        span : "실행물(영상 또는 사진)",
+        onchange : "onChangeIncludeOutcome"
     },
     {
+        type: "text",
         id : "etc",
-        span : "기타"
+        span : "기타",
+        onchange : "onChangeIncludeOthers"
     }
 ]
 
-export interface contentTypeRequest {
-    content : string;
+export interface ContentRequest {
+    content: string;
     goal: string;
-    includeCode: false;
+    includeCode: boolean;
     includeOthers: string;
-    includeOutcome: false,
-    includeResultReport: false,
+    includeOutcome: boolean,
+    includeResultReport: boolean,
     plannedEndDate : string;
     plannedStartDate: string;
-}
-
-export interface planStorage {
-    id : number;
 }

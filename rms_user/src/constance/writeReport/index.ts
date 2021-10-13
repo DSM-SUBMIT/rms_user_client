@@ -6,3 +6,8 @@ export const ReportContentForm = [
     'V. 결론 및 고찰',
     '[참고문헌]'
 ]
+
+export interface ReportContentRequest {
+    content: string;
+    videoUrl : string;
+}
