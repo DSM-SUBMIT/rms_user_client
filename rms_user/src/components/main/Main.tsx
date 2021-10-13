@@ -6,6 +6,7 @@ import Project from './Project';
 import { CheckStateType, ProjectListType } from '../../constance/main';
 import ReactPaginate from 'react-paginate';
 import ProjectView from '../modal/view';
+import useViewProject from '../../util/hooks/viewProject';
 
 interface Props {
   currentPage: number;
@@ -18,15 +19,10 @@ interface Props {
 }
 
 const Main: FC<Props> = props => {
-  const {
-    currentPage,
-    projectList,
-    totalPages,
-    field,
-    setField,
-    setPage,
-    setCurrentProjectId,
-  } = props;
+  const { state, setState } = useViewProject();
+
+  const { currentPage, projectList, totalPages, field, setField, setPage, setCurrentProjectId } =
+    props;
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const pageBtnClickHandler = (selectedItem: { selected: number }) => {
@@ -34,8 +30,16 @@ const Main: FC<Props> = props => {
   };
 
   const projectViewModal = useMemo(() => {
-    if (isOpenModal) return <ProjectView setIsOpenModal={setIsOpenModal} />;
-  }, [isOpenModal]);
+    if (isOpenModal)
+      return (
+        <ProjectView
+          setIsOpenModal={setIsOpenModal}
+          projectId={currentPage}
+          {...state}
+          {...setState}
+        />
+      );
+  }, [isOpenModal, state, currentPage]);
 
   return (
     <>

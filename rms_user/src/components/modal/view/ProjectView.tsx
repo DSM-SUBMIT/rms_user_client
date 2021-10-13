@@ -1,18 +1,42 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import * as S from './style';
 import { Close, Github } from '../../../assets';
-import { TechStatck, Plan, Report, Api, Details, GitHub } from '../../../constance/project';
+import {
+  TechStatck,
+  Plan,
+  Report,
+  Api,
+  Details,
+  GitHub,
+  MemberListType,
+} from '../../../constance/viewProject';
+import { GET_PROJECT_CONTENTS } from '../../../modules/redux/action/viewProject/interface';
+import { useDispatch } from 'react-redux';
 
 interface Props {
   setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  projectName: string;
+  projectType: string;
+  serviceUrl: string;
+  teamName: string;
+  projectId: number;
+  techStack: string;
+  memberList: Array<MemberListType>;
+  fieledList: Array<string>;
+  docsUrl: string;
+  githubUrl: string;
 }
 
 const PorjectView: FC<Props> = props => {
-  const { setIsOpenModal } = props;
-
+  const { setIsOpenModal, projectName, projectType, fieledList, projectId } = props;
+  const dispatch = useDispatch();
   const closeBoxClickHandler = () => {
     if (setIsOpenModal !== undefined) setIsOpenModal(false);
   };
+
+  useEffect(() => {
+    dispatch({ type: GET_PROJECT_CONTENTS });
+  }, [projectId]);
 
   return (
     <S.ModalWrapper>
@@ -22,21 +46,23 @@ const PorjectView: FC<Props> = props => {
         </S.CloseBox>
         <S.ContentBox>
           <S.TopBox>
-            <S.Classification>[프로젝트 실무 1]</S.Classification>
-            <S.ProjectName>보고서 관리 시스템</S.ProjectName>
-            <S.Field>웹</S.Field>
+            <S.Classification>[{projectType}]</S.Classification>
+            <S.ProjectName>{props.projectName}</S.ProjectName>
+            <S.Field>{fieledList}</S.Field>
           </S.TopBox>
           <S.TeamBox>
-            <S.TeamName>서브밋</S.TeamName>
+            <S.TeamName>{props.teamName}</S.TeamName>
             <S.NumberBox>
-              <S.NumberName>이승윤</S.NumberName>
-              <S.Email>yyuunn17@dsm.hs.kr</S.Email>
-              <S.Role>PM</S.Role>
-            </S.NumberBox>
-            <S.NumberBox>
-              <S.NumberName>이승윤</S.NumberName>
-              <S.Email>yyuunn17@dsm.hs.kr</S.Email>
-              <S.Role>PM</S.Role>
+              {props.memberList &&
+                props.memberList.map(data => {
+                  return (
+                    <>
+                      <S.NumberName>{data.name}</S.NumberName>
+                      <S.Email>{data.email}</S.Email>
+                      <S.Role>{data.role}</S.Role>
+                    </>
+                  );
+                })}
             </S.NumberBox>
           </S.TeamBox>
           <S.TechStatckBox>
@@ -56,8 +82,7 @@ const PorjectView: FC<Props> = props => {
             <img src={Github} />
             <S.GitText>{GitHub}</S.GitText>
             <S.GitInput placeholder='깃허브 주소를 입력하세요' />
-            <S.GitAddressBox>https://github.com/</S.GitAddressBox>
-            <S.GitAddressBox>https://github.com/</S.GitAddressBox>
+            <S.GitAddressBox>{props.githubUrl}</S.GitAddressBox>
           </S.GitBox>
           <S.GuitarBox>
             <S.GuitarText>{Api}</S.GuitarText>
