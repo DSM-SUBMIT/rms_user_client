@@ -3,6 +3,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { GET_SAVE_PLAN, GET_SUBMIT_PLAN } from '../../action/writePlan/interface';
 import { reducerType } from '../../reducer';
 import ContentState from '../../reducer/writePlan/interface';
+import { WritePlanRequest } from '../../../../util/api/writePlan';
 
 const getStateFunc = (state: reducerType): ContentState => state.writePlan;
 
@@ -11,9 +12,10 @@ const savePlanSaga = function* (): any {
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
+  const request = WritePlanRequest(state);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(SavePlan, accessToken, state.body, state.projectId);
+    const response = yield call(SavePlan, accessToken, request, state.projectId);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
@@ -40,9 +42,10 @@ const submitPlanSage = function* (): any {
     const SUCCESS = 'GET_SUBMIT_PLAN_SUCCESS';
     const FAILURE = 'GET_SUBMIT_PLAN_FAILURE';
     const state = yield select(getStateFunc);
+    const request = WritePlanRequest(state);
     const accessToken = localStorage.getItem('access_token') || '';
     try {
-        const response = yield call(SubmitPlan, accessToken, state.body, state.projectId);
+        const response = yield call(SubmitPlan, accessToken, request, state.projectId);
         yield put({
           type: SUCCESS,
           payload: response ? response.data : null,

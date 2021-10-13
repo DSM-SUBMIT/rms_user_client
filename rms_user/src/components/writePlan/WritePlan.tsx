@@ -4,9 +4,8 @@ import Header from '../header';
 import { Checkbox } from '../../constance/writePlan';
 import useWritePlan from '../../util/hooks/writePlan';
 import { useDispatch } from 'react-redux';
-import { GET_SAVE_PLAN } from '../../modules/redux/action/writePlan/interface';
-import { GET_SUBMIT_PLAN } from '../../modules/redux/action/writePlan/interface';
-export interface IInputProps {
+import { GET_SAVE_PLAN, GET_SUBMIT_PLAN } from '../../modules/redux/action/writePlan/interface';
+export interface InputProps {
     onChange?: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
   }
 

@@ -3,7 +3,7 @@ import { getRequestWithAccessToken } from '../default';
 import { ContentRequest } from "../../../constance/writePlan/index";
 import { reducerType } from "../../../modules/redux/reducer";
 
-export const SavePlanRequest= (
+export const WritePlanRequest= (
   state : reducerType['writePlan'],
 ) : ContentRequest => {
   return {
