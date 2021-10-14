@@ -5,7 +5,8 @@ enum uri {
   detailPlan = '/plan',
   header = '/name',
   info = '/number',
-  project = './project',
+  projectview = '/project',
+  myprojectview = '/project/me',
 }
 
 export default uri;
