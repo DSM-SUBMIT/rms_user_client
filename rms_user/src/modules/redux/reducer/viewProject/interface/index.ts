@@ -8,7 +8,6 @@ interface ViewProjectState {
   techStack: string;
   memberList: Array<MemberListType>;
   fieledList: Array<string>;
-  id: number;
   docsUrl: string;
   githubUrl: string;
   error: error | null;
