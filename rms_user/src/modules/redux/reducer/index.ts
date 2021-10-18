@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import mypageReducer from './mypage';
 import detailPlanReducer from './detailPlan';
 import detailReportReducer from './detailReport';
 import mainReducer from './main';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   main: mainReducer,
   detailReport: detailReportReducer,
   login: loginReducer,
+  mypage: mypageReducer,
   header: headerReducer,
   info: infoReducer,
   detailPlan: detailPlanReducer,
