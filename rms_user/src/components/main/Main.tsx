@@ -18,15 +18,8 @@ interface Props {
 }
 
 const Main: FC<Props> = props => {
-  const {
-    currentPage,
-    projectList,
-    totalPages,
-    field,
-    setField,
-    setPage,
-    setCurrentProjectId,
-  } = props;
+  const { currentPage, projectList, totalPages, field, setField, setPage, setCurrentProjectId } =
+    props;
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const pageBtnClickHandler = (selectedItem: { selected: number }) => {
