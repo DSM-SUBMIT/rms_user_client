@@ -6,7 +6,7 @@ import useMain from '../../util/hooks/main';
 import useViewProject from '../../util/hooks/viewProject';
 
 const ProjectViewContainer: FC = () => {
-  const { state, setState } = useViewProject();
+  const { state } = useViewProject();
   const mainState = useMain().state;
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const ProjectViewContainer: FC = () => {
   }, []);
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <View {...state} {...setState} projectId={mainState.currentProjectId} />
+      <View {...state} projectId={mainState.currentProjectId} />
     </Suspense>
   );
 };
