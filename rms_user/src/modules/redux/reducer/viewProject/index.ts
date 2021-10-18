@@ -13,7 +13,6 @@ const initState: ViewProjectState = {
   techStack: '',
   memberList: [],
   fieledList: [],
-  id: 1,
   docsUrl: '',
   githubUrl: '',
   error: null,
