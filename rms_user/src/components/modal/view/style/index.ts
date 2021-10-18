@@ -50,8 +50,6 @@ export const TopBox = styled.div`
 
 export const Classification = styled.p`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 17px;
   color: #4f4f4f;
@@ -59,7 +57,6 @@ export const Classification = styled.p`
 
 export const ProjectName = styled.span`
   font-family: Noto Sans KR;
-  font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 29px;
@@ -75,7 +72,6 @@ export const Field = styled.div`
   border-radius: 15px;
   margin: 20px 10px 10px 0px;
   font-family: Noto Sans KR;
-  font-style: normal;
   font-size: 12px;
   color: #386bee;
 `;
@@ -90,15 +86,13 @@ export const TeamBox = styled.div`
   margin-top: 10px;
   padding: 10px 15px;
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   line-height: 14px;
   color: #000000;
 `;
 
 export const TeamName = styled.div`
-  width: 50px;
+  width: 22%;
   height: 20px;
   background: #ffffff;
   border: 1px solid #386bee;
@@ -127,37 +121,35 @@ export const NumberName = styled.div`
   text-align: center;
   color: #ffffff;
   display: inline-block;
+  padding-top: 2px;
 `;
 
 export const Email = styled.div`
-  width: 150px;
+  width: 33%;
   height: 20px;
   background: #386bee;
   border-radius: 5px;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   text-align: center;
   color: #ffffff;
   display: inline-block;
+  padding-top: 2px;
 `;
 
 export const Role = styled.div`
-  display: inline-block;
-  width: 36px;
+  width: 12%;
   height: 20px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
-  line-height: 14px;
   text-align: center;
   color: #5f5f5f;
+  display: inline-block;
+  padding-top: 2px;
 `;
 
 export const TechStatckBox = styled.div`
@@ -173,21 +165,17 @@ export const TechStatckBox = styled.div`
 
 export const TechStatck = styled.p`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   line-height: 14px;
   color: #000000;
 `;
 
 export const Statck = styled.div`
-  width: 70px;
+  width: 15%;
   height: 20px;
   background: #386bee;
   border-radius: 5px;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   text-align: center;
   color: #ffffff;
@@ -211,8 +199,6 @@ export const WriteBox = styled.div`
 
 export const WriteText = styled.span`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 14px;
   color: #000000;
 `;
@@ -225,8 +211,6 @@ export const WriteBtn = styled.button`
   box-sizing: border-box;
   border-radius: 5px;
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
@@ -248,8 +232,6 @@ export const GitBox = styled.div`
 
 export const GitText = styled.span`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   color: #000000;
 `;
@@ -262,8 +244,6 @@ export const GitInput = styled.input`
   box-sizing: border-box;
   border-radius: 5px;
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   color: #aaaaaa;
   margin: 10px 0px 9px 0px;
@@ -278,8 +258,6 @@ export const GitAddressBox = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   color: #000000;
   margin-bottom: 5px;
@@ -296,10 +274,16 @@ export const GuitarBox = styled.div`
   padding: 12px 15px;
 `;
 
+export const AddressBox = styled.div`
+  font-family: Noto Sans KR;
+  font-size: 11px;
+  text-align: center;
+  color: #5f5f5f;
+  display: inline-block;
+`;
+
 export const GuitarText = styled.p`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 11px;
   text-align: center;
   color: #5f5f5f;
@@ -319,6 +303,6 @@ export const InputBox = styled.input`
   color: #aaaaaa;
   margin-bottom: 10px;
   :last-child {
-    margin-left: 20px;
+    margin-left: 18px;
   }
 `;
