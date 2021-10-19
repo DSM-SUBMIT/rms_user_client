@@ -26,6 +26,7 @@ const mypageReducer = (state: MypageState = initState, action: mypageActionType)
         projectList: action.payload.projectList,
         studentNumber: action.payload.studentNumber,
         currentPage: action.payload.currentPage,
+        currentProjectId: action.payload.currentProjectId,
       };
     case GET_MYPAGE_FEED_FAILURE:
       return {

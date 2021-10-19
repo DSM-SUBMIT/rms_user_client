@@ -11,7 +11,12 @@ interface ViewMyProjectState {
   fieldList: Array<string>;
   docsUrl: string;
   githubUrl: string;
+  projectId: number;
   error: error | null;
+  // isPlanAccepted: boolean;
+  // isPlanSubmitted: boolean;
+  // isReportAccepted: boolean;
+  // isReportSubmitted: boolean;
 }
 
 export default ViewMyProjectState;

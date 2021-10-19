@@ -13,6 +13,7 @@ interface Props {
   email: string;
   projectList: Array<ProjectListType>;
   studentNumber: number;
+  currentProjectId: number;
   setModalOn: (payload: string) => void;
   setModalOff: (payload: string) => void;
   setCurrentProjectId: (payload: number) => void;
@@ -20,7 +21,15 @@ interface Props {
 
 const MyPage: FC<Props> = props => {
   const { state } = useViewMyProject();
-  const { name, email, projectList, studentNumber, setCurrentProjectId, currentPage } = props;
+  const {
+    name,
+    email,
+    projectList,
+    studentNumber,
+    setCurrentProjectId,
+    currentPage,
+    currentProjectId,
+  } = props;
   const { setState } = useModal();
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
@@ -29,9 +38,12 @@ const MyPage: FC<Props> = props => {
   };
 
   const myProjectViewModal = useMemo(() => {
-    if (isOpenModal)
-      return <ProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentPage} />;
-  }, [isOpenModal, state, currentPage]);
+    if (isOpenModal) {
+      return (
+        <ProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
+      );
+    }
+  }, [isOpenModal, state, currentProjectId]);
 
   return (
     <>

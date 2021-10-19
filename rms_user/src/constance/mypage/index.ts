@@ -15,4 +15,5 @@ export type MypageResponseType = {
   projectList: Array<ProjectListType>;
   studentNumber: number;
   currentPage: number;
+  currentProjectId: number;
 };
