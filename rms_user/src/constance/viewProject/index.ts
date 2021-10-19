@@ -18,7 +18,20 @@ export type ViewProjectType = {
   teamName: string;
   techStack: string;
   memberList: [];
-  fileList: [];
+  fieldList: [];
+  docsUrl: string;
+  githubUrl: string;
+  id: number;
+};
+
+export type ViewMyProjectType = {
+  projectName: string;
+  projectType: string;
+  serviceUrl: string;
+  teamName: string;
+  techStack: string;
+  memberList: [];
+  fieldList: [];
   docsUrl: string;
   githubUrl: string;
   id: number;
