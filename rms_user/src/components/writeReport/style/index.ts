@@ -52,10 +52,10 @@ export const AddPage = styled.div`
 `
 
 export const FileBox = styled.div`
+    display: flex;
     #uploadName {
         height: 40px;
         padding: 0 10px;
-        vertical-align: middle;
         border: 1px solid ${color.border};
         width: 80%;
         color: #999999;
@@ -67,6 +67,7 @@ export const FileBox = styled.div`
         background-color: ${color.main};
         cursor: pointer;
         margin-right: 10px;
+        margin-bottom: 10px;
     }
 `
 
