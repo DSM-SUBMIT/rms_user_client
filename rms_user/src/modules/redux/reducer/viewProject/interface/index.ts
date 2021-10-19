@@ -7,7 +7,7 @@ interface ViewProjectState {
   teamName: string;
   techStack: string;
   memberList: Array<MemberListType>;
-  fieledList: Array<string>;
+  fieldList: Array<string>;
   docsUrl: string;
   githubUrl: string;
   error: error | null;

@@ -12,7 +12,7 @@ const initState: ViewProjectState = {
   teamName: '',
   techStack: '',
   memberList: [],
-  fieledList: [],
+  fieldList: [],
   docsUrl: '',
   githubUrl: '',
   error: null,
@@ -29,7 +29,7 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
         teamName: action.payload.teamName,
         techStack: action.payload.techStack,
         memberList: action.payload.memberList,
-        fileList: action.payload.fileList,
+        fieldList: action.payload.fieldList,
         docsUrl: action.payload.docsUrl,
         githubUrl: action.payload.githubUrl,
       };
