@@ -9,10 +9,11 @@ import {
 } from './interface';
 import { error } from '../../../../models/error';
 import { createAction } from 'typesafe-actions';
+import { loginResponseType } from '../../../../constance/login';
 
 export const setCode = createAction(CODE)<string>();
 export const getToken = createAction(TOKEN)();
-export const getTokenSuccess = createAction(TOKEN_SUCCESS)();
+export const getTokenSuccess = createAction(TOKEN_SUCCESS)<loginResponseType>();
 export const getTokenFailure = createAction(TOKEN_FAILURE)<error>();
 export const refreshToken = createAction(REFRESH_TOKEN)<{ callback: () => void }>();
 export const refreshTokenFailure = createAction(REFRESH_TOKEN_SUCCESS)();

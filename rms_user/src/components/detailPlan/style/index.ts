@@ -1,7 +1,14 @@
-import styled from "styled-components";
-import { color } from "../../../style";
+import styled from 'styled-components';
+import { color } from '../../../style';
 
 export const ViewPlanWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const PlanTableWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -65,12 +72,13 @@ export const ProjectMember = styled.div`
 `;
 
 export const ThisProjectMemberList = styled.div`
+  width: 649px;
   display: flex;
   flex-direction: column;
 `;
 
 export const ThisProjectMemberWrapper = styled.div`
-  width: 649px;
+  width: 648px;
   height: 35px;
   display: flex;
   flex-direction: row;
@@ -107,9 +115,10 @@ export const ProjectApplicant = styled.div`
 `;
 
 export const ApplicantInfo = styled.div`
-  width: 163px;
+  width: 162px;
   height: 38px;
   font-size: 21px;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;

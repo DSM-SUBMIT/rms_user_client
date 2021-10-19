@@ -197,3 +197,4 @@ export const Teammemberbtn = styled.button`
   text-align: center;
   color: #386bee;
 `;
+
