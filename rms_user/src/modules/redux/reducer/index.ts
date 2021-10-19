@@ -8,6 +8,7 @@ import loginReducer from './login';
 import infoReducer from './info';
 import viewProjectReducer from './viewProject';
 import ModalReducer from './modal';
+import viewMyProjectReducer from './viewMyProject';
 
 const rootReducer = combineReducers({
   main: mainReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   detailPlan: detailPlanReducer,
   viewProject: viewProjectReducer,
   modal: ModalReducer,
+  viewMyProject: viewMyProjectReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
