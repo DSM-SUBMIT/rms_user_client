@@ -21,7 +21,6 @@ const viewProjectGetSaga = function* (): any {
       type: SUCCESS,
       payload: response ? response.data : null,
     });
-    console.log('test', response);
   } catch (error: any) {
     if (error.response?.data) {
       yield put({
