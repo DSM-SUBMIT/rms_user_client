@@ -2,6 +2,7 @@ enum uri {
   main = '/',
   report = '/report',
   token = '/auth/token',
+  mypage = '/me',
   writePlan ='/plan',
   writeReport = '/report',
   detailPlan = '/plan',
