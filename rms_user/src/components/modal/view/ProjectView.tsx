@@ -38,8 +38,9 @@ const PorjectView: FC<Props> = props => {
   };
 
   useEffect(() => {
-    dispatch({ type: GET_PROJECT_CONTENTS, GET_MY_PROJECT_CONTENTS });
-  }, []);
+    dispatch({ type: GET_MY_PROJECT_CONTENTS });
+    dispatch({ type: GET_PROJECT_CONTENTS });
+  }, [GET_PROJECT_CONTENTS, GET_MY_PROJECT_CONTENTS]);
 
   const techStacks = props.techStack.split(',');
   return (
@@ -56,7 +57,6 @@ const PorjectView: FC<Props> = props => {
           <S.Box>
             {props.fieldList &&
               props.fieldList.map((state: string, i: number) => {
-                console.log(props.fieldList);
                 return <S.Field key={i}>{state}</S.Field>;
               })}
           </S.Box>
@@ -78,17 +78,17 @@ const PorjectView: FC<Props> = props => {
           </S.TeamBox>
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
-            {techStacks.map(data => {
-              return <S.Statck>{data}</S.Statck>;
+            {techStacks.map((data, index) => {
+              return <S.Statck key={index}>{data}</S.Statck>;
             })}
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
-            <S.WriteBtn>보러가기</S.WriteBtn>
+            <S.WriteBtn>작성하기</S.WriteBtn>
           </S.WriteBox>
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
-            <S.WriteBtn>보러가기</S.WriteBtn>
+            <S.WriteBtn>작성하기</S.WriteBtn>
           </S.WriteBox>
           <S.GitBox>
             <img src={Github} />
