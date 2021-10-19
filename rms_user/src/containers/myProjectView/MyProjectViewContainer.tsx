@@ -11,10 +11,8 @@ const MyProjectViewContainer: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(myPageState.currentProjectId);
-
     dispatch({ type: GET_MY_PROJECT_CONTENTS });
-  }, []);
+  }, [GET_MY_PROJECT_CONTENTS]);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <View {...state} projectId={myPageState.currentProjectId} />
