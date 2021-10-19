@@ -1,18 +1,18 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { reducerType } from '../../reducer';
-import ViewProjectState from '../../reducer/viewProject/interface';
 import { GET_MY_PROJECT_CONTENTS } from '../../action/viewProject/interface';
 import { getMyProjectView } from '../../../../util/api/viewProject';
-import MainState from '../../reducer/main/interface';
-const getStateFunc = (state: reducerType): ViewProjectState => state.viewProject;
-const getMainStateFunc = (state: reducerType): MainState => state.main;
+import MypageState from '../../reducer/mypage/interface';
+import ViewMyProjectState from '../../reducer/viewMyProject/interface';
+const getStateFunc = (state: reducerType): ViewMyProjectState => state.viewMyProject;
+const getMyPageStateFunc = (state: reducerType): MypageState => state.mypage;
 
 const viewMyProjectGetSaga = function* (): any {
-  const type = 'PROJECT/GET_GET_MY_PROJECT_CONTENTS';
+  const type = 'MYPROJECT/GET_MY_PROJECT_CONTENTS';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
-  const MypageState = yield select(getMainStateFunc);
+  const MypageState = yield select(getMyPageStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
     const response = yield call(getMyProjectView, accessToken, MypageState.currentProjectId);
@@ -21,7 +21,6 @@ const viewMyProjectGetSaga = function* (): any {
       type: SUCCESS,
       payload: response ? response.data : null,
     });
-    console.log('test', response);
   } catch (error: any) {
     if (error.response?.data) {
       yield put({
@@ -40,8 +39,8 @@ const viewMyProjectGetSaga = function* (): any {
   }
 };
 
-function* viewProjectSaga() {
+function* viewMyProjectSaga() {
   yield takeLatest(GET_MY_PROJECT_CONTENTS, viewMyProjectGetSaga);
 }
 
-export default viewProjectSaga;
+export default viewMyProjectSaga;
