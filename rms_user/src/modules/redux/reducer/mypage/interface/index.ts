@@ -7,6 +7,7 @@ interface MypageState {
   projectList: Array<ProjectListType>;
   studentNumber: number;
   error: error | null;
+  currentProjectId: number;
 }
 
 export default MypageState;

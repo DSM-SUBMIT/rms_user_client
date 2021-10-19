@@ -1,5 +1,9 @@
 import { mypageActionType } from '../../action/mypage';
-import { GET_MYPAGE_FEED_FAILURE, GET_MYPAGE_FEED_SUCCESS } from '../../action/mypage/interface';
+import {
+  CURRENTPROJECTID,
+  GET_MYPAGE_FEED_FAILURE,
+  GET_MYPAGE_FEED_SUCCESS,
+} from '../../action/mypage/interface';
 import MypageState from './interface';
 
 const initState: MypageState = {
@@ -8,6 +12,7 @@ const initState: MypageState = {
   projectList: [],
   studentNumber: 0,
   error: null,
+  currentProjectId: 1,
 };
 
 const mypageReducer = (state: MypageState = initState, action: mypageActionType): MypageState => {
@@ -24,6 +29,11 @@ const mypageReducer = (state: MypageState = initState, action: mypageActionType)
       return {
         ...state,
         error: action.payload,
+      };
+    case CURRENTPROJECTID:
+      return {
+        ...state,
+        currentProjectId: action.payload,
       };
     default:
       return state;
