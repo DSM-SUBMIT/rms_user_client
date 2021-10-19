@@ -8,7 +8,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const ProjectViewBox = styled.div`
@@ -43,7 +43,7 @@ export const ContentBox = styled.div`
 
 export const TopBox = styled.div`
   width: 556px;
-  height: 92px;
+  height: 62px;
   align-items: center;
   text-align: center;
 `;
@@ -51,7 +51,6 @@ export const TopBox = styled.div`
 export const Classification = styled.p`
   font-family: Noto Sans KR;
   font-size: 12px;
-  line-height: 17px;
   color: #4f4f4f;
 `;
 
@@ -59,21 +58,26 @@ export const ProjectName = styled.span`
   font-family: Noto Sans KR;
   font-weight: bold;
   font-size: 20px;
-  line-height: 29px;
   color: #000000;
 `;
 
+export const Box = styled.div`
+  display: flex;
+`;
+
 export const Field = styled.div`
-  width: 44px;
+  padding: 0px 10px;
+  width: fit-content;
   height: 25px;
   background: #fdfdfd;
   border: 1px solid #386bee;
   box-sizing: border-box;
   border-radius: 15px;
-  margin: 20px 10px 10px 0px;
   font-family: Noto Sans KR;
   font-size: 12px;
   color: #386bee;
+  box-sizing: border-box;
+  margin-right: 10px;
 `;
 
 export const TeamBox = styled.div`
@@ -92,7 +96,8 @@ export const TeamBox = styled.div`
 `;
 
 export const TeamName = styled.div`
-  width: 22%;
+  padding: 0px 10px;
+  width: fit-content;
   height: 20px;
   background: #ffffff;
   border: 1px solid #386bee;
@@ -171,7 +176,8 @@ export const TechStatck = styled.p`
 `;
 
 export const Statck = styled.div`
-  width: 15%;
+  padding: 0px 10px;
+  width: fit-content;
   height: 20px;
   background: #386bee;
   border-radius: 5px;
@@ -275,11 +281,23 @@ export const GuitarBox = styled.div`
 `;
 
 export const AddressBox = styled.div`
+  width: 403.01px;
+  box-sizing: border-box;
+  height: 24px;
+  background: #fbfbfb;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 5px;
   font-family: Noto Sans KR;
   font-size: 11px;
-  text-align: center;
   color: #5f5f5f;
   display: inline-block;
+  padding: 1px 10px;
+  margin-left: 11px;
+  margin-bottom: 12px;
+  :last-child {
+    margin-left: 18px;
+  }
 `;
 
 export const GuitarText = styled.p`

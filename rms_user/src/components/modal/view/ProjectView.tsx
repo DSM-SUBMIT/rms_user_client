@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import * as S from './style';
 import { Close, Github } from '../../../assets';
 import {
@@ -10,7 +10,10 @@ import {
   GitHub,
   MemberListType,
 } from '../../../constance/viewProject';
-import { GET_PROJECT_CONTENTS } from '../../../modules/redux/action/viewProject/interface';
+import {
+  GET_MY_PROJECT_CONTENTS,
+  GET_PROJECT_CONTENTS,
+} from '../../../modules/redux/action/viewProject/interface';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -22,22 +25,23 @@ interface Props {
   projectId: number;
   techStack: string;
   memberList: Array<MemberListType>;
-  fieledList: Array<string>;
+  fieldList: Array<string>;
   docsUrl: string;
   githubUrl: string;
 }
 
 const PorjectView: FC<Props> = props => {
-  const { setIsOpenModal, projectName, projectType, fieledList, projectId } = props;
   const dispatch = useDispatch();
+  const [text] = useState('주소가 없습니다.');
   const closeBoxClickHandler = () => {
-    if (setIsOpenModal !== undefined) setIsOpenModal(false);
+    if (props.setIsOpenModal !== undefined) props.setIsOpenModal(false);
   };
 
   useEffect(() => {
-    dispatch({ type: GET_PROJECT_CONTENTS });
-  }, [projectId]);
+    dispatch({ type: GET_PROJECT_CONTENTS, GET_MY_PROJECT_CONTENTS });
+  }, []);
 
+  const techStacks = props.techStack.split(',');
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
@@ -46,49 +50,57 @@ const PorjectView: FC<Props> = props => {
         </S.CloseBox>
         <S.ContentBox>
           <S.TopBox>
-            <S.Classification>[{projectType}]</S.Classification>
+            <S.Classification>[{props.projectType}]</S.Classification>
             <S.ProjectName>{props.projectName}</S.ProjectName>
-            <S.Field>{fieledList}</S.Field>
           </S.TopBox>
+          <S.Box>
+            {props.fieldList &&
+              props.fieldList.map((state: string, i: number) => {
+                console.log(props.fieldList);
+                return <S.Field key={i}>{state}</S.Field>;
+              })}
+          </S.Box>
           <S.TeamBox>
             <S.TeamName>{props.teamName}</S.TeamName>
-            <S.NumberBox>
-              {props.memberList &&
-                props.memberList.map(data => {
-                  return (
-                    <>
-                      <S.NumberName>{data.name}</S.NumberName>
-                      <S.Email>{data.email}</S.Email>
-                      <S.Role>{data.role}</S.Role>
-                    </>
-                  );
-                })}
-            </S.NumberBox>
+            {props.memberList &&
+              props.memberList.map((data, index) => {
+                const roles = data.role.split(',');
+                return (
+                  <S.NumberBox key={index}>
+                    <S.NumberName>{data.name}</S.NumberName>
+                    <S.Email>{data.email}</S.Email>
+                    {roles.map((data, index) => {
+                      return <S.Role key={index}>{data}</S.Role>;
+                    })}
+                  </S.NumberBox>
+                );
+              })}
           </S.TeamBox>
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
-            <S.Statck>Javascript</S.Statck>
-            <S.Statck>Java</S.Statck>
+            {techStacks.map(data => {
+              return <S.Statck>{data}</S.Statck>;
+            })}
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <S.WriteBtn>보러가기</S.WriteBtn>
           </S.WriteBox>
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <S.WriteBtn>보러가기</S.WriteBtn>
           </S.WriteBox>
           <S.GitBox>
             <img src={Github} />
             <S.GitText>{GitHub}</S.GitText>
-            <S.GitInput placeholder='깃허브 주소를 입력하세요' />
-            <S.GitAddressBox>{props.githubUrl}</S.GitAddressBox>
+            <S.GitAddressBox>{props.githubUrl == null ? text : props.githubUrl}</S.GitAddressBox>
           </S.GitBox>
           <S.GuitarBox>
             <S.GuitarText>{Api}</S.GuitarText>
-            <S.InputBox placeholder='주소를 입력하세요' />
+            {/* <S.AddressBox>Qnd</S.AddressBox> */}
+            <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
             <S.GuitarText>{Details}</S.GuitarText>
-            <S.InputBox placeholder='주소를 입력하세요' />
+            <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>
           </S.GuitarBox>
         </S.ContentBox>
       </S.ProjectViewBox>
