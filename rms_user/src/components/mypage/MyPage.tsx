@@ -7,25 +7,49 @@ import { Plus } from '../../assets';
 import ProjectCreate from '../modal/create';
 import { setModalOn } from '../../modules/redux/action/modal';
 import { useModal } from '../../util/hooks/modal';
+import useViewMyProject from '../../util/hooks/viewMyProject';
+import ProjectView from '../modal/view';
 interface Props {
+  currentPage: number;
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
   studentNumber: number;
+  currentProjectId: number;
   setModalOn: (payload: string) => void;
   setModalOff: (payload: string) => void;
+  setCurrentProjectId: (payload: number) => void;
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList, studentNumber, setModalOff } = props;
+  const { state } = useViewMyProject();
+  const {
+    name,
+    email,
+    projectList,
+    studentNumber,
+    setCurrentProjectId,
+    currentPage,
+    currentProjectId,
+  } = props;
   const { setState } = useModal();
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const onClickChangePasswordModal = () => {
     setState.setModalOn('modifyNumber');
   };
 
+  const myProjectViewModal = useMemo(() => {
+    if (isOpenModal) {
+      return (
+        <ProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
+      );
+    }
+  }, [isOpenModal, state, currentProjectId]);
+
   return (
     <>
+      {myProjectViewModal}
       <Header />
       <S.MyPage>
         <S.Content>
@@ -50,6 +74,9 @@ const MyPage: FC<Props> = props => {
                     projectType={data.projectType}
                     teamName={data.teamName}
                     fieldList={data.fieldList}
+                    setIsOpenModal={setIsOpenModal}
+                    setCurrentProjectId={setCurrentProjectId}
+                    id={data.id}
                   />
                 );
               })}

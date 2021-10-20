@@ -6,7 +6,9 @@ import mainReducer from './main';
 import headerReducer from './header';
 import loginReducer from './login';
 import infoReducer from './info';
+import viewProjectReducer from './viewProject';
 import ModalReducer from './modal';
+import viewMyProjectReducer from './viewMyProject';
 
 const rootReducer = combineReducers({
   main: mainReducer,
@@ -16,7 +18,9 @@ const rootReducer = combineReducers({
   header: headerReducer,
   info: infoReducer,
   detailPlan: detailPlanReducer,
+  viewProject: viewProjectReducer,
   modal: ModalReducer,
+  viewMyProject: viewMyProjectReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
