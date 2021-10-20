@@ -6,6 +6,8 @@ import mypageSaga from './mypage';
 import detailPlanSaga from './detailPlan';
 import headerSaga from './header';
 import infoSaga from './info';
+import viewProjectSaga from './viewProject';
+import viewMyProjectSaga from './viewMyProject';
 
 export default function* rootSaga() {
   yield all([
@@ -16,5 +18,7 @@ export default function* rootSaga() {
     infoSaga(),
     detailPlanSaga(),
     mypageSaga(),
+    viewProjectSaga(),
+    viewMyProjectSaga(),
   ]);
 }
