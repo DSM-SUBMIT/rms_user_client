@@ -4,6 +4,8 @@ import Header from '../header';
 import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
+import ProjectCreate from '../modal/create';
+import { setModalOn } from '../../modules/redux/action/modal';
 import { useModal } from '../../util/hooks/modal';
 import useViewMyProject from '../../util/hooks/viewMyProject';
 import ProjectView from '../modal/view';
