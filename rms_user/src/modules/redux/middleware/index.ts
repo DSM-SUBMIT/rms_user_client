@@ -8,6 +8,7 @@ import headerSaga from './header';
 import infoSaga from './info';
 import viewProjectSaga from './viewProject';
 import viewMyProjectSaga from './viewMyProject';
+import userListSaga from './userList';
 
 export default function* rootSaga() {
   yield all([
@@ -20,5 +21,6 @@ export default function* rootSaga() {
     mypageSaga(),
     viewProjectSaga(),
     viewMyProjectSaga(),
+    userListSaga(),
   ]);
 }
