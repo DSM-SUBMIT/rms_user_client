@@ -8,7 +8,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const ProjectCreateBox = styled.div`
@@ -157,6 +157,32 @@ export const TechStackInput = styled.input`
   padding: 10px 15px;
 `;
 
+export const TagBox = styled.div`
+  width: 526px;
+  height: 60px;
+  margin-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 2px;
+  row-gap: 10px;
+  padding-top: 4px;
+`;
+
+export const Tag = styled.div`
+  padding: 0px 10px;
+  width: fit-content;
+  height: 20px;
+  background: #386bee;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+`;
+
 export const TeamBox = styled.div`
   width: 555px;
   height: 186px;
@@ -197,4 +223,3 @@ export const Teammemberbtn = styled.button`
   text-align: center;
   color: #386bee;
 `;
-

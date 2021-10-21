@@ -1,16 +1,36 @@
 import React, { FC, useState } from 'react';
 import * as S from './style';
-import { Close } from '../../../assets';
+import { Close, Github, X } from '../../../assets';
+import { TechStatck, Plan, Report, Api, Details, GitHub } from '../../../constance/project';
 import ChooseField from '../../main/ChooseField';
 import ProjectTeam from '../team';
 
-const ProjectCreate = () => {
+interface Props {
+  setModalOff: (payload: string) => void;
+  setModalOn: (payload: string) => void;
+}
+
+const ProjectCreate: FC<Props> = props => {
+  const { setModalOff, setModalOn } = props;
+  const [tag, setTag] = useState([]);
+  const onClickCreateProjectClose = () => {
+    setModalOff('');
+  };
+  const onClickProjectTeamOpen = () => {
+    setModalOn('projectTeam');
+  };
+
+  const onLanguageClick = (index: number) => {
+    const delTags = [...tag];
+    delTags.splice(index, 1);
+    setTag(delTags);
+  };
   return (
     <>
       <S.ModalWrapper>
         <S.ProjectCreateBox>
           <S.CloseBox>
-            <img src={Close} alt='closeModal' />
+            <img src={Close} alt='closeModal' onClick={onClickCreateProjectClose} />
           </S.CloseBox>
           <S.ContentBox>
             <S.TopBox>
@@ -47,11 +67,20 @@ const ProjectCreate = () => {
             </S.SelectBox>
             <S.InputBox>
               <S.TechStackBox>
-                <S.TechStackInput placeholder='기술 스택을 입력하세요' />
+                <S.TechStackInput placeholder='기술 스택을 입력하세요' type='text' />
+                <S.TagBox>
+                  {tag.map((tag, i) => {
+                    return (
+                      <S.Tag onClick={() => onLanguageClick(i)} key={i}>
+                        {tag}
+                      </S.Tag>
+                    );
+                  })}
+                </S.TagBox>
               </S.TechStackBox>
               <S.TeamBox>
                 <S.TeamInput placeholder='팀명을 입력하세요' />
-                <S.Teammemberbtn>팀원 설정하기</S.Teammemberbtn>
+                <S.Teammemberbtn onClick={onClickProjectTeamOpen}>팀원 설정하기</S.Teammemberbtn>
               </S.TeamBox>
             </S.InputBox>
           </S.ContentBox>
