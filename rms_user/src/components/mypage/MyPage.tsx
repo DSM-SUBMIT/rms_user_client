@@ -38,6 +38,9 @@ const MyPage: FC<Props> = props => {
   const onClickChangePasswordModal = () => {
     setState.setModalOn('modifyNumber');
   };
+  const onClickCreateProjectOpen = () => {
+    setState.setModalOn('projectCreate');
+  };
 
   const myProjectViewModal = useMemo(() => {
     if (isOpenModal) {
@@ -62,7 +65,7 @@ const MyPage: FC<Props> = props => {
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
-            <S.CreateBox>
+            <S.CreateBox onClick={onClickCreateProjectOpen}>
               <img src={Plus} alt='Plus' />
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
