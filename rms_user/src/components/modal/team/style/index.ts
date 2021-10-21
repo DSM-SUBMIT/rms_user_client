@@ -72,8 +72,9 @@ export const UserList = styled.div`
 export const UserBox = styled.div`
   width: 220px;
   height: 22px;
-  border-bottom: 0.3px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 10px;
+  padding-bottom: 13px;
 `;
 
 export const CheckBox = styled.div`
@@ -95,12 +96,10 @@ export const Name = styled.span`
 
 export const Email = styled.span`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   color: #000000;
-  margin-left: 15px;
-  margin-bottom: 10px;
+  margin-left: 4px;
+  margin-bottom: 8px;
 `;
 
 export const MemberBtn = styled.button`
