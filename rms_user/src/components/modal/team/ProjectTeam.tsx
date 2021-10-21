@@ -9,11 +9,11 @@ import useUserList from '../../../util/hooks/userList';
 interface Props {
   setModalOff: (payload: string) => void;
   setModalOn: (payload: string) => void;
-  userList: Array<userListState>;
+  user: Array<{ email: string; id: number; name: string }>;
 }
 
 const ProjectTeam: FC<Props> = props => {
-  const { setModalOn, userList } = props;
+  const { setModalOn, user } = props;
   const dispatch = useDispatch();
 
   const onClickProjectTeamClose = () => {
@@ -22,7 +22,7 @@ const ProjectTeam: FC<Props> = props => {
 
   useEffect(() => {
     dispatch({ type: USERSLIST });
-  }, [USERSLIST]);
+  }, []);
 
   return (
     <>
@@ -33,8 +33,8 @@ const ProjectTeam: FC<Props> = props => {
             <img src={Search} alt='Search' />
           </S.Input>
           <S.UserList>
-            {userList &&
-              userList.map((data: userListState, index: number) => {
+            {user &&
+              user.map((data, index) => {
                 return (
                   <S.UserBox key={index}>
                     <S.CheckBox data-id={data.id} />

@@ -3,22 +3,20 @@ import { USERSLIST_SUCCESS, USERSLIST_FAILURE } from '../../action/porject/inter
 import userListState from './interface';
 
 const initState: userListState = {
-  name: '',
-  email: '',
-  id: 1,
+  user: [],
   error: null,
 };
 
-const userListReducer = (state: userListState = initState, action: createProjectActionType) => {
+const userListReducer = (
+  state: userListState = initState,
+  action: createProjectActionType,
+): userListState => {
   switch (action.type) {
     case USERSLIST_SUCCESS:
       return {
         ...state,
-        name: action.payload.name,
-        email: action.payload.email,
-        id: action.payload.id,
+        user: action.payload.users,
       };
-      console.log(state);
     case USERSLIST_FAILURE:
       return {
         ...state,
