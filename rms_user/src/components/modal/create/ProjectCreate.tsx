@@ -1,18 +1,59 @@
 import React, { FC, useState } from 'react';
 import * as S from './style';
 import { Close, Github, X } from '../../../assets';
-import { TechStatck, Plan, Report, Api, Details, GitHub } from '../../../constance/project';
+import {
+  TechStatck,
+  Plan,
+  Report,
+  Api,
+  Details,
+  GitHub,
+  ClassificationSelect,
+  TeacherSelect,
+  MemberListType,
+} from '../../../constance/project';
 import ChooseField from '../../main/ChooseField';
-import ProjectTeam from '../team';
+import useProject from '../../../util/hooks/project';
+import { useDispatch } from 'react-redux';
+import { CREATE_PROJECT } from '../../../modules/redux/action/porject/interface';
 
 interface Props {
   setModalOff: (payload: string) => void;
   setModalOn: (payload: string) => void;
+  projectName: string;
+  projectType: string;
+  teacher: string;
+  teamName: string;
+  techStacks: string;
+  memberList: Array<MemberListType>;
+  setProjectName: (payload: string) => void;
+  setProjectType: (payload: string) => void;
+  setTeacher: (payload: string) => void;
+  setTeamName: (payload: string) => void;
+  setTechStacks: (payload: string) => void;
+  setMemberList: (payload: MemberListType) => void;
 }
 
 const ProjectCreate: FC<Props> = props => {
+  const dispath = useDispatch();
   const { setModalOff, setModalOn } = props;
   const [tag, setTag] = useState([]);
+  const { state, setState } = useProject();
+
+  const handleClassificationSelect = (e: any) => {
+    if (e.target.value === '분류 선택') {
+      return;
+    }
+    setState.setProjectType(e.target.value);
+  };
+
+  const handleTeacherSelect = (e: any) => {
+    if (e.target.value === '담당 선생님 선택') {
+      return;
+    }
+    setState.setTeacher(e.target.value);
+  };
+
   const onClickCreateProjectClose = () => {
     setModalOff('');
   };
@@ -20,10 +61,14 @@ const ProjectCreate: FC<Props> = props => {
     setModalOn('projectTeam');
   };
 
-  const onLanguageClick = (index: number) => {
-    const delTags = [...tag];
-    delTags.splice(index, 1);
-    setTag(delTags);
+  const onClickChose = () => {};
+
+  const onLanguageClick = (e: any) => {
+    if (e.key === 'Enter') {
+      setState.setTechStacks(e.target.value);
+      const newTags = e.target.value;
+      console.log(newTags);
+    }
   };
   return (
     <>
@@ -34,8 +79,17 @@ const ProjectCreate: FC<Props> = props => {
           </S.CloseBox>
           <S.ContentBox>
             <S.TopBox>
-              <S.ProjectNameBox placeholder='프로젝트 명을 입력하세요' />
-              <S.UploadBut>업로드</S.UploadBut>
+              <S.ProjectNameBox
+                placeholder='프로젝트 명을 입력하세요'
+                onChange={e => setState.setProjectName(e.target.value)}
+              />
+              <S.UploadBut
+                onClick={() => {
+                  dispath({ type: CREATE_PROJECT });
+                }}
+              >
+                업로드
+              </S.UploadBut>
             </S.TopBox>
             <S.FieldChoiceBox>
               <S.FieldChoice>
@@ -44,42 +98,42 @@ const ProjectCreate: FC<Props> = props => {
               </S.FieldChoice>
             </S.FieldChoiceBox>
             <S.SelectBox>
-              <S.ClassificationSelect>
-                <option value='' disabled selected>
-                  분류 선택
-                </option>
-                <option value=''>프로젝트 실무 1</option>
-                <option value=''>프로젝트 실무 2</option>
-                <option value=''>소프트웨어 공학</option>
-                <option value=''>개인 프로젝트</option>
-                <option value=''>팀 프로젝트</option>
-                <option value=''>동아리 프로젝트</option>
+              <S.ClassificationSelect onClick={handleClassificationSelect}>
+                <option hidden>분류 선택</option>
+                {ClassificationSelect.map(item => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
               </S.ClassificationSelect>
-              <S.TeacherSelect>
-                <option value='' disabled selected>
-                  담당 선생님 선택
-                </option>
-                <option value=''>1학년 담당 선생님</option>
-                <option value=''>2학년 담당 선생님</option>
-                <option value=''>3학년 담당 선생님</option>
-                <option value=''>동아리 담당 선생님</option>
+              <S.TeacherSelect onClick={handleTeacherSelect}>
+                <option hidden>담당 선생님 선택</option>
+                {TeacherSelect.map(item => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
               </S.TeacherSelect>
             </S.SelectBox>
             <S.InputBox>
               <S.TechStackBox>
-                <S.TechStackInput placeholder='기술 스택을 입력하세요' type='text' />
+                <S.TechStackInput
+                  placeholder='기술 스택을 입력하세요'
+                  type='text'
+                  onKeyPress={e => onLanguageClick(e)}
+                />
                 <S.TagBox>
                   {tag.map((tag, i) => {
-                    return (
-                      <S.Tag onClick={() => onLanguageClick(i)} key={i}>
-                        {tag}
-                      </S.Tag>
-                    );
+                    return <S.Tag key={i}>{tag}</S.Tag>;
                   })}
+                  <S.Tag>뿡</S.Tag>
                 </S.TagBox>
               </S.TechStackBox>
               <S.TeamBox>
-                <S.TeamInput placeholder='팀명을 입력하세요' />
+                <S.TeamInput
+                  placeholder='팀명을 입력하세요'
+                  onChange={e => setState.setTeamName(e.target.value)}
+                />
                 <S.Teammemberbtn onClick={onClickProjectTeamOpen}>팀원 설정하기</S.Teammemberbtn>
               </S.TeamBox>
             </S.InputBox>

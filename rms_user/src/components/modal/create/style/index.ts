@@ -55,16 +55,19 @@ export const ProjectNameBox = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   padding: 10px 15px;
   font-family: Noto Sans KR;
   font-size: 12px;
-  color: #aaaaaa;
+  padding: 10px 15px;
+  ::placeholder {
+    color: #aaaaaa;
+  }
 `;
 
 export const UploadBut = styled.button`
   width: 60px;
   height: 24px;
+  color: #5f5f5f;
   margin-top: 7px;
   font-family: 'Noto Sans KR';
   font-weight: 200;
@@ -101,7 +104,7 @@ export const SelectBox = styled.div`
 `;
 
 export const ClassificationSelect = styled.select`
-  width: 128px;
+  width: 68%;
   height: 35px;
   background: #fefefe;
   border: 1px solid #e5e5e5;
@@ -111,6 +114,7 @@ export const ClassificationSelect = styled.select`
   line-height: 17px;
   font-family: Noto Sans KR;
   color: #4f4f4f;
+  margin-right: 15px;
 `;
 
 export const TeacherSelect = styled.select`
@@ -152,9 +156,12 @@ export const TechStackInput = styled.input`
   border-radius: 5px;
   font-family: Noto Sans KR;
   font-size: 10px;
-  color: #aaaaaa;
   margin: 15px;
   padding: 10px 15px;
+  color: #000000;
+  ::placeholder {
+    color: #aaaaaa;
+  }
 `;
 
 export const TagBox = styled.div`
@@ -204,9 +211,12 @@ export const TeamInput = styled.input`
   border-radius: 5px;
   font-family: Noto Sans KR;
   font-size: 10px;
-  color: #aaaaaa;
+  color: #000000;
   margin: 15px;
   padding: 10px 15px;
+  ::placeholder {
+    color: #aaaaaa;
+  }
 `;
 
 export const Teammemberbtn = styled.button`

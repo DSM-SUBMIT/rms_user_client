@@ -1,23 +1,23 @@
-import { call, put, select, takeLatest } from '@redux-saga/core/effects';
-import { getDetailPlan } from '../../../../util/api/detailPlan';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { reducerType } from '../../reducer';
-import DetailPlanState from '../../reducer/detailPlan/interface';
-import { GET_DETAIL_PLAN } from '../../action/detailPlan/interface';
+import { CREATE_PROJECT } from '../../action/porject/interface';
+import { createProject } from '../../../../util/api/project';
+import ProjectState from '../../reducer/project/interface';
+const getStateFunc = (state: reducerType): ProjectState => state.project;
 
-const getStateFunc = (state: reducerType): DetailPlanState => state.detailPlan;
-
-const getDetailPlanSaga = function* (): any {
-  const type = 'PLAN/GET_DETAIL_PLAN';
+const setProjectSaga = function* (): any {
+  const type = 'PROJECT/CREATE_PROJECT';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getDetailPlan, accessToken, state.id);
+    const response = yield call(createProject, accessToken);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
     });
+    console.log(response.data);
   } catch (error: any) {
     if (error.response?.data) {
       yield put({
@@ -36,8 +36,8 @@ const getDetailPlanSaga = function* (): any {
   }
 };
 
-function* detailPlanSaga() {
-  yield takeLatest(GET_DETAIL_PLAN, getDetailPlanSaga);
+function* projectSaga() {
+  yield takeLatest(CREATE_PROJECT, setProjectSaga);
 }
 
-export default detailPlanSaga;
+export default projectSaga;

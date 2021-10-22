@@ -2,12 +2,12 @@ import { call, put, select, takeLatest } from '@redux-saga/core/effects';
 import { getDetailPlan } from '../../../../util/api/detailPlan';
 import { reducerType } from '../../reducer';
 import DetailPlanState from '../../reducer/detailPlan/interface';
-import { GET_DETAIL_PLAN } from '../../action/detailPlan/interface';
+import { PROJECTDELETE } from '../../action/porject/interface';
 
 const getStateFunc = (state: reducerType): DetailPlanState => state.detailPlan;
 
-const getDetailPlanSaga = function* (): any {
-  const type = 'PLAN/GET_DETAIL_PLAN';
+const setDeleteProjectSaga = function* (): any {
+  const type = 'PROJECT/DELETE_PROJECTDELETE';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
@@ -36,8 +36,8 @@ const getDetailPlanSaga = function* (): any {
   }
 };
 
-function* detailPlanSaga() {
-  yield takeLatest(GET_DETAIL_PLAN, getDetailPlanSaga);
+function* deleteProjectSaga() {
+  yield takeLatest(PROJECTDELETE, setDeleteProjectSaga);
 }
 
-export default detailPlanSaga;
+export default deleteProjectSaga;

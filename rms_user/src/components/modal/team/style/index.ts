@@ -1,3 +1,4 @@
+import { check } from 'prettier';
 import styled from 'styled-components';
 import { color } from '../../../../style';
 
@@ -77,10 +78,9 @@ export const UserBox = styled.div`
   padding-bottom: 13px;
 `;
 
-export const CheckBox = styled.div`
+export const CheckBox = styled.input`
   width: 12px;
   height: 12px;
-  background: rgba(196, 196, 196, 0.3);
   display: inline-block;
   margin-left: 7px;
 `;

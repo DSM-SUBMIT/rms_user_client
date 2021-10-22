@@ -9,7 +9,8 @@ import infoSaga from './info';
 import viewProjectSaga from './viewProject';
 import viewMyProjectSaga from './viewMyProject';
 import userListSaga from './userList';
-
+import deleteProjectSaga from './deleteProject';
+import projectSaga from './project';
 export default function* rootSaga() {
   yield all([
     mainSaga(),
@@ -22,5 +23,7 @@ export default function* rootSaga() {
     viewProjectSaga(),
     viewMyProjectSaga(),
     userListSaga(),
+    deleteProjectSaga(),
+    projectSaga(),
   ]);
 }
