@@ -57,10 +57,16 @@ const projectReducer = (
     //     fieldList: action.tpye,
     //   };
     case MEMBERLIST:
-      return {
-        ...state,
-        memberList: state.memberList.concat(action.payload),
-      };
+      if (action.payload.role === 'remove')
+        return {
+          ...state,
+          memberList: state.memberList.filter(data => data.id !== action.payload.id),
+        };
+      else
+        return {
+          ...state,
+          memberList: state.memberList.concat(action.payload),
+        };
     default:
       return state;
   }

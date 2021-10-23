@@ -23,6 +23,7 @@ const Modal: FC = (): any => {
           {...state}
           {...setState}
           setMemberList={setProjectState.setMemberList}
+          memberList={projectState.memberList}
         />
       ) : null}
     </>

@@ -8,6 +8,7 @@ const ProjectTeamContainer: FC = () => {
   const { state } = useUserList();
   const { setState } = useModal();
   const memberSetState = useProject().setState;
+  const memberState = useProject().state;
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -16,6 +17,7 @@ const ProjectTeamContainer: FC = () => {
         setModalOff={setState.setModalOff}
         setModalOn={setState.setModalOn}
         setMemberList={memberSetState.setMemberList}
+        memberList={memberState.memberList}
       />
     </Suspense>
   );

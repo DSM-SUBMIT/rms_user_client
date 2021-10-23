@@ -6,6 +6,7 @@ import { USERSLIST } from '../../../modules/redux/action/porject/interface';
 import { MemberListType } from '../../../constance/project';
 
 interface Props {
+  memberList: Array<MemberListType>;
   setModalOff: (payload: string) => void;
   setModalOn: (payload: string) => void;
   setMemberList: (payload: MemberListType) => void;
@@ -13,8 +14,7 @@ interface Props {
 }
 
 const ProjectTeam: FC<Props> = props => {
-  const { setModalOn, user, setMemberList } = props;
-  // const [isClickBtn, setIsClickBtn] = useState(false);
+  const { setModalOn, user, setMemberList, memberList } = props;
   const dispatch = useDispatch();
 
   const onClickProjectTeamClose = () => {
@@ -25,20 +25,21 @@ const ProjectTeam: FC<Props> = props => {
     dispatch({ type: USERSLIST });
   }, []);
 
-  const onClickBox = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const onClickBox = (e: React.FormEvent<HTMLInputElement>) => {
     const dataId = Number(e.currentTarget.dataset.id);
     const dataName = e.currentTarget.dataset.name as string;
     const dataEmail = e.currentTarget.dataset.email as string;
-    const isClick = e.currentTarget.click;
-    console.log(isClick);
-    // setIsClickBtn(!isClickBtn);
-    //if (isClick === 'true')
-    //  setMemberList({
-    //  email: dataEmail,
-    // name: dataName,
-    //id: dataId,
-    //  role: '',
-    //  });
+    const isClick = e.currentTarget.checked;
+    if (isClick)
+      setMemberList({
+        email: dataEmail,
+        name: dataName,
+        id: dataId,
+        role: '',
+      });
+    else {
+      setMemberList({ email: dataEmail, name: dataName, id: dataId, role: 'remove' });
+    }
   };
   return (
     <>
