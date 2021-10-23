@@ -10,7 +10,7 @@ const useWriteReport = () => {
   const dispatch = useDispatch();
   const state = useSelectState().writeReport;
   const setState = {
-    setContent: (payload: string) => {
+    setContent: (payload: string[]) => {
       dispatch(setContent(payload));
     },
     setVideoUrl: (payload: string) => {
