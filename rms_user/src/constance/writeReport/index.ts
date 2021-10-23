@@ -8,6 +8,6 @@ export const ReportContentForm = [
 ]
 
 export interface ReportContentRequest {
-    content: string;
+    content: string[];
     videoUrl : string;
 }

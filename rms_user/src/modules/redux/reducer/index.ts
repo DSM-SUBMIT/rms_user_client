@@ -18,6 +18,9 @@ const rootReducer = combineReducers({
   header: headerReducer,
   info: infoReducer,
   detailPlan: detailPlanReducer,
+  writePlan : writePlanReducer,
+  writeReport : writeReportReducer,
+  modal: ModalReducer
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
