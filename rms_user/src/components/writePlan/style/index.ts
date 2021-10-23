@@ -6,6 +6,7 @@ export const Main = styled.main`
     display: flex;
     background-color: ${color.background};
     text-align: center;
+    justify-content: center;
 `
 
 export const Form = styled.form`
