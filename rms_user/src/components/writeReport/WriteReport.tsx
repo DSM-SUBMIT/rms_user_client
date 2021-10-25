@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { useState, FC, useEffect, createRef, useMemo} from 'react';
 import * as S from './style';
-import { Editor } from '@toast-ui/react-editor';
 import Header from '../header';
+import { Editor } from '@toast-ui/react-editor';
 import { ReportContentForm } from '../../constance/writeReport'
 
 import '@toast-ui/editor/dist/toastui-editor.css';
+import { ReportContentForm } from '../../constance/writeReport';
+import useWriteReport from '../../util/hooks/writeReport';
+import { useDispatch } from 'react-redux';
+import { GET_SAVE_REPORT, GET_SUBMIT_REPORT } from '../../modules/redux/action/writeReport/interface';
+import { useHistory, useLocation } from 'react-router';
+import EditorItem from './EditorItem';
+
+interface Props {
+    
+}
+
+const WriteReport: FC<Props> = props => {
+    const history = useHistory();
+    const { setState, state } = useWriteReport();
+    const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
+    const { setContent, getProjectId, setVideoUrl } = setState;
+
+    const dispatch = useDispatch();
+    const [editor, setEditor] = useState(1);
+    const EditorRef = createRef<Editor>();
+
+    const SaveReport = () => {
+        const editorInstance = EditorRef.current?.getInstance();
+        if (window.confirm("보고서를 임시저장합니다") === true ) {
+            const contents = editorInstance?.getHTML() || "";
+            console.log(contents);
+            dispatch({type: GET_SAVE_REPORT})
+        }
+        else return;
+    }
+
+    const submitReport = () => {
+        console.log(content.join("!@#$%"));
+        if(window.confirm("보고서를 제출합니다") === true) {
+            dispatch({type: GET_SUBMIT_REPORT})
+            history.push(`/mypage`)
+        }
+        else return;
+    }
+    const AddPage = (event: React.MouseEvent<HTMLElement>) => {
+        // const editorInstance = EditorRef.current?.getInstance();
+        if (window.confirm("페이지를 추가합니다") === true ) {
+            setEditor(prevPage => prevPage + 1);
+        }
+        else return;
+    };
 
 const WriteReport = () => {
     return (
@@ -31,20 +77,26 @@ const WriteReport = () => {
                             </S.FormDiv>
                         </S.Section>
                         <S.Section>
-                            <Editor initialEditType="wysiwyg" useCommandShortcut height="800px" />
+                            {Array(editor)
+                                .fill(0)
+                                .map((v, i) => <EditorItem content={content} page={i} setContent={setContent}/>)}
                         </S.Section>
                         <S.AddPage>
-                            <S.Button type="button">페이지 추가</S.Button>
+                            <S.Button type="button" onClick={AddPage}>페이지 추가</S.Button>
                         </S.AddPage>
                         <S.FileBox>
-                            <input type="file" id="file" style={{display:"none"}}/>
-                            <label htmlFor="file">파일찾기</label>
-                            <input id="uploadName" value="첨부파일" placeholder="제출영상 또는 첨부파일"/>
+                            <label htmlFor="file">
+                                파일찾기
+                                <input type="file" id="file" style={{display:"none"}} onChange={(e) => {
+                                setVideoUrl(e.target.value)
+                                }}/>
+                            </label>
+                            <p id="uploadName">{videoUrl}</p>
                         </S.FileBox>
                     </S.Report>
                     <S.ButtonGroup>
-                        <S.Button type="button">임시저장</S.Button>
-                        <S.Button type="button">제출</S.Button>
+                        <S.Button type="button" onClick={SaveReport}>임시저장</S.Button>
+                        <S.Button type="button" onClick={submitReport}>제출</S.Button>
                     </S.ButtonGroup>
                 </S.Form>
             </S.Main>

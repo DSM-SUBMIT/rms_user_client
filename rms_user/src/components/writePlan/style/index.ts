@@ -50,9 +50,12 @@ export const PlanContent = styled.section`
 
 export const PlanContentResult = styled.div`
     display: flex;
-    div {
-        margin-left: 20px;
-    }
+    flex-direction: column;
+`
+export const InputDiv = styled.div`
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
     label {
         margin-left: 5px;
     }

@@ -8,6 +8,8 @@ import loginReducer from './login';
 import infoReducer from './info';
 import viewProjectReducer from './viewProject';
 import ModalReducer from './modal';
+import writePlanReducer from './writePlan';
+import writeReportReducer from './writeReport';
 import viewMyProjectReducer from './viewMyProject';
 
 const rootReducer = combineReducers({
@@ -18,6 +20,9 @@ const rootReducer = combineReducers({
   header: headerReducer,
   info: infoReducer,
   detailPlan: detailPlanReducer,
+  writePlan : writePlanReducer,
+  writeReport : writeReportReducer,
+  modal: ModalReducer
   viewProject: viewProjectReducer,
   modal: ModalReducer,
   viewMyProject: viewMyProjectReducer,
