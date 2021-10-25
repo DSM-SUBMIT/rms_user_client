@@ -9,7 +9,7 @@ const MyPageContainer: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: GET_MYPAGE_FEED });
-  }, []);
+  }, [GET_MYPAGE_FEED]);
   return (
     <Suspense fallback={<div>Loading</div>}>
       <MyPage {...state} {...setState} />
