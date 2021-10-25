@@ -1,6 +1,7 @@
 import { useSelectState } from '../default';
 import { useDispatch } from 'react-redux';
 import { setModalOff, setModalOn, setType } from '../../../modules/redux/action/modal';
+import { setCurrentProjectId } from '../../../modules/redux/action/mypage';
 
 const useMypage = () => {
   const state = useSelectState().mypage;
@@ -14,6 +15,9 @@ const useMypage = () => {
     },
     setType: (payload: string) => {
       dispatch(setType(payload));
+    },
+    setCurrentProjectId: (payload: number) => {
+      dispatch(setCurrentProjectId(payload));
     },
   };
   return { state, setState };

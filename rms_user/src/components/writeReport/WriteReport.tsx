@@ -2,6 +2,8 @@ import React, { useState, FC, useEffect, createRef, useMemo} from 'react';
 import * as S from './style';
 import Header from '../header';
 import { Editor } from '@toast-ui/react-editor';
+import { ReportContentForm } from '../../constance/writeReport'
+
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { ReportContentForm } from '../../constance/writeReport';
 import useWriteReport from '../../util/hooks/writeReport';
@@ -19,7 +21,7 @@ const WriteReport: FC<Props> = props => {
     const { setState, state } = useWriteReport();
     const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
     const { setContent, getProjectId, setVideoUrl } = setState;
-
+  
     const dispatch = useDispatch();
     const [editor, setEditor] = useState(1);
     const EditorRef = createRef<Editor>();
@@ -33,7 +35,7 @@ const WriteReport: FC<Props> = props => {
         }
         else return;
     }
-
+    
     const submitReport = () => {
         console.log(content.join("!@#$%"));
         if(window.confirm("보고서를 제출합니다") === true) {
@@ -50,6 +52,7 @@ const WriteReport: FC<Props> = props => {
         else return;
     };
 
+const WriteReport = () => {
     return (
         <>
             <Header/>
@@ -58,7 +61,7 @@ const WriteReport: FC<Props> = props => {
                     <S.Report>
                         <S.Section>
                             <h5>[보고서]</h5>
-                            <S.TitleName>뿌링클</S.TitleName>
+                            <S.TitleName>보고서 관리 시스템</S.TitleName>
                             <S.FormDiv>
                                 <h4>I. 프로젝트 진행 동기 및 목적</h4>
                                 <span className="tab">&#9;</span>
@@ -81,7 +84,6 @@ const WriteReport: FC<Props> = props => {
                         <S.AddPage>
                             <S.Button type="button" onClick={AddPage}>페이지 추가</S.Button>
                         </S.AddPage>
-                        <S.FileBox>
                             <label htmlFor="file">
                                 파일찾기
                                 <input type="file" id="file" style={{display:"none"}} onChange={(e) => {
