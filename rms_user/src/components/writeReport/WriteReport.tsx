@@ -2,6 +2,8 @@ import React, { useState, FC, useEffect, createRef, useMemo} from 'react';
 import * as S from './style';
 import Header from '../header';
 import { Editor } from '@toast-ui/react-editor';
+import { ReportContentForm } from '../../constance/writeReport'
+
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { ReportContentForm } from '../../constance/writeReport';
 import useWriteReport from '../../util/hooks/writeReport';
@@ -50,6 +52,7 @@ const WriteReport: FC<Props> = props => {
         else return;
     };
 
+const WriteReport = () => {
     return (
         <>
             <Header/>
@@ -58,7 +61,7 @@ const WriteReport: FC<Props> = props => {
                     <S.Report>
                         <S.Section>
                             <h5>[보고서]</h5>
-                            <S.TitleName>뿌링클</S.TitleName>
+                            <S.TitleName>보고서 관리 시스템</S.TitleName>
                             <S.FormDiv>
                                 <h4>I. 프로젝트 진행 동기 및 목적</h4>
                                 <span className="tab">&#9;</span>

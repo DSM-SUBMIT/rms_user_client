@@ -12,15 +12,8 @@ interface Props {
 }
 
 const ProjectList: FC<Props> = props => {
-  const {
-    id,
-    projectName,
-    projectType,
-    teamName,
-    fieldList,
-    setCurrentProjectId,
-    setIsOpenModal,
-  } = props;
+  const { id, projectName, projectType, teamName, fieldList, setCurrentProjectId, setIsOpenModal } =
+    props;
 
   const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     setCurrentProjectId(Number(event.currentTarget.dataset.id));
