@@ -16,6 +16,7 @@ export const WritePlanRequest= (
     plannedEndDate: state.plannedEndDate,
     plannedStartDate: state.plannedEndDate
   }
+    plannedStartDate: state.plannedEndDate}
 }
 
 export const SavePlan = async (accessToken: string, body: ContentRequest, projectId: number) => {

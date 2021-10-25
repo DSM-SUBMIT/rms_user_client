@@ -28,14 +28,12 @@ export const InformationBox = styled.div`
 export const NumberBox = styled.div`
   width: 40px;
   margin-left: 43px;
-  z-index: 3;
+  z-index: 1;
   cursor: pointer;
 `;
 
 export const Number = styled.span`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
 `;
 

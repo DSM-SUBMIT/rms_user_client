@@ -11,7 +11,7 @@ import {
 } from '../../action/writeReport/interface';
 
 const initState: ReportContentState = {
-  content: "",
+  content: [],
   videoUrl: "",
   projectId: 1,
   error: null,
