@@ -21,7 +21,7 @@ const WriteReport: FC<Props> = props => {
     const { setState, state } = useWriteReport();
     const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
     const { setContent, getProjectId, setVideoUrl } = setState;
-
+  
     const dispatch = useDispatch();
     const [editor, setEditor] = useState(1);
     const EditorRef = createRef<Editor>();
@@ -35,7 +35,7 @@ const WriteReport: FC<Props> = props => {
         }
         else return;
     }
-
+    
     const submitReport = () => {
         console.log(content.join("!@#$%"));
         if(window.confirm("보고서를 제출합니다") === true) {
@@ -84,7 +84,6 @@ const WriteReport = () => {
                         <S.AddPage>
                             <S.Button type="button" onClick={AddPage}>페이지 추가</S.Button>
                         </S.AddPage>
-                        <S.FileBox>
                             <label htmlFor="file">
                                 파일찾기
                                 <input type="file" id="file" style={{display:"none"}} onChange={(e) => {
