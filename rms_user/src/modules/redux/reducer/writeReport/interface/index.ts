@@ -1,7 +1,7 @@
 import { error } from '../../../../../models/error';
 
 interface ReportContentState{
-    content: string;
+    content: string[];
     videoUrl: string;
     projectId: number;
     error: error | null;

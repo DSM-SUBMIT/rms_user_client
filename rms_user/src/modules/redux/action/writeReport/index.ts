@@ -13,7 +13,7 @@ import {
   GET_SUBMIT_REPORT_FAILURE
 } from './interface';
 
-export const setContent = createAction(CONTENT)<string>();
+export const setContent = createAction(CONTENT)<string[]>();
 export const setVideoUrl = createAction(VIDEOURL)<string>();
 export const getProjectId = createAction(PROJECTID)<number>();
 

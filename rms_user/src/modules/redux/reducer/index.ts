@@ -20,6 +20,9 @@ const rootReducer = combineReducers({
   header: headerReducer,
   info: infoReducer,
   detailPlan: detailPlanReducer,
+  writePlan : writePlanReducer,
+  writeReport : writeReportReducer,
+  modal: ModalReducer
   viewProject: viewProjectReducer,
   modal: ModalReducer,
   viewMyProject: viewMyProjectReducer,
