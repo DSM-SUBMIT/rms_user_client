@@ -22,9 +22,8 @@ const rootReducer = combineReducers({
   detailPlan: detailPlanReducer,
   writePlan : writePlanReducer,
   writeReport : writeReportReducer,
-  modal: ModalReducer
-  viewProject: viewProjectReducer,
   modal: ModalReducer,
+  viewProject: viewProjectReducer,
   viewMyProject: viewMyProjectReducer,
 });
 
