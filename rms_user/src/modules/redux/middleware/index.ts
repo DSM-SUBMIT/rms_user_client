@@ -21,7 +21,7 @@ export default function* rootSaga() {
     detailPlanSaga(),
     mypageSaga(),
     writePlanSaga(),
-    writeReportSaga()
+    writeReportSaga(),
     viewProjectSaga(),
     viewMyProjectSaga(),
   ]);
