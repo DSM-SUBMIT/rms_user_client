@@ -7,6 +7,7 @@ import {
   TECHSTACKS,
   FIELDLIST,
   MEMBERLIST,
+  ROLE,
 } from '../../action/porject/interface';
 import ProjectState from './interface';
 
@@ -51,11 +52,29 @@ const projectReducer = (
         ...state,
         techStacks: action.payload,
       };
-    // case FIELDLIST:
-    //   return {
-    //     ...state,
-    //     fieldList: action.tpye,
-    //   };
+    case FIELDLIST:
+      return {
+        ...state,
+        fieldList: action.payload,
+      };
+    case ROLE:
+      const userIndex = Number(action.payload.id);
+      if (state.memberList.length !== 0) {
+        const stateMemberList = state.memberList;
+        stateMemberList[userIndex] = {
+          id: state.memberList[userIndex].id,
+          email: state.memberList[userIndex].email,
+          name: state.memberList[userIndex].name,
+          role: action.payload.role,
+        };
+        return {
+          ...state,
+          memberList: stateMemberList,
+        };
+      } else
+        return {
+          ...state,
+        };
     case MEMBERLIST:
       if (action.payload.role === 'remove')
         return {
