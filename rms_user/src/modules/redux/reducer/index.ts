@@ -11,6 +11,8 @@ import ModalReducer from './modal';
 import viewMyProjectReducer from './viewMyProject';
 import projectReducer from './project';
 import userListReducer from './userList';
+import urlModifyReducer from './urlModify';
+import deleteReducer from './projectDelete';
 
 const rootReducer = combineReducers({
   main: mainReducer,
@@ -25,6 +27,8 @@ const rootReducer = combineReducers({
   viewMyProject: viewMyProjectReducer,
   project: projectReducer,
   userList: userListReducer,
+  urlModify: urlModifyReducer,
+  delete: deleteReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
