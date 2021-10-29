@@ -14,9 +14,9 @@ import {
   USERSLIST,
   USERSLIST_SUCCESS,
   USERSLIST_FAILURE,
-  PROJECTDELETE,
-  PROJECTDELETE_SUCCESS,
-  PROJECTDELETE_FAILURE,
+  DELETE_PROJECT,
+  DELETE_PROJECT_SUCCESS,
+  DELETE_PROJECT_FAILURE,
   MODIFY_PROJECT,
   MODIFY_PROJECT_SUCCESS,
   MODIFY_PROJECT_FAILURE,
@@ -48,9 +48,9 @@ export const setMemberList = createAction(MEMBERLIST)<MemberListType>();
 export const getUserList = createAction(USERSLIST)();
 export const getUserListSuccess = createAction(USERSLIST_SUCCESS)<UsersListType>();
 export const getUserListFailure = createAction(USERSLIST_FAILURE)<error>();
-export const setProjectDelete = createAction(PROJECTDELETE)();
-export const setProjectDeleteSuccess = createAction(PROJECTDELETE_SUCCESS)();
-export const setProjectDeleteFailure = createAction(PROJECTDELETE_FAILURE)<error>();
+export const setProjectDelete = createAction(DELETE_PROJECT)();
+export const setProjectDeleteSuccess = createAction(DELETE_PROJECT_SUCCESS)();
+export const setProjectDeleteFailure = createAction(DELETE_PROJECT_FAILURE)<error>();
 export const getProjectModify = createAction(MODIFY_PROJECT)<ProjectCreateType>();
 export const getProjectModifySuccess = createAction(MODIFY_PROJECT_SUCCESS)();
 export const getProjectModifyFailure = createAction(MODIFY_PROJECT_FAILURE)<error>();
