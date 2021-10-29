@@ -1,9 +1,6 @@
 import React, { FC, useState } from 'react';
 import * as S from './style';
 import { FieldListSelect } from '../../../constance/project';
-import { setFieldList } from '../../../modules/redux/action/porject';
-import { DataIdType } from '../../../constance/main';
-import { useSelector } from 'react-redux';
 
 interface Props {
   setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,7 +17,6 @@ const FieldBox: FC<Props> = props => {
     if ((fieldList.length = 0)) {
       fieldList.filter((conten, i) => conten !== undefined);
     }
-
     if (isClick) setFieldList(fieldList.concat(dataId));
     else setFieldList(fieldList.filter((item: string) => content !== item));
   };
