@@ -21,6 +21,7 @@ const initState: ViewMyProjectState = {
   githubUrl: '',
   error: null,
   projectId: 1,
+  teacher: '',
   // isPlanAccepted: false,
   // isPlanSubmitted: false,
   // isReportAccepted: false,
@@ -45,6 +46,7 @@ const viewMyProjectReducer = (
         docsUrl: action.payload.docsUrl,
         githubUrl: action.payload.githubUrl,
         projectId: action.payload.id,
+        teacher: action.payload.teacher,
       };
 
     default:

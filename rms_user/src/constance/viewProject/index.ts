@@ -35,4 +35,5 @@ export type ViewMyProjectType = {
   docsUrl: string;
   githubUrl: string;
   id: number;
+  teacher: string;
 };

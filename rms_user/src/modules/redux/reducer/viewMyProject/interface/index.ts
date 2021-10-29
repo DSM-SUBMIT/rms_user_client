@@ -13,6 +13,7 @@ interface ViewMyProjectState {
   githubUrl: string;
   projectId: number;
   error: error | null;
+  teacher: string;
   // isPlanAccepted: boolean;
   // isPlanSubmitted: boolean;
   // isReportAccepted: boolean;
