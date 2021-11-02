@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { GET_SAVE_REPORT, GET_SUBMIT_REPORT } from '../../modules/redux/action/writeReport/interface';
 import { useHistory, useLocation } from 'react-router';
 import EditorItem from './EditorItem';
+import UseDetailReport from '../../util/hooks/detailReport';
 
 interface Props {
     
@@ -17,12 +18,23 @@ interface Props {
 const WriteReport: FC<Props> = props => {
     const history = useHistory();
     const { setState, state } = useWriteReport();
+    const detailContent = UseDetailReport().state.content;
+    const setProjectId = UseDetailReport().setState.setId;
     const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
     const { setContent, getProjectId, setVideoUrl } = setState;
   
     const dispatch = useDispatch();
     const [editor, setEditor] = useState(1);
     const EditorRef = createRef<Editor>();
+
+    useEffect(() => {
+        if(detailContent)
+            setContent(detailContent.split('!@#$%'));
+    }, [detailContent])
+
+    useEffect(() => {
+        setProjectId('16')
+    }, [projectId])
 
     const SaveReport = () => {
         const editorInstance = EditorRef.current?.getInstance();
