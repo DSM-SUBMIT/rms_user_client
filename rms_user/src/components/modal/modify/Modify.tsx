@@ -29,11 +29,11 @@ const DeleteBox: FC<Props> = props => {
           <S.ContentBox>
             <S.ProjectBox>
               <S.ProjectText>프로젝트 수정</S.ProjectText>
-              <S.ProjectBtn onClick={onClickProjectOpen}>보러가기</S.ProjectBtn>
+              <S.ProjectBtn onClick={onClickProjectOpen}>수정하기</S.ProjectBtn>
             </S.ProjectBox>
             <S.OtherBox>
               <S.OtherText>링크 수정</S.OtherText>
-              <S.OtherBtn onClick={onClickOtherOpen}>보러가기</S.OtherBtn>
+              <S.OtherBtn onClick={onClickOtherOpen}>수정하기</S.OtherBtn>
             </S.OtherBox>
           </S.ContentBox>
         </S.ModifyBox>
