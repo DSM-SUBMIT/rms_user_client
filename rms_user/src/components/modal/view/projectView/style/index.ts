@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from '../../../../../style';
 
 export const ModalWrapper = styled.div`
   width: 100%;
@@ -109,8 +110,27 @@ export const TeamName = styled.div`
   color: #000000;
 `;
 
+export const MemberBox = styled.div`
+  width: auto;
+  height: 130px;
+  overflow: auto;
+  margin-top: 4px;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${color.main};
+  }
+`;
+
 export const NumberBox = styled.div`
-  margin-top: 9px;
+  margin-bottom: 9px;
   div {
     margin-right: 5px;
   }
@@ -252,7 +272,7 @@ export const GitInput = styled.input`
   font-family: Noto Sans KR;
   font-size: 10px;
   color: #aaaaaa;
-  margin: 10px 0px 9px 0px;
+  margin: 10px 0px 9px 1px;
   padding: 4px 15px;
 `;
 

@@ -65,19 +65,21 @@ const MyPorjectView: FC<Props> = props => {
           </S.Box>
           <S.TeamBox>
             <S.TeamName>{props.teamName}</S.TeamName>
-            {props.memberList &&
-              props.memberList.map((data, index) => {
-                const roles = data.role.split(',');
-                return (
-                  <S.NumberBox key={index}>
-                    <S.NumberName>{data.name}</S.NumberName>
-                    <S.Email>{data.email}</S.Email>
-                    {roles.map((data, index) => {
-                      return <S.Role key={index}>{data}</S.Role>;
-                    })}
-                  </S.NumberBox>
-                );
-              })}
+            <S.MemberBox>
+              {props.memberList &&
+                props.memberList.map((data, index) => {
+                  const roles = data.role.split(',');
+                  return (
+                    <S.NumberBox key={index}>
+                      <S.NumberName>{data.name}</S.NumberName>
+                      <S.Email>{data.email}</S.Email>
+                      {roles.map((data, index) => {
+                        return <S.Role key={index}>{data}</S.Role>;
+                      })}
+                    </S.NumberBox>
+                  );
+                })}
+            </S.MemberBox>
           </S.TeamBox>
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
