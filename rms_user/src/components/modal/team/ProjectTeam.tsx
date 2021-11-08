@@ -7,37 +7,42 @@ import { MemberListType } from '../../../constance/project';
 
 interface Props {
   memberList: Array<MemberListType>;
-  setModalOff: (payload: string) => void;
-  setModalOn: (payload: string) => void;
+  setIsOpenTeamModal: React.Dispatch<React.SetStateAction<boolean>>;
   setMemberList: (payload: MemberListType) => void;
-  user: Array<{ email: string; id: number; name: string }>;
+  user: Array<{ email: string; id: number; name: string; checked?: boolean }>;
 }
 
 const ProjectTeam: FC<Props> = props => {
-  const { setModalOn, user, setMemberList, memberList } = props;
+  const { user, setMemberList, memberList, setIsOpenTeamModal } = props;
   const dispatch = useDispatch();
 
   const onClickProjectTeamClose = () => {
-    setModalOn('projectCreate');
+    setIsOpenTeamModal(false);
   };
 
   useEffect(() => {
     dispatch({ type: USERSLIST });
   }, []);
 
+  const test = user.map(i => {
+    const temp = memberList.filter(item => item.email === i.email);
+    console.log(temp);
+    return temp.length > 0 ? { ...i, checked: true } : { ...i, checked: false };
+  });
+
   const onClickBox = (e: React.FormEvent<HTMLInputElement>) => {
     const dataId = Number(e.currentTarget.dataset.id);
     const dataName = e.currentTarget.dataset.name as string;
     const dataEmail = e.currentTarget.dataset.email as string;
     const isClick = e.currentTarget.checked;
-    if (isClick)
+    if (isClick) {
       setMemberList({
         email: dataEmail,
         name: dataName,
         id: dataId,
         role: '',
       });
-    else {
+    } else {
       setMemberList({ email: dataEmail, name: dataName, id: dataId, role: 'remove' });
     }
   };
@@ -50,14 +55,15 @@ const ProjectTeam: FC<Props> = props => {
             <img src={Search} alt='Search' />
           </S.Input>
           <S.UserList>
-            {user &&
-              user.map((data, index: number) => {
+            {test &&
+              test.map((data, index: number) => {
                 return (
                   <S.UserBox>
                     <S.CheckBox
                       type='checkbox'
                       data-id={data.id}
                       data-name={data.name}
+                      defaultChecked={data.checked}
                       data-email={data.email}
                       key={index}
                       onClick={onClickBox}
