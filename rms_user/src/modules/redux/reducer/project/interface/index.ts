@@ -1,6 +1,5 @@
 import { error } from '../../../../../models/error';
 import { MemberListType } from '../../../../../constance/project';
-
 interface ProjectState {
   projectName: string;
   projectType: string;

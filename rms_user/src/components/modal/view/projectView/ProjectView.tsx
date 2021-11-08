@@ -39,6 +39,7 @@ const PorjectView: FC<Props> = props => {
   }, [GET_PROJECT_CONTENTS]);
 
   const techStacks = props.techStack.split(',');
+  const gitHubs = props.githubUrl.split(',');
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
