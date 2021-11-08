@@ -17,9 +17,9 @@ const Modal: FC = (): any => {
   const useState = useUserList().state;
   const projectState = useProject().state;
   const setProjectState = useProject().setState;
-  const ProjectModifyState = useProject().state;
   const setProjectModifyState = useProjectModify().setState;
   const ViewMyProjectState = useViewMyProject();
+  const projectModifyState = useProjectModify().state;
 
   return (
     <>
@@ -27,25 +27,13 @@ const Modal: FC = (): any => {
       {state.type === 'projectCreate' ? (
         <ProjectCreate {...state} {...setState} {...projectState} {...setProjectState} />
       ) : null}
-      {state.type === 'projectTeam' ? (
-        <ProjectTeam
-          user={useState.user}
-          {...state}
-          {...setState}
-          setMemberList={setProjectState.setMemberList}
-          memberList={projectState.memberList}
-        />
-      ) : null}
-      {state.type === 'deleteModal' ? <DeleteBox {...state} {...setState} /> : null}
+
       {state.type === 'modifyModal' ? <Modify {...state} {...setState} /> : null}
       {state.type === 'projectModify' ? (
         <ProjectModfiy
-          setRole={function (payload: { id: string; role: string }): void {
-            throw new Error('Function not implemented.');
-          }}
+          {...projectModifyState}
           {...state}
           {...setState}
-          {...ProjectModifyState}
           {...setProjectModifyState}
           {...ViewMyProjectState}
         />

@@ -3,7 +3,6 @@ import { reducerType } from '../../reducer';
 import { CREATE_PROJECT } from '../../action/porject/interface';
 import { createProject, projectCreateStateToRequest } from '../../../../util/api/project';
 import ProjectState from '../../reducer/project/interface';
-import MypageState from '../../reducer/mypage/interface';
 const getStateFunc = (state: reducerType): ProjectState => state.project;
 
 const setProjectSaga = function* (): any {
