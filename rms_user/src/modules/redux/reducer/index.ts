@@ -13,6 +13,7 @@ import projectReducer from './project';
 import userListReducer from './userList';
 import urlModifyReducer from './urlModify';
 import deleteReducer from './projectDelete';
+import ProjectModifyReducer from './projectModify';
 
 const rootReducer = combineReducers({
   main: mainReducer,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   userList: userListReducer,
   urlModify: urlModifyReducer,
   delete: deleteReducer,
+  projectModify: ProjectModifyReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
