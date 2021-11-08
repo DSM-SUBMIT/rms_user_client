@@ -5,6 +5,7 @@ import {
   setMemberList,
   setProjectName,
   setProjectType,
+  setRole,
   setTeacher,
   setTeamName,
   setTechStacks,
@@ -30,11 +31,14 @@ const useProject = () => {
     setTechStacks: (payload: string) => {
       dispatch(setTechStacks(payload));
     },
-    // setFieldList: (payload: string) => {
-    //   dispatch(setFieldList(payload));
-    // },
+    setFieldList: (payload: string[]) => {
+      dispatch(setFieldList(payload));
+    },
     setMemberList: (payload: MemberListType) => {
       dispatch(setMemberList(payload));
+    },
+    setRole: (payload: { id: string; role: string }) => {
+      dispatch(setRole(payload));
     },
   };
   return { state, setState };
