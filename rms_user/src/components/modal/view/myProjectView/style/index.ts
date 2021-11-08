@@ -250,7 +250,7 @@ export const WriteText = styled.span`
   color: #000000;
 `;
 
-export const WriteBtn = styled.button`
+export const Btn = styled.button`
   width: 60px;
   height: 24px;
   background: #fbfbfb;
@@ -261,6 +261,7 @@ export const WriteBtn = styled.button`
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
+  margin-left: 9px;
 `;
 
 export const GitBox = styled.div`

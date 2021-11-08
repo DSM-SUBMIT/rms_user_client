@@ -229,7 +229,7 @@ export const WriteText = styled.span`
   color: #000000;
 `;
 
-export const WriteBtn = styled.button`
+export const ViewBtn = styled.button`
   width: 60px;
   height: 24px;
   background: #fbfbfb;
