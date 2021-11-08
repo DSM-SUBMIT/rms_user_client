@@ -14,10 +14,10 @@ interface ViewMyProjectState {
   projectId: number;
   error: error | null;
   teacher: string;
-  // isPlanAccepted: boolean;
-  // isPlanSubmitted: boolean;
-  // isReportAccepted: boolean;
-  // isReportSubmitted: boolean;
+  isPlanAccepted: boolean;
+  isPlanSubmitted: boolean;
+  isReportAccepted: boolean;
+  isReportSubmitted: boolean;
 }
 
 export default ViewMyProjectState;

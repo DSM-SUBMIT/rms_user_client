@@ -9,6 +9,7 @@ export type MemberListType = {
   email: string;
   name: string;
   role: string;
+  id: number;
 };
 
 export type ViewProjectType = {
@@ -36,4 +37,8 @@ export type ViewMyProjectType = {
   githubUrl: string;
   id: number;
   teacher: string;
+  isPlanAccepted: boolean;
+  isPlanSubmitted: boolean;
+  isReportAccepted: boolean;
+  isReportSubmitted: boolean;
 };

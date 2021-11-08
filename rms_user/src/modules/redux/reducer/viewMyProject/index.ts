@@ -2,10 +2,6 @@ import { viewProjectActionType } from '../../action/viewProject';
 import {
   GET_MY_PROJECT_CONTENTS_SUCCESS,
   GET_MY_PROJECT_CONTENTS_FAILURE,
-  GET_PLAN_ACCEPTED_SUCCESS,
-  GET_PLAN_ACCEPTED_FAILURE,
-  GET_PLAN_SUBMITTED_SUCCESS,
-  GET_REPORT_SUBMITTED_FAILURE,
 } from '../../action/viewProject/interface';
 import ViewMyProjectState from './interface';
 
@@ -22,10 +18,10 @@ const initState: ViewMyProjectState = {
   error: null,
   projectId: 1,
   teacher: '',
-  // isPlanAccepted: false,
-  // isPlanSubmitted: false,
-  // isReportAccepted: false,
-  // isReportSubmitted: false,
+  isPlanAccepted: false,
+  isPlanSubmitted: false,
+  isReportAccepted: false,
+  isReportSubmitted: false,
 };
 
 const viewMyProjectReducer = (
@@ -47,8 +43,11 @@ const viewMyProjectReducer = (
         githubUrl: action.payload.githubUrl,
         projectId: action.payload.id,
         teacher: action.payload.teacher,
+        isPlanAccepted: action.payload.isPlanAccepted,
+        isPlanSubmitted: action.payload.isPlanSubmitted,
+        isReportAccepted: action.payload.isReportAccepted,
+        isReportSubmitted: action.payload.isReportSubmitted,
       };
-
     default:
       return state;
   }
