@@ -5,10 +5,9 @@ import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
 import ProjectCreate from '../modal/create';
-import { setModalOn } from '../../modules/redux/action/modal';
 import { useModal } from '../../util/hooks/modal';
 import useViewMyProject from '../../util/hooks/viewMyProject';
-import ProjectView from '../modal/view';
+import MyProjectView from '../modal/view/myProjectView';
 interface Props {
   currentPage: number;
   name: string;
@@ -45,7 +44,7 @@ const MyPage: FC<Props> = props => {
   const myProjectViewModal = useMemo(() => {
     if (isOpenModal) {
       return (
-        <ProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
+        <MyProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
       );
     }
   }, [isOpenModal, state, currentProjectId]);
