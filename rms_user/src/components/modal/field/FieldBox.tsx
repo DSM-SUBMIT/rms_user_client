@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import * as S from './style';
 import { FieldListSelect } from '../../../constance/project';
 
@@ -14,12 +14,14 @@ const FieldBox: FC<Props> = props => {
   const onClickBox = (e: any, content: string) => {
     const dataId = e.currentTarget.dataset.id;
     const isClick = e.currentTarget.checked;
-    if ((fieldList.length = 0)) {
-      fieldList.filter((conten, i) => conten !== undefined);
+
+    setFieldList(fieldList.concat(content));
+    if (fieldList.includes(content)) {
+      setFieldList(fieldList.filter((item: string) => content !== item));
     }
-    if (isClick) setFieldList(fieldList.concat(dataId));
-    else setFieldList(fieldList.filter((item: string) => content !== item));
   };
+
+  console.log(fieldList);
 
   return (
     <>
@@ -30,7 +32,7 @@ const FieldBox: FC<Props> = props => {
               type='checkbox'
               data-id={item.id}
               key={index}
-              onClick={e => onClickBox(e, item.content)}
+              onClick={e => onClickBox(e, item.id)}
             />
             <S.FieldName>{item.content}</S.FieldName>
           </S.SelectBox>
