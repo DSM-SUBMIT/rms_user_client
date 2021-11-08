@@ -11,6 +11,9 @@ import viewMyProjectSaga from './viewMyProject';
 import userListSaga from './userList';
 import deleteProjectSaga from './deleteProject';
 import projectSaga from './project';
+import urlModifySaga from './urlModify';
+import setProjectModifySaga from './projectModify';
+
 export default function* rootSaga() {
   yield all([
     mainSaga(),
@@ -25,5 +28,7 @@ export default function* rootSaga() {
     userListSaga(),
     deleteProjectSaga(),
     projectSaga(),
+    setProjectModifySaga(),
+    urlModifySaga(),
   ]);
 }
