@@ -27,6 +27,10 @@ interface Props {
   fieldList: Array<string>;
   docsUrl: string;
   githubUrl: string;
+  isPlanAccepted: boolean;
+  isPlanSubmitted: boolean;
+  isReportAccepted: boolean;
+  isReportSubmitted: boolean;
 }
 
 const MyPorjectView: FC<Props> = props => {
@@ -45,6 +49,7 @@ const MyPorjectView: FC<Props> = props => {
   }, [GET_MY_PROJECT_CONTENTS]);
 
   const techStacks = props.techStack.split(',');
+
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
@@ -89,11 +94,29 @@ const MyPorjectView: FC<Props> = props => {
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <div>
+              {props.isPlanSubmitted === true &&
+              props.isPlanAccepted === true ? null : props.isPlanSubmitted === false ? null : (
+                <S.Btn>수정하기</S.Btn>
+              )}
+              {props.isPlanSubmitted === true ? <S.Btn>보러가기</S.Btn> : <S.Btn>작성하기</S.Btn>}
+            </div>
           </S.WriteBox>
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <div>
+              {props.isReportSubmitted === true &&
+              props.isReportAccepted === true ? null : props.isReportSubmitted === false ? null : (
+                <S.Btn>수정하기</S.Btn>
+              )}
+              {props.isPlanAccepted === true ? (
+                props.isReportSubmitted === true ? (
+                  <S.Btn>보러가기</S.Btn>
+                ) : (
+                  <S.Btn>작성하기</S.Btn>
+                )
+              ) : null}
+            </div>
           </S.WriteBox>
           <S.GitBox>
             <img src={Github} />
