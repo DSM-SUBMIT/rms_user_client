@@ -5,19 +5,21 @@ import { useDispatch } from 'react-redux';
 import { DELETE_PROJECT } from '../../../modules/redux/action/porject/interface';
 
 interface Props {
-  setModalOff: (payload: string) => void;
-  setModalOn: (payload: string) => void;
+  setIsOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DeleteBox: FC<Props> = props => {
   const dispatch = useDispatch();
+
   const onClickDeleteClose = () => {
-    props.setModalOff('');
+    props.setIsOpenDeleteModal(false);
   };
+
   const onClickDeleteBtn = () => {
     dispatch({ type: DELETE_PROJECT });
     window.location.replace('/mypage');
   };
+
   return (
     <>
       <S.SmallModalWrapper>
