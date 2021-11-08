@@ -12,7 +12,6 @@ import {
 } from '../../../../constance/viewProject';
 import { GET_MY_PROJECT_CONTENTS } from '../../../../modules/redux/action/viewProject/interface';
 import { useDispatch } from 'react-redux';
-import { setModalOn } from '../../../../modules/redux/action/modal';
 import { useModal } from '../../../../util/hooks/modal';
 
 interface Props {
@@ -49,6 +48,7 @@ const MyPorjectView: FC<Props> = props => {
   }, [GET_MY_PROJECT_CONTENTS]);
 
   const techStacks = props.techStack.split(',');
+  const gitHubs = (props.githubUrl || '').split(',');
 
   return (
     <S.ModalWrapper>
@@ -121,7 +121,14 @@ const MyPorjectView: FC<Props> = props => {
           <S.GitBox>
             <img src={Github} />
             <S.GitText>{GitHub}</S.GitText>
-            <S.GitAddressBox>{props.githubUrl == null ? text : props.githubUrl}</S.GitAddressBox>
+            <S.UrlBox>
+              {props.githubUrl === ''
+                ? text
+                : gitHubs &&
+                  gitHubs.map((data, index) => {
+                    return <S.GitAddressBox key={index}>{data}</S.GitAddressBox>;
+                  })}
+            </S.UrlBox>
           </S.GitBox>
           <S.GuitarBox>
             <S.GuitarText>{Api}</S.GuitarText>
