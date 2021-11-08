@@ -12,7 +12,7 @@ export const projectCreateStateToRequest = (state: reducerType['project']): Proj
     projectType: state.projectType,
     teacher: state.teacher,
     teamName: state.teamName,
-    techStacks: state.techStacks,
+    techStack: state.techStack,
   };
 };
 

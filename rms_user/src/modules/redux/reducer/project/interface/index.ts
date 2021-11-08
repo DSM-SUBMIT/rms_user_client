@@ -6,7 +6,7 @@ interface ProjectState {
   projectType: string;
   teacher: string;
   teamName: string;
-  techStacks: string;
+  techStack: string;
   error: error | null;
   fieldList: string[];
   memberList: MemberListType[];

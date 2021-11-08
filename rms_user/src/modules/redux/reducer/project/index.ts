@@ -16,9 +16,9 @@ const initState: ProjectState = {
   projectType: '',
   teacher: '',
   teamName: '',
-  techStacks: '',
+  techStack: '',
   error: null,
-  fieldList: [''],
+  fieldList: [],
   memberList: [],
 };
 
@@ -50,7 +50,7 @@ const projectReducer = (
     case TECHSTACKS:
       return {
         ...state,
-        techStacks: action.payload,
+        techStack: action.payload,
       };
     case FIELDLIST:
       return {
