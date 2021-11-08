@@ -23,8 +23,17 @@ const OtherModify: FC<Props> = props => {
   };
 
   const onClcikUpload = () => {
-    console.log(1234);
+    if (state.githubUrl === '') {
+      setState.setGithubUrl(stateMyProject.githubUrl);
+    }
+    if (state.docsUrl === '') {
+      setState.setDocsUrl(stateMyProject.docsUrl);
+    }
+    if (state.serviceUrl === '') {
+      setState.setServiceUrl(stateMyProject.serviceUrl);
+    }
     dispatch({ type: MODIFY_URL });
+    window.location.replace('/mypage');
   };
 
   const onAddressKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -47,6 +56,9 @@ const OtherModify: FC<Props> = props => {
     dispatch({ type: GET_MY_PROJECT_CONTENTS });
   }, []);
 
+  useEffect(() => {
+    setState.setGithubUrl(stateMyProject.githubUrl);
+  }, [stateMyProject.githubUrl]);
   return (
     <>
       <S.SmallModalWrapper>
@@ -66,34 +78,23 @@ const OtherModify: FC<Props> = props => {
                 onKeyPress={e => onAddressKey(e)}
               />
               <S.GitListBox>
-                {state.githubUrl
-                  .split(',')
-                  .filter(item => !!item)
-                  .map((git, i) => {
-                    return (
-                      <S.GitAddressBox key={i}>
-                        <span>{git}</span>
-                        <img src={X} onClick={() => onClickX(git)} />
-                      </S.GitAddressBox>
-                    );
-                  })}
-                {stateMyProject.githubUrl
-                  .split(',')
-                  .filter(item => !!item)
-                  .map((git, i) => {
-                    return (
-                      <S.GitAddressBox key={i}>
-                        <span>{git}</span>
-                        <img src={X} onClick={() => onClickX(git)} />
-                      </S.GitAddressBox>
-                    );
-                  })}
+                {state.githubUrl &&
+                  state.githubUrl
+                    .split(',')
+                    .filter(item => !!item)
+                    .map((git, i) => {
+                      return (
+                        <S.GitAddressBox key={i}>
+                          <span>{git}</span>
+                          <img src={X} onClick={() => onClickX(git)} />
+                        </S.GitAddressBox>
+                      );
+                    })}
               </S.GitListBox>
             </S.GitBox>
             <S.Address1Box>
               <S.GuitarBox>
                 <S.GuitarText>{Api}</S.GuitarText>
-
                 <S.AddressInputBox
                   defaultValue={stateMyProject.serviceUrl}
                   placeholder='주소를 입력하세요'
