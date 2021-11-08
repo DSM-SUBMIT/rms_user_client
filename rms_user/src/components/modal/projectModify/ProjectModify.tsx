@@ -11,6 +11,7 @@ import DeleteBox from '../delete';
 import ProjectTeam from '../team';
 import useUserList from '../../../util/hooks/userList';
 import useProjectModify from '../../../util/hooks/projectModify';
+import useProject from '../../../util/hooks/project';
 
 interface Props {
   setModalOff: (payload: string) => void;
@@ -34,8 +35,10 @@ interface Props {
 
 const ProjectModfiy: FC<Props> = props => {
   const dispatch = useDispatch();
+  const { state } = useViewMyProject();
   const {
     setModalOff,
+    projectName,
     memberList,
     techStack,
     setTechStacks,
@@ -49,14 +52,26 @@ const ProjectModfiy: FC<Props> = props => {
     setRole,
   } = props;
   const userState = useUserList().state;
-  const projectState = useProjectModify().state;
-  const setProjectState = useProjectModify().setState;
+  const projectState = useViewMyProject().state;
+  const setProjectState = useProject().setState;
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
   const [isOpenTeameModal, setIsOpenTeamModal] = useState<boolean>(false);
-  const { state } = useViewMyProject();
-
-  console.log(state);
+  useEffect(() => {
+    setTechStacks(state.techStack);
+    setFieldList(state.fieldList);
+    setProjectName(state.projectName);
+    setProjectType(state.projectType);
+    setTeacher(state.teacher);
+    setTeamName(state.teamName);
+  }, [
+    state.techStack,
+    state.fieldList,
+    state.projectName,
+    state.projectType,
+    state.teacher,
+    state.teamName,
+  ]);
 
   const handleClassificationSelect = (e: any) => {
     if (e.currentTarget.value === '분류 선택') {
@@ -106,6 +121,8 @@ const ProjectModfiy: FC<Props> = props => {
   };
 
   const onClickX = (stack: string) => {
+    const temp = techStack;
+
     setTechStacks(techStack.replace(stack + (techStack.includes(',') ? ',' : ''), ''));
   };
 
@@ -122,7 +139,6 @@ const ProjectModfiy: FC<Props> = props => {
   };
 
   useEffect(() => {
-    console.log(state.memberList);
     dispatch({ type: GET_MY_PROJECT_CONTENTS });
   }, [GET_MY_PROJECT_CONTENTS]);
 
@@ -140,9 +156,8 @@ const ProjectModfiy: FC<Props> = props => {
         <ProjectTeam
           user={userState.user}
           setMemberList={setProjectState.setMemberList}
-          //memberList={projectState.memberList}
+          memberList={projectState.memberList}
           setIsOpenTeamModal={setIsOpenTeamModal}
-          memberList={[]}
         />
       )}
       <S.ModalWrapper>
@@ -163,31 +178,13 @@ const ProjectModfiy: FC<Props> = props => {
                 <S.Btn onClick={onClickDeleteModalOpen}>삭제하기</S.Btn>
                 <S.Btn
                   onClick={() => {
-                    if (props.projectName === '') {
-                      setProjectName(state.projectName);
-                    }
-                    if (props.projectType === '') {
-                      setProjectType(state.projectType);
-                    }
-                    if (props.teacher === '') {
-                      setTeacher(state.teacher);
-                    }
-                    if (props.teamName === '') {
-                      setTeamName(state.teamName);
-                    }
                     if (props.techStack === '') {
-                      setTechStacks(state.techStack);
-                    }
-                    if (props.fieldList === []) {
-                      setFieldList(state.fieldList);
-                    }
-                    if (props.memberList === []) {
-                      setFieldList(state.fieldList);
-                    }
-                    setProjectType('CLUB');
-                    setFieldList(state.fieldList);
-                    alert('asg');
-                    dispatch({ type: MODIFY_PROJECT });
+                      alert('기술 스택을 입력하세요');
+                    } else if (props.projectName === '') {
+                      alert('프로젝트 이름을 입력하세요');
+                    } else if (props.teamName === '') {
+                      alert('팀 이름을 입력하세요');
+                    } else dispatch({ type: MODIFY_PROJECT });
                   }}
                 >
                   확인
@@ -202,14 +199,6 @@ const ProjectModfiy: FC<Props> = props => {
             </S.FieldChoiceBox>
             <S.FieldBox>
               <>
-                {state.fieldList.map((item, index) => {
-                  return (
-                    <S.Field key={index}>
-                      {item}
-                      <img src={FieldClose} onClick={() => onClickFieldX(item)} />
-                    </S.Field>
-                  );
-                })}
                 {fieldList
                   .filter(item => !!item)
                   .map((item, index) => {
@@ -227,7 +216,7 @@ const ProjectModfiy: FC<Props> = props => {
                 <option hidden>{state.projectType}</option>
                 {ClassificationSelect.map((data, index) => (
                   <option key={index} data-id={data.id}>
-                    {data.id}
+                    {data.content}
                   </option>
                 ))}
               </S.ClassificationSelect>
@@ -248,17 +237,6 @@ const ProjectModfiy: FC<Props> = props => {
                   onKeyPress={e => onLanguageClick(e)}
                 />
                 <S.TagBox>
-                  {state.techStack
-                    .split(',')
-                    .filter(item => !!item)
-                    .map((tag, i) => {
-                      return (
-                        <S.Tag key={i}>
-                          {tag.trim()}
-                          <img src={X} onClick={() => onClickX(tag)} />
-                        </S.Tag>
-                      );
-                    })}
                   {techStack
                     .split(',')
                     .filter(item => !!item)
