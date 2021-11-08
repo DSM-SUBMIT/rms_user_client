@@ -82,11 +82,11 @@ const PorjectView: FC<Props> = props => {
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <S.ViewBtn>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <S.ViewBtn>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.GitBox>
             <img src={Github} />
