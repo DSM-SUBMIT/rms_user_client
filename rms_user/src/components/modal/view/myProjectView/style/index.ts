@@ -278,6 +278,25 @@ export const GitBox = styled.div`
   }
 `;
 
+export const UrlBox = styled.div`
+  width: auto;
+  height: 96px;
+  overflow: auto;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${color.main};
+  }
+`;
+
 export const GitText = styled.span`
   font-family: Noto Sans KR;
   font-size: 12px;

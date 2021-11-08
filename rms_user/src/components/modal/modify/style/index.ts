@@ -106,4 +106,5 @@ export const OtherBtn = styled.button`
   border: none;
   margin: 18px 22px;
   padding: 0px 6px;
+  cursor: pointer;
 `;
