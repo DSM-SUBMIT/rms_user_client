@@ -1,6 +1,7 @@
-import { ProjectCreateType } from '../../../constance/project';
+import { ProjectCreateType, ProjectModifyType, UrlType } from '../../../constance/project';
 import uri from '../../../constance/uri';
 import { reducerType } from '../../../modules/redux/reducer';
+import ViewMyProjectState from '../../../modules/redux/reducer/viewMyProject/interface';
 import { getRequestWithAccessToken } from '../default';
 
 export const projectCreateStateToRequest = (state: reducerType['project']): ProjectCreateType => {
@@ -12,6 +13,26 @@ export const projectCreateStateToRequest = (state: reducerType['project']): Proj
     teacher: state.teacher,
     teamName: state.teamName,
     techStacks: state.techStacks,
+  };
+};
+
+export const projectModifyStateToRequest = (state: reducerType['projectModify']) => {
+  return {
+    fieldList: state.fieldList,
+    memberList: state.memberList,
+    projectName: state.projectName,
+    projectType: state.projectType,
+    teacher: state.teacher,
+    teamName: state.teamName,
+    techStack: state.techStack,
+  };
+};
+
+export const urlModifyStateToRequest = (state: reducerType['urlModify']): UrlType => {
+  return {
+    docsUrl: state.docsUrl,
+    githubUrl: state.githubUrl,
+    serviceUrl: state.serviceUrl,
   };
 };
 
@@ -34,10 +55,10 @@ export const getUserList = async (access_token: string) => {
   }
 };
 
-export const correctionProject = async (access_token: string, id: string) => {
+export const correctionProject = async (access_token: string, id: string, state: any) => {
   try {
     const request = getRequestWithAccessToken(access_token);
-    return await request.put(uri.project + `/${id}`);
+    return await request.put(uri.project + `/${id}`, state);
   } catch (error) {
     throw error;
   }
@@ -52,10 +73,10 @@ export const deleteProject = async (access_token: string, id: string) => {
   }
 };
 
-export const modifyUrl = async (access_token: string, id: string) => {
+export const modifyUrl = async (access_token: string, id: string, state: UrlType) => {
   try {
     const request = getRequestWithAccessToken(access_token);
-    return await request.delete(uri.project + `/${id}` + '/url');
+    return await request.put(uri.project + `/${id}/url`, state);
   } catch (error) {
     throw error;
   }
