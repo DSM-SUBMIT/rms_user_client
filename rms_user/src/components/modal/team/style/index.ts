@@ -1,6 +1,8 @@
+import { check } from 'prettier';
 import styled from 'styled-components';
+import { color } from '../../../../style';
 
-export const ModalWrapper = styled.div`
+export const SmallModalWrapper = styled.div`
   width: 100%;
   height: 100vh;
   background: rgba(107, 107, 107, 0.58);
@@ -8,7 +10,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 3;
+  z-index: 5;
   margin: 0;
   padding: 0;
 `;
@@ -30,7 +32,7 @@ export const Input = styled.div`
   background: #eeeeee;
   border-radius: 100px;
   padding: 2px 15px;
-  margin-top: 35px;
+  margin-top: 25px;
   img {
     vertical-align: middle;
   }
@@ -50,21 +52,35 @@ export const NameInput = styled.input`
 
 export const UserList = styled.div`
   width: 238px;
-  height: 310px;
+  height: 290px;
   margin-top: 17px;
+  overflow: auto;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${color.main};
+  }
 `;
 
 export const UserBox = styled.div`
-  width: 238px;
+  width: 220px;
   height: 22px;
-  border-bottom: 0.3px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 10px;
+  padding-bottom: 13px;
 `;
 
-export const CheckBox = styled.div`
+export const CheckBox = styled.input`
   width: 12px;
   height: 12px;
-  background: rgba(196, 196, 196, 0.3);
   display: inline-block;
   margin-left: 7px;
 `;
@@ -80,10 +96,22 @@ export const Name = styled.span`
 
 export const Email = styled.span`
   font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
   color: #000000;
-  margin-left: 15px;
-  margin-bottom: 10px;
+  margin-left: 4px;
+  margin-bottom: 8px;
+`;
+
+export const MemberBtn = styled.button`
+  width: 80px;
+  height: 24px;
+  background: #fbfbfb;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Noto Sans KR;
+  font-size: 10px;
+  align-items: center;
+  text-align: center;
+  color: #5f5f5f;
 `;
