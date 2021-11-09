@@ -26,7 +26,6 @@ const ProjectTeam: FC<Props> = props => {
 
   const test = user.map(i => {
     const temp = memberList.filter(item => item.email === i.email);
-    console.log(temp);
     return temp.length > 0 ? { ...i, checked: true } : { ...i, checked: false };
   });
 

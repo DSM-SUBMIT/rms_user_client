@@ -21,8 +21,6 @@ const FieldBox: FC<Props> = props => {
     }
   };
 
-  console.log(fieldList);
-
   return (
     <>
       <S.FieldBox>

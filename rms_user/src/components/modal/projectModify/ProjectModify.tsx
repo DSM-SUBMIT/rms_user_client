@@ -78,22 +78,16 @@ const ProjectModfiy: FC<Props> = props => {
       return;
     }
     if (e.currentTarget.value === '동아리 프로젝트') {
-      console.log('CLUB');
       setProjectType('CLUB');
     } else if (e.currentTarget.value === '프로젝트 실무 1') {
-      console.log('PRO1');
       setProjectType('PRO1');
     } else if (e.currentTarget.value === '프로젝트 실무 2') {
-      console.log('PRO2');
       setProjectType('PRO2');
     } else if (e.currentTarget.value === '소프트웨어 공학') {
-      console.log('SOFE');
       setProjectType('SOFE');
     } else if (e.currentTarget.value === '개인 프로젝트') {
-      console.log('PERS');
       setProjectType('PERS');
     } else if (e.currentTarget.value === '팀 프로젝트') {
-      console.log('TEAM');
       setProjectType('TEAM');
     }
   };

@@ -21,7 +21,6 @@ const setUrlModifySaga = function* (): any {
       type: SUCCESS,
       payload: response ? response.data : null,
     });
-    console.log(response.data);
   } catch (error: any) {
     if (error.response?.data) {
       yield put({

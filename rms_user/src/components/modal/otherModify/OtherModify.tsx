@@ -43,7 +43,6 @@ const OtherModify: FC<Props> = props => {
       );
       e.currentTarget.value = '';
     }
-    console.log(state.githubUrl);
   };
 
   const onClickX = (git: string) => {
