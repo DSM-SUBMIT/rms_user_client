@@ -8,8 +8,9 @@ enum uri {
   detailPlan = '/plan',
   header = '/name',
   info = '/number',
-  projectview = '/project',
+  project = '/project',
   myprojectview = '/project/me',
+  userList = '/search',
 }
 
 export default uri;

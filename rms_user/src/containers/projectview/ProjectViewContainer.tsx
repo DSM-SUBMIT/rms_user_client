@@ -1,6 +1,6 @@
 import React, { FC, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import View from '../../components/modal/view';
+import View from '../../components/modal/view/projectView';
 import { GET_PROJECT_CONTENTS } from '../../modules/redux/action/viewProject/interface';
 import useMain from '../../util/hooks/main';
 import useViewProject from '../../util/hooks/viewProject';
