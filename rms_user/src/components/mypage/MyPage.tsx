@@ -5,10 +5,9 @@ import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
 import ProjectCreate from '../modal/create';
-import { setModalOn } from '../../modules/redux/action/modal';
 import { useModal } from '../../util/hooks/modal';
 import useViewMyProject from '../../util/hooks/viewMyProject';
-import ProjectView from '../modal/view';
+import MyProjectView from '../modal/view/myProjectView';
 interface Props {
   currentPage: number;
   name: string;
@@ -38,11 +37,14 @@ const MyPage: FC<Props> = props => {
   const onClickChangePasswordModal = () => {
     setState.setModalOn('modifyNumber');
   };
+  const onClickCreateProjectOpen = () => {
+    setState.setModalOn('projectCreate');
+  };
 
   const myProjectViewModal = useMemo(() => {
     if (isOpenModal) {
       return (
-        <ProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
+        <MyProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
       );
     }
   }, [isOpenModal, state, currentProjectId]);
@@ -62,7 +64,7 @@ const MyPage: FC<Props> = props => {
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
-            <S.CreateBox>
+            <S.CreateBox onClick={onClickCreateProjectOpen}>
               <img src={Plus} alt='Plus' />
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>

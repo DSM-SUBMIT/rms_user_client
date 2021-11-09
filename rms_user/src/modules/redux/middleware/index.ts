@@ -10,6 +10,11 @@ import infoSaga from './info';
 import writeReportSaga from './writeReport';
 import viewProjectSaga from './viewProject';
 import viewMyProjectSaga from './viewMyProject';
+import userListSaga from './userList';
+import deleteProjectSaga from './deleteProject';
+import projectSaga from './project';
+import urlModifySaga from './urlModify';
+import setProjectModifySaga from './projectModify';
 
 export default function* rootSaga() {
   yield all([
@@ -24,5 +29,10 @@ export default function* rootSaga() {
     writeReportSaga(),
     viewProjectSaga(),
     viewMyProjectSaga(),
+    userListSaga(),
+    deleteProjectSaga(),
+    projectSaga(),
+    setProjectModifySaga(),
+    urlModifySaga(),
   ]);
 }

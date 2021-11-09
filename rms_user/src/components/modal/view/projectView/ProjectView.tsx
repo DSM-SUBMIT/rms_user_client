@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from './style';
-import { Close, Github } from '../../../assets';
+import { Close, Github } from '../../../../assets';
 import {
   TechStatck,
   Plan,
@@ -9,11 +9,8 @@ import {
   Details,
   GitHub,
   MemberListType,
-} from '../../../constance/viewProject';
-import {
-  GET_MY_PROJECT_CONTENTS,
-  GET_PROJECT_CONTENTS,
-} from '../../../modules/redux/action/viewProject/interface';
+} from '../../../../constance/viewProject';
+import { GET_PROJECT_CONTENTS } from '../../../../modules/redux/action/viewProject/interface';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -38,11 +35,11 @@ const PorjectView: FC<Props> = props => {
   };
 
   useEffect(() => {
-    dispatch({ type: GET_MY_PROJECT_CONTENTS });
     dispatch({ type: GET_PROJECT_CONTENTS });
-  }, [GET_PROJECT_CONTENTS, GET_MY_PROJECT_CONTENTS]);
+  }, [GET_PROJECT_CONTENTS]);
 
   const techStacks = props.techStack.split(',');
+  const gitHubs = props.githubUrl.split(',');
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
@@ -62,19 +59,21 @@ const PorjectView: FC<Props> = props => {
           </S.Box>
           <S.TeamBox>
             <S.TeamName>{props.teamName}</S.TeamName>
-            {props.memberList &&
-              props.memberList.map((data, index) => {
-                const roles = data.role.split(',');
-                return (
-                  <S.NumberBox key={index}>
-                    <S.NumberName>{data.name}</S.NumberName>
-                    <S.Email>{data.email}</S.Email>
-                    {roles.map((data, index) => {
-                      return <S.Role key={index}>{data}</S.Role>;
-                    })}
-                  </S.NumberBox>
-                );
-              })}
+            <S.MemberBox>
+              {props.memberList &&
+                props.memberList.map((data, index) => {
+                  const roles = data.role.split(',');
+                  return (
+                    <S.NumberBox key={index}>
+                      <S.NumberName>{data.name}</S.NumberName>
+                      <S.Email>{data.email}</S.Email>
+                      {roles.map((data, index) => {
+                        return <S.Role key={index}>{data}</S.Role>;
+                      })}
+                    </S.NumberBox>
+                  );
+                })}
+            </S.MemberBox>
           </S.TeamBox>
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
@@ -84,11 +83,11 @@ const PorjectView: FC<Props> = props => {
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <S.ViewBtn>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
-            <S.WriteBtn>작성하기</S.WriteBtn>
+            <S.ViewBtn>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.GitBox>
             <img src={Github} />
@@ -97,7 +96,6 @@ const PorjectView: FC<Props> = props => {
           </S.GitBox>
           <S.GuitarBox>
             <S.GuitarText>{Api}</S.GuitarText>
-            {/* <S.AddressBox>Qnd</S.AddressBox> */}
             <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
             <S.GuitarText>{Details}</S.GuitarText>
             <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>

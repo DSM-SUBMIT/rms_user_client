@@ -5,7 +5,7 @@ import ChooseField from './ChooseField';
 import Project from './Project';
 import { CheckStateType, ProjectListType } from '../../constance/main';
 import ReactPaginate from 'react-paginate';
-import ProjectView from '../modal/view';
+import ProjectView from '../modal/view/projectView';
 import useViewProject from '../../util/hooks/viewProject';
 
 interface Props {
