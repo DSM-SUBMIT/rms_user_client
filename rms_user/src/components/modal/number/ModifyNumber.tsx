@@ -5,6 +5,7 @@ import useInfo from '../../../util/hooks/info';
 import { useDispatch } from 'react-redux';
 import { NUMBER } from '../../../modules/redux/action/info/interface';
 import { ModalClose } from '../../../assets';
+import useMypage from '../../../util/hooks/mypage';
 interface Props {
   setModalOff: (payload: string) => void;
   setModalOn: (payload: string) => void;
@@ -12,6 +13,7 @@ interface Props {
 
 const ModifyNumber: FC<Props> = props => {
   const { setState } = useInfo();
+  const stateMyProject = useMypage().state;
   const dispatch = useDispatch();
 
   const inputValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +34,11 @@ const ModifyNumber: FC<Props> = props => {
       <S.Box>
         <img src={ModalClose} onClick={onClickNumberClose} />
         <S.Title>{TITLE}</S.Title>
-        <S.Input placeholder='학번을 입력하세요' onChange={inputValueChange} />
+        <S.Input
+          defaultValue={stateMyProject.studentNumber}
+          placeholder='학번을 입력하세요'
+          onChange={inputValueChange}
+        />
         <S.Modify onClick={modifyBtnClickr}>수정</S.Modify>
       </S.Box>
     </S.ModalWrapper>
