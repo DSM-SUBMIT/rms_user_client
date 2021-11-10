@@ -1,45 +1,99 @@
-import React from 'react';
+import React, { useState, FC, useEffect, createRef, useMemo} from 'react';
 import * as S from './style';
-import { Editor } from '@toast-ui/react-editor';
 import Header from '../header';
-import { ReportContent } from '../../constance/writeReport'
-
+import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
+import { ReportContentForm } from '../../constance/writeReport';
+import useWriteReport from '../../util/hooks/writeReport';
+import { useDispatch } from 'react-redux';
+import { GET_SAVE_REPORT, GET_SUBMIT_REPORT } from '../../modules/redux/action/writeReport/interface';
+import { useHistory, useLocation } from 'react-router';
+import EditorItem from './EditorItem';
 
-const WriteReport = () => {    
+interface Props {
+    
+}
+
+const WriteReport: FC<Props> = props => {
+    const history = useHistory();
+    const { setState, state } = useWriteReport();
+    const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
+    const { setContent, getProjectId, setVideoUrl } = setState;
+  
+    const dispatch = useDispatch();
+    const [editor, setEditor] = useState(1);
+    const EditorRef = createRef<Editor>();
+
+    const SaveReport = () => {
+        const editorInstance = EditorRef.current?.getInstance();
+        if (window.confirm("보고서를 임시저장합니다") === true ) {
+            const contents = editorInstance?.getHTML() || "";
+            console.log(contents);
+            dispatch({type: GET_SAVE_REPORT})
+        }
+        else return;
+    }
+    
+    const submitReport = () => {
+        console.log(content.join("!@#$%"));
+        if(window.confirm("보고서를 제출합니다") === true) {
+            dispatch({type: GET_SUBMIT_REPORT})
+            history.push(`/mypage`)
+        }
+        else return;
+    }
+    const AddPage = (event: React.MouseEvent<HTMLElement>) => {
+        if (window.confirm("페이지를 추가합니다") === true ) {
+            setEditor(prevPage => prevPage + 1);
+        }
+        else return;
+    };
+    
     return (
         <>
             <Header/>
             <S.Main>
                 <S.Form name="report" method="post">
                     <S.Report>
-                        <h5>[보고서]</h5>
-                        <S.TitleName>보고서 관리 시스템</S.TitleName>
-                        <S.ReportContent>
-                            <h5>프로젝트 주제를 작성해주세요</h5>
-                            <textarea placeholder="프로젝트의 주제를 작성해주세요"></textarea>
-                        </S.ReportContent>
-                        {ReportContent.map((v, i) => {
-                                return(
-                                    <S.ReportContent key={i}>
-                                        <h3>{v.title}</h3>
-                                        <span>{v.more}</span>
-                                        <Editor initialEditType="wysiwyg" useCommandShortcut height="600px" />
-                                    </S.ReportContent>
-                            )})}
-                        <S.ReportContent>
-                            <h5>[참고문헌]</h5>
-                            <textarea></textarea>
-                        </S.ReportContent>
+                        <S.Section>
+                            <h5>[보고서]</h5>
+                            <S.TitleName>보고서 관리 시스템</S.TitleName>
+                            <S.FormDiv>
+                                <h4>I. 프로젝트 진행 동기 및 목적</h4>
+                                <span className="tab">&#9;</span>
+                                <span>1 - 가 - (1) - 가{')'}</span>
+                                {ReportContentForm.map((v, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <h4>{ReportContentForm[i]}</h4>
+                                            <br/>
+                                        </div>
+                                    )
+                                })}
+                            </S.FormDiv>
+                        </S.Section>
+                        <S.Section>
+                            {Array(editor)
+                                .fill(0)
+                                .map((v, i) => <EditorItem content={content} page={i} setContent={setContent}/>)
+                            }
+                        </S.Section>
+                        <S.AddPage>
+                            <S.Button type="button" onClick={AddPage}>페이지 추가</S.Button>
+                        </S.AddPage>
                         <S.FileBox>
-                            <input type="file" id="file" style={{display:"none"}}/>
-                            <label htmlFor="file">파일찾기</label>
-                            <input id="uploadName" value="첨부파일" placeholder="첨부파일"/>
+                            <label htmlFor="file">
+                                파일찾기
+                                <input type="file" id="file" style={{display:"none"}} onChange={(e) => {
+                                setVideoUrl(e.target.value)
+                                }}/>
+                            </label>
+                            <p id="uploadName">{videoUrl}</p>
                         </S.FileBox>
                     </S.Report>
                     <S.ButtonGroup>
-                        <button type="button">임시저장</button>
-                        <button type="button">제출</button>
+                        <S.Button type="button" onClick={SaveReport}>임시저장</S.Button>
+                        <S.Button type="button" onClick={submitReport}>제출</S.Button>
                     </S.ButtonGroup>
                 </S.Form>
             </S.Main>

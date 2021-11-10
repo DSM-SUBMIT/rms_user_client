@@ -4,27 +4,54 @@ import Header from '../header';
 import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
-import { setModalOn } from '../../modules/redux/action/modal';
+import ProjectCreate from '../modal/create';
 import { useModal } from '../../util/hooks/modal';
+import useViewMyProject from '../../util/hooks/viewMyProject';
+import MyProjectView from '../modal/view/myProjectView';
 interface Props {
+  currentPage: number;
   name: string;
   email: string;
   projectList: Array<ProjectListType>;
   studentNumber: number;
+  currentProjectId: number;
   setModalOn: (payload: string) => void;
   setModalOff: (payload: string) => void;
+  setCurrentProjectId: (payload: number) => void;
 }
 
 const MyPage: FC<Props> = props => {
-  const { name, email, projectList, studentNumber, setModalOff } = props;
+  const { state } = useViewMyProject();
+  const {
+    name,
+    email,
+    projectList,
+    studentNumber,
+    setCurrentProjectId,
+    currentPage,
+    currentProjectId,
+  } = props;
   const { setState } = useModal();
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const onClickChangePasswordModal = () => {
     setState.setModalOn('modifyNumber');
   };
+  const onClickCreateProjectOpen = () => {
+    setState.setModalOn('projectCreate');
+  };
+
+  const myProjectViewModal = useMemo(() => {
+    if (isOpenModal) {
+      return (
+        <MyProjectView setIsOpenModal={setIsOpenModal} {...state} projectId={currentProjectId} />
+      );
+    }
+  }, [isOpenModal, state, currentProjectId]);
 
   return (
     <>
+      {myProjectViewModal}
       <Header />
       <S.MyPage>
         <S.Content>
@@ -37,7 +64,7 @@ const MyPage: FC<Props> = props => {
           </S.InformationBox>
           <S.ProjectBox>
             <S.Project>{PROJECT}</S.Project>
-            <S.CreateBox>
+            <S.CreateBox onClick={onClickCreateProjectOpen}>
               <img src={Plus} alt='Plus' />
               <S.Crate>{CREATE_PROJECT}</S.Crate>
             </S.CreateBox>
@@ -49,6 +76,9 @@ const MyPage: FC<Props> = props => {
                     projectType={data.projectType}
                     teamName={data.teamName}
                     fieldList={data.fieldList}
+                    setIsOpenModal={setIsOpenModal}
+                    setCurrentProjectId={setCurrentProjectId}
+                    id={data.id}
                   />
                 );
               })}

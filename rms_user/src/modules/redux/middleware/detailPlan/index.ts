@@ -2,7 +2,7 @@ import { call, put, select, takeLatest } from '@redux-saga/core/effects';
 import { getDetailPlan } from '../../../../util/api/detailPlan';
 import { reducerType } from '../../reducer';
 import DetailPlanState from '../../reducer/detailPlan/interface';
-import {GET_DETAIL_PLAN} from '../../action/detailPlan/interface';
+import { GET_DETAIL_PLAN } from '../../action/detailPlan/interface';
 
 const getStateFunc = (state: reducerType): DetailPlanState => state.detailPlan;
 
@@ -36,7 +36,7 @@ const getDetailPlanSaga = function* (): any {
   }
 };
 
-function* detailPlanSaga(){
+function* detailPlanSaga() {
   yield takeLatest(GET_DETAIL_PLAN, getDetailPlanSaga);
 }
 
