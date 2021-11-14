@@ -5,7 +5,9 @@ import loginSaga from './login';
 import mypageSaga from './mypage';
 import detailPlanSaga from './detailPlan';
 import headerSaga from './header';
+import writePlanSaga from './writePlan';
 import infoSaga from './info';
+import writeReportSaga from './writeReport';
 import viewProjectSaga from './viewProject';
 import viewMyProjectSaga from './viewMyProject';
 import userListSaga from './userList';
@@ -23,6 +25,8 @@ export default function* rootSaga() {
     infoSaga(),
     detailPlanSaga(),
     mypageSaga(),
+    writePlanSaga(),
+    writeReportSaga(),
     viewProjectSaga(),
     viewMyProjectSaga(),
     userListSaga(),
