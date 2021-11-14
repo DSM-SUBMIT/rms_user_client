@@ -7,6 +7,7 @@ import { REFRESH_TOKEN } from '../../modules/redux/action/login/interface';
 import { useDispatch } from 'react-redux';
 import { GET_NAME } from '../../modules/redux/action/header/interface';
 import { useHeader } from '../../util/hooks/header';
+import { LOGO } from '../../constance/login';
 
 const Header = () => {
   const loginState = UseLogin();
@@ -45,9 +46,9 @@ const Header = () => {
   return (
     <S.HeaderBox>
       <S.HeaderContent>
-        <S.MainLogo>
-          <Link to={'/'}></Link>
-        </S.MainLogo>
+        <Link to={'/feed'}>
+          <S.MainLogo>{LOGO} </S.MainLogo>
+        </Link>
         <S.UserBox>
           <Link to={'/mypage'}>
             <img src={Profile} alt='Profile' />
