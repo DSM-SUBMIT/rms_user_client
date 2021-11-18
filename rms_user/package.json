@@ -63,6 +63,5 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.14"
-  },
-  "proxy": "https://user-api.dsm-rms.com"
+  }
 }
