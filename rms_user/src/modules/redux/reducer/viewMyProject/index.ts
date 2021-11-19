@@ -22,6 +22,7 @@ const initState: ViewMyProjectState = {
   isPlanSubmitted: false,
   isReportAccepted: false,
   isReportSubmitted: false,
+  writer: false,
 };
 
 const viewMyProjectReducer = (
@@ -47,6 +48,7 @@ const viewMyProjectReducer = (
         isPlanSubmitted: action.payload.isPlanSubmitted,
         isReportAccepted: action.payload.isReportAccepted,
         isReportSubmitted: action.payload.isReportSubmitted,
+        writer: action.payload.writer,
       };
     default:
       return state;
