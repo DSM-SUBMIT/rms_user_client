@@ -281,7 +281,7 @@ export const WriteBox = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  padding: 12px 30px;
+  padding: 8px 20px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
@@ -294,7 +294,7 @@ export const WriteText = styled.span`
 `;
 
 export const Btn = styled(Link)`
-  width: 60px;
+  width: 70px;
   text-decoration: none;
   cursor: pointer;
   height: 24px;

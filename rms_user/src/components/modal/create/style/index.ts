@@ -197,20 +197,35 @@ export const TechStackInput = styled.input`
   margin: 15px 0px 10px 15px;
   padding: 10px 15px;
   color: #000000;
+  ime-mode: disabled;
   ::placeholder {
     color: #aaaaaa;
   }
 `;
 
 export const TagBox = styled.div`
-  width: 526px;
-  height: 60px;
+  width: 522px;
+  height: 75px;
   margin-left: 15px;
   display: grid;
-  grid-template-columns: repeat(8, 0.1fr);
+  grid-template-columns: repeat(5, 0.1fr);
   grid-template-rows: repeat(2, 1fr);
   column-gap: 2px;
   row-gap: 5px;
+  overflow: auto;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${color.main};
+  }
 `;
 
 export const Tag = styled.div`
