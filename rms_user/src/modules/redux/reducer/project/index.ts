@@ -8,6 +8,7 @@ import {
   FIELDLIST,
   MEMBERLIST,
   ROLE,
+  CREATE_PROJECT_FAILURE,
 } from '../../action/porject/interface';
 import ProjectState from './interface';
 
@@ -86,6 +87,11 @@ const projectReducer = (
           ...state,
           memberList: state.memberList.concat(action.payload),
         };
+    case CREATE_PROJECT_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }
