@@ -1,4 +1,3 @@
-import { check } from 'prettier';
 import styled from 'styled-components';
 import { color } from '../../../../style';
 
@@ -27,7 +26,6 @@ export const ModifyBox = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: Noto Sans KR;
   text-align: center;
   font-size: 18px;
   color: #000000;
@@ -52,7 +50,6 @@ export const ProjectBox = styled.div`
 `;
 
 export const ProjectText = styled.span`
-  font-family: Noto Sans KR;
   font-size: 12px;
   color: #000000;
   margin: 18px 12px;
@@ -63,7 +60,6 @@ export const Btn = styled.button`
   height: 20px;
   background: #386bee;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   display: flex;
   padding: 0px 2px;
@@ -86,7 +82,6 @@ export const OtherBox = styled.div`
 `;
 
 export const OtherText = styled.span`
-  font-family: Noto Sans KR;
   font-size: 12px;
   margin: 28px 25px;
   color: #000000;

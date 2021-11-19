@@ -53,7 +53,6 @@ export const GithubBox = styled.div`
 `;
 
 export const GitText = styled.span`
-  font-family: Noto Sans KR;
   font-size: 12px;
   color: #000000;
   margin-top: 0;
@@ -66,7 +65,6 @@ export const GitInput = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   display: flex;
   padding: 0px 4px;
@@ -107,7 +105,6 @@ export const GitAddressBox = styled.div`
   padding: 2px 8px;
   justify-content: space-between;
   span {
-    font-family: Roboto;
     font-size: 10px;
     display: flex;
     color: #ffffff;
@@ -157,7 +154,6 @@ export const AddressInputBox = styled.input`
 `;
 
 export const GuitarText = styled.p`
-  font-family: Noto Sans KR;
   font-size: 8px;
   text-align: center;
   color: #5f5f5f;
@@ -170,7 +166,6 @@ export const UploadBtn = styled.button`
   border: none;
   background: #386bee;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 12px;
   align-items: center;
   text-align: center;

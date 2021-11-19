@@ -51,13 +51,11 @@ export const TopBox = styled.div`
 `;
 
 export const Classification = styled.p`
-  font-family: 'Noto Sans KR';
   font-size: 12px;
   color: #4f4f4f;
 `;
 
 export const ProjectName = styled.span`
-  font-family: 'Noto Sans KR';
   font-weight: bold;
   font-size: 20px;
   color: #000000;
@@ -75,7 +73,6 @@ export const Field = styled.div`
   border: 1px solid #386bee;
   box-sizing: border-box;
   border-radius: 15px;
-  font-family: 'Noto Sans KR';
   font-size: 12px;
   color: #386bee;
   box-sizing: border-box;
@@ -91,7 +88,6 @@ export const TeamBox = styled.div`
   border-radius: 5px;
   margin-top: 10px;
   padding: 10px 15px;
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   line-height: 14px;
   color: #000000;
@@ -105,7 +101,6 @@ export const TeamName = styled.div`
   border: 1px solid #386bee;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   text-align: center;
   color: #000000;
@@ -157,7 +152,6 @@ export const NumberName = styled.div`
   height: 20px;
   background: #386bee;
   border-radius: 5px;
-  font-family: 'Roboto';
   font-size: 10px;
   text-align: center;
   color: #ffffff;
@@ -170,7 +164,6 @@ export const Email = styled.div`
   height: 20px;
   background: #386bee;
   border-radius: 5px;
-  font-family: 'Roboto';
   font-size: 10px;
   text-align: center;
   color: #ffffff;
@@ -185,7 +178,6 @@ export const Role = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
@@ -205,7 +197,6 @@ export const TechStatckBox = styled.div`
 `;
 
 export const TechStatck = styled.p`
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   line-height: 14px;
   color: #000000;
@@ -239,7 +230,6 @@ export const Statck = styled.div`
   height: 20px;
   background: #386bee;
   border-radius: 5px;
-  font-family: 'Roboto';
   font-size: 10px;
   text-align: center;
   color: #ffffff;
@@ -261,7 +251,6 @@ export const WriteBox = styled.div`
 `;
 
 export const WriteText = styled.span`
-  font-family: 'Noto Sans KR';
   font-size: 14px;
   color: #000000;
 `;
@@ -275,7 +264,6 @@ export const ViewBtn = styled(Link)`
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
@@ -296,7 +284,6 @@ export const GitBox = styled.div`
 `;
 
 export const GitText = styled.span`
-  font-family: 'Noto Sans KR';
   font-size: 12px;
   color: #000000;
 `;
@@ -308,7 +295,6 @@ export const GitInput = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   color: #aaaaaa;
   margin: 10px 0px 9px 1px;
@@ -322,7 +308,6 @@ export const GitAddressBox = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   font-size: 10px;
   color: #000000;
   margin-bottom: 5px;
@@ -347,7 +332,6 @@ export const AddressBox = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'Noto Sans KR';
   font-size: 11px;
   color: #5f5f5f;
   display: inline-block;
@@ -360,7 +344,6 @@ export const AddressBox = styled.div`
 `;
 
 export const GuitarText = styled.p`
-  font-family: 'Noto Sans KR';
   font-size: 11px;
   text-align: center;
   color: #5f5f5f;
