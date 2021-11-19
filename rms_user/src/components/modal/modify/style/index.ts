@@ -58,20 +58,20 @@ export const ProjectText = styled.span`
   margin: 18px 12px;
 `;
 
-export const ProjectBtn = styled.button`
-  width: 65px;
+export const Btn = styled.button`
+  width: fit-content;
   height: 20px;
   background: #386bee;
   border-radius: 5px;
   font-family: Noto Sans KR;
   font-size: 10px;
   display: flex;
-  padding: 0px 6px;
+  padding: 0px 2px;
   align-items: center;
   text-align: center;
   color: #ffffff;
   border: none;
-  margin: 18px 22px;
+  margin: 18px auto;
   cursor: pointer;
 `;
 
@@ -90,21 +90,4 @@ export const OtherText = styled.span`
   font-size: 12px;
   margin: 28px 25px;
   color: #000000;
-`;
-
-export const OtherBtn = styled.button`
-  width: 65px;
-  height: 20px;
-  background: #386bee;
-  border-radius: 5px;
-  font-family: Noto Sans KR;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  border: none;
-  margin: 18px 22px;
-  padding: 0px 6px;
-  cursor: pointer;
 `;
