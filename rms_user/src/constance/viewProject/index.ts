@@ -41,4 +41,5 @@ export type ViewMyProjectType = {
   isPlanSubmitted: boolean;
   isReportAccepted: boolean;
   isReportSubmitted: boolean;
+  writer: boolean;
 };

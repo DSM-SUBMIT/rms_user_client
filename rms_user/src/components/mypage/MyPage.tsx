@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ProjectContent from './projectcontent';
@@ -8,6 +8,7 @@ import ProjectCreate from '../modal/create';
 import { useModal } from '../../util/hooks/modal';
 import useViewMyProject from '../../util/hooks/viewMyProject';
 import MyProjectView from '../modal/view/myProjectView';
+import { Link } from 'react-router-dom';
 interface Props {
   currentPage: number;
   name: string;
@@ -48,6 +49,12 @@ const MyPage: FC<Props> = props => {
       );
     }
   }, [isOpenModal, state, currentProjectId]);
+  const accessToken = localStorage.getItem('access_token');
+  useEffect(() => {
+    if (!accessToken) {
+      window.location.replace('/');
+    }
+  });
 
   return (
     <>

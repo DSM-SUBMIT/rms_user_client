@@ -34,7 +34,6 @@ export const Content = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: Noto Sans KR;
   text-align: center;
   font-size: 14px;
   color: #000000;

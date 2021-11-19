@@ -18,6 +18,7 @@ interface ViewMyProjectState {
   isPlanSubmitted: boolean;
   isReportAccepted: boolean;
   isReportSubmitted: boolean;
+  writer: boolean;
 }
 
 export default ViewMyProjectState;
