@@ -35,7 +35,6 @@ const PorjectView: FC<Props> = props => {
   };
 
   useEffect(() => {
-    console.log(props.projectId);
     dispatch({ type: GET_PROJECT_CONTENTS });
   }, [GET_PROJECT_CONTENTS]);
 
