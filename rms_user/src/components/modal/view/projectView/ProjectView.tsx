@@ -35,6 +35,7 @@ const PorjectView: FC<Props> = props => {
   };
 
   useEffect(() => {
+    console.log(props.projectId);
     dispatch({ type: GET_PROJECT_CONTENTS });
   }, [GET_PROJECT_CONTENTS]);
 
@@ -77,17 +78,19 @@ const PorjectView: FC<Props> = props => {
           </S.TeamBox>
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
-            {techStacks.map((data, index) => {
-              return <S.Statck key={index}>{data}</S.Statck>;
-            })}
+            <S.StatckBox>
+              {techStacks.map((data, index) => {
+                return <S.Statck key={index}>{data}</S.Statck>;
+              })}
+            </S.StatckBox>
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
-            <S.ViewBtn>보러가기</S.ViewBtn>
+            <S.ViewBtn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
-            <S.ViewBtn>보러가기</S.ViewBtn>
+            <S.ViewBtn to={'detail-report/' + `${props.projectId}`}>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.GitBox>
             <img src={Github} />
