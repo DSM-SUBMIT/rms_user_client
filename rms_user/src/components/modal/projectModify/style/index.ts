@@ -64,6 +64,8 @@ export const ProjectNameBox = styled.input`
   }
 `;
 
+export const BtnBox = styled.div``;
+
 export const Btn = styled.button`
   width: 60px;
   height: 24px;
