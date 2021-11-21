@@ -146,10 +146,14 @@ const MyPorjectView: FC<Props> = props => {
             </S.UrlBox>
           </S.GitBox>
           <S.GuitarBox>
-            <S.GuitarText>{Api}</S.GuitarText>
-            <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
-            <S.GuitarText>{Details}</S.GuitarText>
-            <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>
+            <div>
+              <S.GuitarText>{Api}</S.GuitarText>
+              <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
+            </div>
+            <div>
+              <S.GuitarText>{Details}</S.GuitarText>
+              <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>
+            </div>
           </S.GuitarBox>
         </S.ContentBox>
       </S.ProjectViewBox>
