@@ -8,6 +8,7 @@ import FieldBox from '../field';
 import ProjectTeam from '../team';
 import useUserList from '../../../util/hooks/userList';
 import useProject from '../../../util/hooks/project';
+import { error } from '../../../models/error';
 
 interface Props {
   setModalOff: (payload: string) => void;
@@ -27,10 +28,11 @@ interface Props {
   setMemberList: (payload: MemberListType) => void;
   setFieldList: (payload: string[]) => void;
   setRole: (payload: { id: string; role: string }) => void;
+  error: error | null;
 }
 
 const ProjectCreate: FC<Props> = props => {
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const {
     projectName,
     projectType,
@@ -49,6 +51,7 @@ const ProjectCreate: FC<Props> = props => {
     setTeacher,
     setTeamName,
     setProjectName,
+    error,
   } = props;
   const userState = useUserList().state;
   const projectState = useProject().state;
@@ -84,6 +87,7 @@ const ProjectCreate: FC<Props> = props => {
 
   const onClickCreateProjectClose = (e: React.MouseEvent) => {
     setModalOff('');
+    window.location.replace('/mypage');
   };
 
   const onClickProjectTeamOpen = () => {
@@ -91,9 +95,12 @@ const ProjectCreate: FC<Props> = props => {
   };
 
   const onLanguageClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const language = e.currentTarget.value.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '');
     if (e.key === 'Enter') {
-      setTechStacks(techStack + (!!techStack ? ',' : '') + e.currentTarget.value + '');
-      e.currentTarget.value = '';
+      if (language) {
+        setTechStacks(techStack + (!!techStack ? ',' : '') + e.currentTarget.value + '');
+        e.currentTarget.value = '';
+      } else alert('한글을 입력하세요.');
     }
   };
 
@@ -152,8 +159,13 @@ const ProjectCreate: FC<Props> = props => {
                   ) {
                     alert('내용을 다 채워주세요');
                   } else {
-                    dispath({ type: CREATE_PROJECT });
-                    // window.location.replace('/mypage');
+                    dispatch({ type: CREATE_PROJECT });
+                    if (props.error?.status === 401) {
+                      alert('로그인 후 이용해 주세요.');
+                      window.location.replace('/');
+                    } else if (props.error?.status === 403) {
+                      alert('권한이 없습니다.');
+                    } else window.location.replace('/mypage');
                   }
                 }}
               >

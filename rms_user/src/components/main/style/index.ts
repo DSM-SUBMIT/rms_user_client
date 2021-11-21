@@ -96,6 +96,7 @@ export const ProjectTitle = styled.p`
   height: 22px;
   font-size: 16px;
   font-weight: bold;
+  margin-top: 4px;
 `;
 
 export const ProjectWriter = styled.p`

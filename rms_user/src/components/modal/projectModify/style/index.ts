@@ -57,7 +57,6 @@ export const ProjectNameBox = styled.input`
   box-sizing: border-box;
   border-radius: 5px;
   padding: 10px 15px;
-  font-family: Noto Sans KR;
   font-size: 12px;
   padding: 10px 15px;
   ::placeholder {
@@ -74,7 +73,6 @@ export const Btn = styled.button`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   align-items: center;
   text-align: center;
@@ -97,7 +95,6 @@ export const FieldChoice = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -125,7 +122,6 @@ export const Field = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
   margin-right: 8px;
-  font-family: Noto Sans KR;
   font-size: 12px;
   color: #386bee;
   padding-left: 10px;
@@ -151,7 +147,6 @@ export const ClassificationSelect = styled.select`
   border-radius: 5px;
   font-size: 12px;
   line-height: 17px;
-  font-family: Noto Sans KR;
   color: #4f4f4f;
   margin-right: 15px;
 `;
@@ -165,7 +160,6 @@ export const TeacherSelect = styled.select`
   border-radius: 5px;
   font-size: 12px;
   line-height: 17px;
-  font-family: Noto Sans KR;
   color: #4f4f4f;
 `;
 
@@ -193,7 +187,6 @@ export const TechStackInput = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   margin: 15px 0px 10px 15px;
   padding: 10px 15px;
@@ -220,7 +213,6 @@ export const Tag = styled.div`
   height: 20px;
   background: #386bee;
   border-radius: 5px;
-  font-family: Roboto;
   font-size: 10px;
   display: flex;
   align-items: center;
@@ -251,7 +243,6 @@ export const TeamInput = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   color: #000000;
   margin: 15px 15px 10px 15px;
@@ -268,7 +259,6 @@ export const Teammemberbtn = styled.button`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 10px;
@@ -308,7 +298,6 @@ export const MemberName = styled.div`
   height: 18px;
   background: #386bee;
   border-radius: 5px;
-  font-family: Roboto;
   font-size: 10px;
   align-items: center;
   color: #ffffff;
@@ -322,7 +311,6 @@ export const MemberEmail = styled.div`
   background: #386bee;
   border-radius: 5px;
   margin: 0px 5px;
-  font-family: Roboto;
   font-size: 10px;
   align-items: center;
   color: #ffffff;
@@ -337,7 +325,6 @@ export const MemberRole = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   padding-left: 10px;
   color: #000000;
