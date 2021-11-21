@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { color } from '../../../../../style';
+import { Link } from 'react-router-dom';
 
 export const ModalWrapper = styled.div`
   width: 100%;
@@ -50,7 +51,6 @@ export const TopBox = styled.div`
 `;
 
 export const Classification = styled.p`
-  font-family: Noto Sans KR;
   font-size: 12px;
   color: #4f4f4f;
   align-items: center;
@@ -58,7 +58,6 @@ export const Classification = styled.p`
 `;
 
 export const ProjectName = styled.span`
-  font-family: Noto Sans KR;
   font-weight: bold;
   font-size: 20px;
   color: #000000;
@@ -75,7 +74,6 @@ export const ModifyBtn = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   color: #5f5f5f;
 
@@ -90,16 +88,16 @@ export const Box = styled.div`
 export const Field = styled.div`
   padding: 0px 10px;
   width: fit-content;
+  align-items: center;
+  text-align: center;
   height: 25px;
   background: #fdfdfd;
   border: 1px solid #386bee;
   box-sizing: border-box;
   border-radius: 15px;
-  font-family: Noto Sans KR;
   font-size: 12px;
-  color: #386bee;
-  box-sizing: border-box;
   margin-right: 10px;
+  color: #386bee;
 `;
 
 export const TeamBox = styled.div`
@@ -111,10 +109,10 @@ export const TeamBox = styled.div`
   border-radius: 5px;
   margin-top: 10px;
   padding: 10px 15px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   line-height: 14px;
   color: #000000;
+  margin-right: 10px;
 `;
 
 export const TeamName = styled.div`
@@ -125,8 +123,8 @@ export const TeamName = styled.div`
   border: 1px solid #386bee;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
+  align-items: center;
   text-align: center;
   color: #000000;
 `;
@@ -134,8 +132,23 @@ export const TeamName = styled.div`
 export const MemberBox = styled.div`
   width: auto;
   height: 130px;
-  overflow: auto;
+  white-space: nowrap;
   margin-top: 4px;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: ${color.main};
+  }
+  overflow-y: auto;
+  overflow-x: auto;
   ::-webkit-scrollbar-track {
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -158,49 +171,48 @@ export const NumberBox = styled.div`
 `;
 
 export const NumberName = styled.div`
-  width: 60px;
+  width: fit-content;
   height: 20px;
+  padding: 2px 8px;
   background: #386bee;
   border-radius: 5px;
-  font-family: Roboto;
   font-size: 10px;
+  align-items: center;
   text-align: center;
   color: #ffffff;
   display: inline-block;
-  padding-top: 2px;
 `;
 
 export const Email = styled.div`
-  width: 33%;
+  width: fit-content;
   height: 20px;
+  padding: 2px 8px;
   background: #386bee;
   border-radius: 5px;
-  font-family: Roboto;
   font-size: 10px;
+  align-items: center;
   text-align: center;
   color: #ffffff;
   display: inline-block;
-  padding-top: 2px;
 `;
 
 export const Role = styled.div`
-  width: 12%;
+  width: fit-content;
   height: 20px;
+  padding: 1px 8px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
   display: inline-block;
-  padding-top: 2px;
 `;
 
 export const TechStatckBox = styled.div`
   width: 556px;
-  height: 51px;
+  height: 66px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
@@ -210,10 +222,31 @@ export const TechStatckBox = styled.div`
 `;
 
 export const TechStatck = styled.p`
-  font-family: Noto Sans KR;
   font-size: 10px;
   line-height: 14px;
   color: #000000;
+`;
+
+export const StatckBox = styled.div`
+  width: 520px;
+  height: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-top: 7px;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: ${color.main};
+  }
 `;
 
 export const Statck = styled.div`
@@ -222,42 +255,41 @@ export const Statck = styled.div`
   height: 20px;
   background: #386bee;
   border-radius: 5px;
-  font-family: Roboto;
   font-size: 10px;
+  align-items: center;
   text-align: center;
   color: #ffffff;
-  margin-top: 5px;
   display: inline-block;
-  margin-left: 10px;
+  margin-right: 10px;
 `;
 
 export const WriteBox = styled.div`
   width: 556px;
-  height: 50px;
+  height: 40px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  padding: 12px 30px;
+  padding: 8px 20px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 `;
 
 export const WriteText = styled.span`
-  font-family: Noto Sans KR;
   font-size: 14px;
   color: #000000;
 `;
 
-export const Btn = styled.button`
-  width: 60px;
+export const Btn = styled(Link)`
+  width: 70px;
+  text-decoration: none;
+  cursor: pointer;
   height: 24px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
@@ -298,7 +330,6 @@ export const UrlBox = styled.div`
 `;
 
 export const GitText = styled.span`
-  font-family: Noto Sans KR;
   font-size: 12px;
   color: #000000;
 `;
@@ -310,7 +341,6 @@ export const GitInput = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   color: #aaaaaa;
   margin: 10px 0px 9px 0px;
@@ -324,7 +354,6 @@ export const GitAddressBox = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 10px;
   color: #000000;
   margin-bottom: 5px;
@@ -349,7 +378,6 @@ export const AddressBox = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Noto Sans KR;
   font-size: 11px;
   color: #5f5f5f;
   display: inline-block;
@@ -362,7 +390,6 @@ export const AddressBox = styled.div`
 `;
 
 export const GuitarText = styled.p`
-  font-family: Noto Sans KR;
   font-size: 11px;
   text-align: center;
   color: #5f5f5f;

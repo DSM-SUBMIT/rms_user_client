@@ -41,7 +41,6 @@ export const Input = styled.input`
   width: 185px;
   height: 48px;
   margin: 22px 0px 0px 4px;
-  font-family: Noto Sans KR;
   font-size: 18px;
   border: none;
   text-align: center;
@@ -52,7 +51,6 @@ export const Input = styled.input`
 export const Modify = styled.button`
   width: 60px;
   height: 35px;
-  font-family: Noto Sans KR;
   text-align: center;
   background-color: #386bee;
   color: #ffffff;
