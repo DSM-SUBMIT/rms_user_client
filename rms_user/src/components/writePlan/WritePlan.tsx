@@ -36,10 +36,10 @@ const WritePlan: FC<DetailPlanState> = props=> {
                         <S.PlanContent>
                             <span>시작예정과 완료예정</span>
                             <div>
-                                <input id="month" type="month" value={plannedEndData} onChange={(e) => {
-                                     setState.setPlannedEndDate(e.target.value);
-                                }}/>
                                 <input id="month" type="month" value={plannedStartData} onChange={(e) => {
+                                     setState.setPlannedStartDate(e.target.value);
+                                }}/>
+                                <input id="month" type="month" value={plannedEndData} onChange={(e) => {
                                     setState.setPlannedEndDate(e.target.value);
                                 }}/>
                             </div>
