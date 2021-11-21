@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { GET_DETAIL_PLAN } from "../../modules/redux/action/detailPlan/interface";
 import UseDetailPlan from "../../util/hooks/detailPlan";
+import UseWritePlan from "../../util/hooks/writePlan";
 
 type DetailPlanParams = {
   id: string;
@@ -12,6 +13,7 @@ type DetailPlanParams = {
 
 const WritePlanContainer: FC = () => {
   const { state, setState } = UseDetailPlan();
+  const { setState: setWriteState } = UseWritePlan();
   const { id } = useParams<DetailPlanParams>();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const WritePlanContainer: FC = () => {
 
   useEffect(() => {
     setState.setId(id);
+    setWriteState.setProjectId(Number(id));
   }, [id]);
 
   useEffect(() => {
