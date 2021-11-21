@@ -33,7 +33,7 @@ export const SubmitPlan = async (accessToken: string, body: ContentRequest, proj
   try {
     await SavePlan(accessToken, body, projectId);
     const request = getRequestWithAccessToken(accessToken);
-    const response = await request.post(uri.writePlan + `submit` + `/${projectId}`);
+    const response = await request.post(`${uri.writePlan}/submit/${projectId}`);
       return response;
   } catch (error) {
     throw error;
