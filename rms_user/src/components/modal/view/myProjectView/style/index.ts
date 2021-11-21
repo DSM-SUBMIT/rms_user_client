@@ -86,7 +86,7 @@ export const Box = styled.div`
 `;
 
 export const Field = styled.div`
-  padding: 0px 10px;
+  padding: 3px 10px;
   width: fit-content;
   align-items: center;
   text-align: center;
@@ -173,7 +173,7 @@ export const NumberBox = styled.div`
 export const NumberName = styled.div`
   width: fit-content;
   height: 20px;
-  padding: 2px 8px;
+  padding: 3px 8px;
   background: #386bee;
   border-radius: 5px;
   font-size: 10px;
@@ -250,7 +250,7 @@ export const StatckBox = styled.div`
 `;
 
 export const Statck = styled.div`
-  padding: 0px 10px;
+  padding: 2px 10px;
   width: fit-content;
   height: 20px;
   background: #386bee;
@@ -357,7 +357,7 @@ export const GitAddressBox = styled.div`
   font-size: 10px;
   color: #000000;
   margin-bottom: 5px;
-  padding: 1px 15px;
+  padding: 2px 15px;
 `;
 
 export const GuitarBox = styled.div`
@@ -385,7 +385,7 @@ export const AddressBox = styled.div`
   margin-left: 11px;
   margin-bottom: 12px;
   :last-child {
-    margin-left: 18px;
+    margin-left: 20px;
   }
 `;
 

@@ -46,11 +46,11 @@ export const ProjectBox = styled.div`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  padding-top: 10px;
+  padding-top: 8px;
 `;
 
 export const ProjectText = styled.span`
-  font-size: 12px;
+  font-size: 10px;
   color: #000000;
   margin: 18px 12px;
 `;
