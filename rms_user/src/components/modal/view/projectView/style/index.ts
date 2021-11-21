@@ -66,7 +66,7 @@ export const Box = styled.div`
 `;
 
 export const Field = styled.div`
-  padding: 0px 10px;
+  padding: 3px 10px;
   width: fit-content;
   height: 25px;
   background: #fdfdfd;
@@ -94,7 +94,7 @@ export const TeamBox = styled.div`
 `;
 
 export const TeamName = styled.div`
-  padding: 0px 10px;
+  padding: 1.2px 10px;
   width: fit-content;
   height: 20px;
   background: #ffffff;
@@ -156,7 +156,7 @@ export const NumberName = styled.div`
   text-align: center;
   color: #ffffff;
   display: inline-block;
-  padding-top: 2px;
+  padding: 3px 8px;
 `;
 
 export const Email = styled.div`
@@ -311,7 +311,7 @@ export const GitAddressBox = styled.div`
   font-size: 10px;
   color: #000000;
   margin-bottom: 5px;
-  padding: 1px 15px;
+  padding: 2px 15px;
 `;
 
 export const GuitarBox = styled.div`
