@@ -27,7 +27,7 @@ export const setIncludeOutcome = createAction(INCLUDEOUTCOME)<boolean>();
 export const setIncludeResultReport = createAction(INCLUDERESULTREPORT)<boolean>();
 export const setPlannedEndDate = createAction(PLANNEDENDDATE)<string>();
 export const setPlannedStartDate = createAction(PLANNEDSTARTDATE)<string>();
-export const getProjectId = createAction(PROJECTID)<number>();
+export const setProjectId = createAction(PROJECTID)<number>();
 
 export const setSavePlan = createAction(GET_SAVE_PLAN)<ContentRequest>();
 export const setSavePlanSuccess = createAction(GET_SAVE_PLAN_SUCCESS)();
@@ -49,7 +49,7 @@ export type writePlanActionType =
   | ReturnType<typeof setSavePlan>
   | ReturnType<typeof setSavePlanSuccess>
   | ReturnType<typeof setSavePlanFailure>
-  | ReturnType<typeof getProjectId>
+  | ReturnType<typeof setProjectId>
   | ReturnType<typeof setSubmitPlan>
   | ReturnType<typeof setSubmitPlanSuccess>
   | ReturnType<typeof setSubmitPlanFailure>;

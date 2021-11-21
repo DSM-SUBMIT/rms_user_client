@@ -126,9 +126,9 @@ const MyPorjectView: FC<Props> = props => {
               )}
               {props.isPlanAccepted === true ? (
                 props.isReportSubmitted === true ? (
-                  <S.Btn to={'detail-report' + `${props.projectId}`}>보러가기</S.Btn>
+                  <S.Btn to={'detail-report/' + `${props.projectId}`}>보러가기</S.Btn>
                 ) : (
-                  <S.Btn to={'/write/report' + `${props.projectId}`}>작성하기</S.Btn>
+                  <S.Btn to={'/write/report/' + `${props.projectId}`}>작성하기</S.Btn>
                 )
               ) : null}
             </div>
