@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import {
-  getProjectId,
+  setProjectId,
   setContent,
   setGoal,
   setIncludeCode,
@@ -40,8 +40,8 @@ const useWritePlan = () => {
     setPlannedStartDate: (payload: string) => {
       dispatch(setPlannedStartDate(payload));
     },
-    getProjectId: (payload: number) => {
-      dispatch(getProjectId(payload));
+    setProjectId: (payload: number) => {
+      dispatch(setProjectId(payload));
     },
   };
   return { state, setState };
