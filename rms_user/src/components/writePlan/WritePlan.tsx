@@ -36,11 +36,10 @@ const WritePlan: FC<DetailPlanState> = props=> {
                         <S.PlanContent>
                             <span>시작예정과 완료예정</span>
                             <div>
-                                <input id="month" type="month" value={plannedEndData} onChange={(e) => {
+                                <input id="month" type="month" value={state.plannedEndDate} onChange={(e) => {
                                      setState.setPlannedEndDate(e.target.value);
                                 }}/>
-                                <input id="month" type="month" value={plannedStartData} onChange={(e) => {
-                                    setState.setPlannedEndDate(e.target.value);
+                                <input id="month" type="month" value={state.plannedStartDate} onChange={(e) => {
                                 }}/>
                             </div>
                         </S.PlanContent>
@@ -60,25 +59,25 @@ const WritePlan: FC<DetailPlanState> = props=> {
                             <h4>결과물 (해당사항체크)</h4>
                             <S.InputDiv>
                                 <div>
-                                    <input type="checkbox" id="report" checked={includeResultReport} onChange={(e) => {
+                                    <input type="checkbox" id="report" checked={state.includeResultReport} onChange={(e) => {
                                         setState.setIncludeResultReport(e.target.checked);
                                     }}/>
                                     <label htmlFor="report">결과보고서</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="code" checked={includeCode} onChange={(e) => {
+                                    <input type="checkbox" id="code" checked={state.includeCode} onChange={(e) => {
                                        setState.setIncludeCode(e.target.checked);
                                     }}/>
                                     <label htmlFor="code">프로그램코드</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="video" checked={includeOutcome} onChange={(e) => {
+                                    <input type="checkbox" id="video" checked={state.includeOutcome} onChange={(e) => {
                                         setState.setIncludeOutcome(e.target.checked);
                                     }}/>
                                     <label htmlFor="report">실행물(영상 또는 사진)</label>
                                 </div>
                                 <div>
-                                    <input type="text" id="etc" value={includeOthers} onChange={(e) => {
+                                    <input type="text" id="etc" value={state.includeOthers} onChange={(e) => {
                                         setState.setIncludeOthers(e.target.value);
                                     }}/>
                                     <label htmlFor="etc">기타</label>
