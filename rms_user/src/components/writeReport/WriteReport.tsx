@@ -10,17 +10,22 @@ import {
   GET_SAVE_REPORT,
   GET_SUBMIT_REPORT,
 } from '../../modules/redux/action/writeReport/interface';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation, useParams } from 'react-router';
 import EditorItem from './EditorItem';
 import UseDetailReport from '../../util/hooks/detailReport';
 
-interface Props {}
+interface Props {
+  setId: (payload: string) => void;
+  projectName: string;
+}
 
 const WriteReport: FC<Props> = props => {
   const history = useHistory();
   const { setState, state } = useWriteReport();
   const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
   const { setContent, getProjectId, setVideoUrl } = setState;
+  const { projectName, setId } = props;
+  const path = useLocation().pathname.slice(15);
 
   const dispatch = useDispatch();
   const [editor, setEditor] = useState(1);
@@ -46,6 +51,10 @@ const WriteReport: FC<Props> = props => {
     } else return;
   };
 
+  useEffect(() => {
+    setId(path);
+  }, [path])
+
   return (
     <>
       <Header />
@@ -54,7 +63,7 @@ const WriteReport: FC<Props> = props => {
           <S.Report>
             <S.Section>
               <h5>[보고서]</h5>
-              <S.TitleName>보고서 관리 시스템</S.TitleName>
+              <S.TitleName>{projectName}</S.TitleName>
               <S.FormDiv>
                 <h4>I. 프로젝트 진행 동기 및 목적</h4>
                 <span className='tab'>&#9;</span>
