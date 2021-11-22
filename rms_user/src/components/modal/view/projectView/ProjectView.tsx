@@ -38,9 +38,8 @@ const PorjectView: FC<Props> = props => {
     dispatch({ type: GET_PROJECT_CONTENTS });
   }, [GET_PROJECT_CONTENTS]);
 
-  const techStacks = props.techStack.split(',');
-  const gitHubs = props.githubUrl && props.githubUrl.split(',');
-
+  const techStacks = (props.techStack || '').split(',');
+  const gitHubs = (props.githubUrl || '').split(',');
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
@@ -79,10 +78,10 @@ const PorjectView: FC<Props> = props => {
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
             <S.StatckBox>
-            {techStacks.length !== 0 &&
-              techStacks.map((data, index) => {
-                return <S.Statck key={index}>{data}</S.Statck>;
-              })}
+              {techStacks.length !== 0 &&
+                techStacks.map((data, index) => {
+                  return <S.Statck key={index}>{data}</S.Statck>;
+                })}
             </S.StatckBox>
           </S.TechStatckBox>
           <S.WriteBox>
