@@ -9,7 +9,7 @@ import UseWritePlan from "../../util/hooks/writePlan";
 
 type DetailPlanParams = {
   id: string;
-}
+};
 
 const WritePlanContainer: FC = () => {
   const { state, setState } = UseDetailPlan();
@@ -42,7 +42,7 @@ const WritePlanContainer: FC = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <WritePlan {...state}/>
+      <WritePlan {...state} />
     </Suspense>
   );
 };
