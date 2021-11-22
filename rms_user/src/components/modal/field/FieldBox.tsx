@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import { FieldListSelect } from '../../../constance/project';
 
@@ -12,9 +12,6 @@ const FieldBox: FC<Props> = props => {
   const { setFieldList, fieldList } = props;
 
   const onClickBox = (e: any, content: string) => {
-    const dataId = e.currentTarget.dataset.id;
-    const isClick = e.currentTarget.checked;
-
     setFieldList(fieldList.concat(content));
     if (fieldList.includes(content)) {
       setFieldList(fieldList.filter((item: string) => content !== item));
