@@ -5,8 +5,8 @@ interface ReportContentState {
   videoUrl: string;
   projectId: string;
   error: error | null;
-  isSuccessSave: boolean;
-  isSuccessSubmit: boolean;
+  isSuccessSave: boolean | undefined;
+  isSuccessSubmit: boolean | undefined;
 }
 
 export default ReportContentState;

@@ -8,6 +8,8 @@ import {
   PROJECTID,
   GET_SUBMIT_REPORT_SUCCESS,
   GET_SUBMIT_REPORT_FAILURE,
+  GET_SAVE_REPORT,
+  GET_SUBMIT_REPORT,
 } from '../../action/writeReport/interface';
 
 const initState: ReportContentState = {
@@ -15,8 +17,8 @@ const initState: ReportContentState = {
   videoUrl: '',
   projectId: '1',
   error: null,
-  isSuccessSave: false,
-  isSuccessSubmit: false,
+  isSuccessSave: undefined,
+  isSuccessSubmit: undefined,
 };
 
 const writePlanReducer = (
@@ -39,6 +41,11 @@ const writePlanReducer = (
         ...state,
         projectId: action.payload,
       };
+    case GET_SAVE_REPORT:
+      return {
+        ...state,
+        isSuccessSave: undefined,
+      };
     case GET_SAVE_REPORT_SUCCESS:
       return {
         ...state,
@@ -49,6 +56,11 @@ const writePlanReducer = (
         ...state,
         error: action.payload,
         isSuccessSave: false,
+      };
+    case GET_SUBMIT_REPORT:
+      return {
+        ...state,
+        isSuccessSubmit: undefined,
       };
     case GET_SUBMIT_REPORT_SUCCESS:
       return {
