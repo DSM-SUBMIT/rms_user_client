@@ -66,6 +66,9 @@ const Main: FC<Props> = props => {
                   />
                 );
               })}
+            {projectList.length === 0 && (
+              <S.NoProjectList>프로젝트가 존재하지 않습니다.</S.NoProjectList>
+            )}
             <ReactPaginate
               pageCount={totalPages}
               pageRangeDisplayed={4}
