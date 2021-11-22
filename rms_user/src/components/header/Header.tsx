@@ -19,11 +19,6 @@ const Header = () => {
     dispatch({ type: GET_NAME });
   }, []);
 
-  const refreshToken = () => {
-    loginState.setState.refreshToken(headerState.setState.getName);
-    window.location.reload();
-  };
-
   useEffect(() => {
     if (loginState.state.error?.status === 401 && loginState.state.error.type === REFRESH_TOKEN) {
       localStorage.removeItem('access_token');
@@ -35,7 +30,7 @@ const Header = () => {
   useEffect(() => {
     const errorStatus = headerState.state.error?.status;
     if (errorStatus === 401 || errorStatus === 403) {
-      refreshToken();
+      loginState.setState.refreshToken(headerState.setState.getName);
     }
   }, [headerState.state.error]);
 
