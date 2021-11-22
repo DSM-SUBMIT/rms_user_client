@@ -21,6 +21,7 @@ const Header = () => {
 
   const refreshToken = () => {
     loginState.setState.refreshToken(headerState.setState.getName);
+    window.location.reload();
   };
 
   useEffect(() => {
