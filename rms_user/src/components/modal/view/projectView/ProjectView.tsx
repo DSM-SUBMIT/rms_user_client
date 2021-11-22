@@ -38,8 +38,8 @@ const PorjectView: FC<Props> = props => {
     dispatch({ type: GET_PROJECT_CONTENTS });
   }, [GET_PROJECT_CONTENTS]);
 
-  const techStacks = props.techStack.split(',');
-  const gitHubs = props.githubUrl.split(',');
+  const techStacks = (props.techStack || '').split(',');
+  const gitHubs = (props.githubUrl || '').split(',');
   return (
     <S.ModalWrapper>
       <S.ProjectViewBox>
@@ -78,9 +78,10 @@ const PorjectView: FC<Props> = props => {
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
             <S.StatckBox>
-              {techStacks.map((data, index) => {
-                return <S.Statck key={index}>{data}</S.Statck>;
-              })}
+              {techStacks.length !== 0 &&
+                techStacks.map((data, index) => {
+                  return <S.Statck key={index}>{data}</S.Statck>;
+                })}
             </S.StatckBox>
           </S.TechStatckBox>
           <S.WriteBox>
@@ -92,7 +93,7 @@ const PorjectView: FC<Props> = props => {
             <S.ViewBtn to={'detail-report/' + `${props.projectId}`}>보러가기</S.ViewBtn>
           </S.WriteBox>
           <S.GitBox>
-            <img src={Github} />
+            <img src={Github} alt='github' />
             <S.GitText>{GitHub}</S.GitText>
             <S.GitAddressBox>{props.githubUrl == null ? text : props.githubUrl}</S.GitAddressBox>
           </S.GitBox>

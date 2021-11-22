@@ -12,8 +12,15 @@ interface Props {
 }
 
 const ProjectList: FC<Props> = props => {
-  const { id, projectName, projectType, teamName, fieldList, setCurrentProjectId, setIsOpenModal } =
-    props;
+  const {
+    id,
+    projectName,
+    projectType,
+    teamName,
+    fieldList,
+    setCurrentProjectId,
+    setIsOpenModal,
+  } = props;
 
   const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     setCurrentProjectId(Number(event.currentTarget.dataset.id));
@@ -26,13 +33,14 @@ const ProjectList: FC<Props> = props => {
       <S.ProjectTitle>{projectName}</S.ProjectTitle>
       <S.ProjectWriter>{teamName}</S.ProjectWriter>
       <div>
-        {fieldList.map((content, i) => {
-          return (
-            <S.ProjectField key={i}>
-              <p>{content}</p>
-            </S.ProjectField>
-          );
-        })}
+        {fieldList &&
+          fieldList.map((content, i) => {
+            return (
+              <S.ProjectField key={i}>
+                <p>{content}</p>
+              </S.ProjectField>
+            );
+          })}
       </div>
     </S.Project>
   );

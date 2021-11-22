@@ -10,26 +10,38 @@ import {
   GET_SAVE_REPORT,
   GET_SUBMIT_REPORT,
 } from '../../modules/redux/action/writeReport/interface';
-import { useHistory, useLocation, useParams } from 'react-router';
+import { useHistory } from 'react-router';
 import EditorItem from './EditorItem';
-import UseDetailReport from '../../util/hooks/detailReport';
 
 interface Props {
-  setId: (payload: string) => void;
   projectName: string;
 }
 
 const WriteReport: FC<Props> = props => {
   const history = useHistory();
   const { setState, state } = useWriteReport();
-  const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
-  const { setContent, getProjectId, setVideoUrl } = setState;
-  const { projectName, setId } = props;
-  const path = useLocation().pathname.slice(15);
+  const { content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
+  const { setContent, setVideoUrl } = setState;
+  const { projectName } = props;
 
   const dispatch = useDispatch();
   const [editor, setEditor] = useState(1);
   const EditorRef = createRef<Editor>();
+
+  useEffect(() => {
+    if (isSuccessSave) alert('보고서 임시저장을 성공하였습니다.');
+    else if (isSuccessSave === false) alert('보고서 임시저장을 실패하였습니다.');
+  }, [isSuccessSave]);
+
+  useEffect(() => {
+    if (isSuccessSave) {
+      if (isSuccessSubmit) {
+        alert('보고서 제출을 성공하였습니다.');
+        history.push('/mypage');
+        window.location.reload();
+      } else if (isSuccessSubmit === false) alert('보고서 제출을 실패하였습니다.');
+    }
+  }, [isSuccessSave, isSuccessSubmit]);
 
   const SaveReport = () => {
     const editorInstance = EditorRef.current?.getInstance();
@@ -42,18 +54,14 @@ const WriteReport: FC<Props> = props => {
   const submitReport = () => {
     if (window.confirm('보고서를 제출합니다') === true) {
       dispatch({ type: GET_SUBMIT_REPORT });
-      history.push(`/mypage`);
     } else return;
   };
+
   const AddPage = (event: React.MouseEvent<HTMLElement>) => {
     if (window.confirm('페이지를 추가합니다') === true) {
       setEditor(prevPage => prevPage + 1);
     } else return;
   };
-
-  useEffect(() => {
-    setId(path);
-  }, [path])
 
   return (
     <>
