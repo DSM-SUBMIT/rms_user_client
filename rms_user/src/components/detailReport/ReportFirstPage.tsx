@@ -16,8 +16,7 @@ interface Props {
 }
 
 const ReportFirstPage: FC<Props> = props => {
-  const { projectName, writer, isTeam } = props;
-  const writerStudentNumber = 2108;
+  const { projectName, writer, isTeam, writerStudentNumber } = props;
   const reportTitle = useMemo(() => {
     if (isTeam) return <p>팀 {PROJECT_REPORT}</p>;
     else return <p>개인 {PROJECT_REPORT}</p>;
