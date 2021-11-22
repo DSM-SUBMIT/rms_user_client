@@ -25,7 +25,7 @@ const EditorItem: FC<EditorItemProps> = ({ page, content, setContent }) => {
     temp.splice(page, 1, html);
     setContent(temp);
   };
-  return <Editor onChange={editorChangeHandler} ref={ref} height='600px'></Editor>;
+  return <Editor onChange={editorChangeHandler} ref={ref} height='600px' />;
 };
 
 export default EditorItem;
