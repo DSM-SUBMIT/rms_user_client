@@ -59,8 +59,9 @@ const MyPage: FC<Props> = props => {
   return (
     <>
       {myProjectViewModal}
-      <Header />
+
       <S.MyPage>
+        <Header />
         <S.Content>
           <S.InformationBox>
             <S.NumberBox onClick={onClickChangePasswordModal}>

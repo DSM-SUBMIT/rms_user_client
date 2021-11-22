@@ -7,12 +7,11 @@ export const MyPage = styled.div`
   height: 94vh;
   box-sizing: border-box;
   background-color: ${color.background};
-  padding-top: 50px;
 `;
 
 export const Content = styled.div`
   width: 546px;
-  margin: 0 auto;
+  margin: 50px auto;
 `;
 
 export const InformationBox = styled.div`
