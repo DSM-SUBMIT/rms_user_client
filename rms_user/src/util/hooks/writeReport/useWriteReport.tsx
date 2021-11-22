@@ -1,9 +1,5 @@
 import { useDispatch } from 'react-redux';
-import {
-    setContent,
-    setVideoUrl,
-    getProjectId,
-} from '../../../modules/redux/action/writeReport';
+import { setContent, setVideoUrl, getProjectId } from '../../../modules/redux/action/writeReport';
 import { useSelectState } from '../default';
 
 const useWriteReport = () => {
@@ -16,7 +12,7 @@ const useWriteReport = () => {
     setVideoUrl: (payload: string) => {
       dispatch(setVideoUrl(payload));
     },
-    getProjectId: (payload: number) => {
+    setProjectId: (payload: string) => {
       dispatch(getProjectId(payload));
     },
   };
