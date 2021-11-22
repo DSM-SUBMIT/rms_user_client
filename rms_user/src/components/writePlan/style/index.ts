@@ -6,6 +6,8 @@ export const Main = styled.main`
     display: flex;
     background-color: ${color.background};
     text-align: center;
+    display: flex;
+    justify-content: center;
 `
 
 export const Form = styled.form`
@@ -49,9 +51,12 @@ export const PlanContent = styled.section`
 
 export const PlanContentResult = styled.div`
     display: flex;
-    div {
-        margin-left: 20px;
-    }
+    flex-direction: column;
+`
+export const InputDiv = styled.div`
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
     label {
         margin-left: 5px;
     }

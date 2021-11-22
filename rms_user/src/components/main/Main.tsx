@@ -5,24 +5,27 @@ import ChooseField from './ChooseField';
 import Project from './Project';
 import { CheckStateType, ProjectListType } from '../../constance/main';
 import ReactPaginate from 'react-paginate';
-import ProjectView from '../modal/view';
+import ProjectView from '../modal/view/projectView';
+import useViewProject from '../../util/hooks/viewProject';
 
 interface Props {
   currentPage: number;
   projectList: Array<ProjectListType>;
   totalPages: number;
   field: CheckStateType;
+  currentProjectId: number;
   setField: (payload: CheckStateType) => void;
   setPage: (payload: number) => void;
   setCurrentProjectId: (payload: number) => void;
 }
 
 const Main: FC<Props> = props => {
+  const { state } = useViewProject();
   const {
-    currentPage,
     projectList,
     totalPages,
     field,
+    currentProjectId,
     setField,
     setPage,
     setCurrentProjectId,
@@ -34,8 +37,11 @@ const Main: FC<Props> = props => {
   };
 
   const projectViewModal = useMemo(() => {
-    if (isOpenModal) return <ProjectView setIsOpenModal={setIsOpenModal} />;
-  }, [isOpenModal]);
+    if (isOpenModal)
+      return (
+        <ProjectView setIsOpenModal={setIsOpenModal} projectId={currentProjectId} {...state} />
+      );
+  }, [isOpenModal, state, currentProjectId]);
 
   return (
     <>
@@ -60,6 +66,9 @@ const Main: FC<Props> = props => {
                   />
                 );
               })}
+            {projectList.length === 0 && (
+              <S.NoProjectList>프로젝트가 존재하지 않습니다.</S.NoProjectList>
+            )}
             <ReactPaginate
               pageCount={totalPages}
               pageRangeDisplayed={4}

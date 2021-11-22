@@ -1,4 +1,5 @@
 export { default as LoginContainer } from './login';
+export { default as ProjectCreateContainer } from './ProjectCreate';
 export { default as MyPageContainer } from './mypage';
 export { default as DetailReportContainer } from './detailReport';
 export { default as WritePlanContainer } from './writePlan';
@@ -6,3 +7,4 @@ export { default as WriteReportContainer } from './writeReport';
 export { default as MainContainer } from './main';
 export { default as LoginLoadingContainer } from './loginLoading';
 export { default as DetailPlanContainer } from './detailPlan';
+export { default as InfoContainer } from './info';

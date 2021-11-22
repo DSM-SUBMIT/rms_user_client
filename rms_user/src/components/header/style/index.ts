@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from '../../../style';
 
 export const HeaderBox = styled.div`
   height: 55px;
@@ -15,10 +16,14 @@ export const HeaderContent = styled.div`
   align-items: center; ;
 `;
 
-export const MainLogo = styled.div`
-  width: 40px;
-  height: 40px;
-  background-color: red;
+export const MainLogo = styled.p`
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: ${color.main};
+  :hover {
+    color: ${color.main};
+  }
 `;
 
 export const UserBox = styled.div`

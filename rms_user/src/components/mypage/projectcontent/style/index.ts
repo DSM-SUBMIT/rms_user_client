@@ -9,7 +9,7 @@ export const ProjectContent = styled.div`
   border-radius: 5px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   padding: 13px 37px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   cursor: pointer;
   > div {
     display: flex;

@@ -18,7 +18,7 @@ const ChooseField: FC<Props> = props => {
 
   const clickBtnHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const dataId = event.currentTarget.dataset.id;
-    const clickField = (dataId as unknown) as DataIdType;
+    const clickField = dataId as unknown as DataIdType;
     setField({ ...field, [clickField]: !field[clickField] });
   };
 
@@ -28,9 +28,9 @@ const ChooseField: FC<Props> = props => {
       {FIELDS &&
         FIELDS.map((props: FieldMapPropsType) => {
           return (
-            <S.CheckLine>
+            <S.CheckLine key={props.id}>
               <S.CheckBox onClick={clickBtnHandler} data-id={props.id} isClick={field[props.id]} />
-              <p key={props.id}>{props.content}</p>
+              <p>{props.content}</p>
             </S.CheckLine>
           );
         })}
