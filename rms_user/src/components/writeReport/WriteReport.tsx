@@ -15,7 +15,6 @@ import EditorItem from './EditorItem';
 import UseDetailReport from '../../util/hooks/detailReport';
 
 interface Props {
-  setId: (payload: string) => void;
   projectName: string;
 }
 
@@ -23,9 +22,8 @@ const WriteReport: FC<Props> = props => {
   const history = useHistory();
   const { setState, state } = useWriteReport();
   const { projectId, content, isSuccessSave, isSuccessSubmit, videoUrl } = state;
-  const { setContent, getProjectId, setVideoUrl } = setState;
-  const { projectName, setId } = props;
-  const path = useLocation().pathname.slice(15);
+  const { setContent, setVideoUrl } = setState;
+  const { projectName } = props;
 
   const dispatch = useDispatch();
   const [editor, setEditor] = useState(1);
@@ -50,10 +48,6 @@ const WriteReport: FC<Props> = props => {
       setEditor(prevPage => prevPage + 1);
     } else return;
   };
-
-  useEffect(() => {
-    setId(path);
-  }, [path])
 
   return (
     <>
