@@ -10,19 +10,21 @@ import {
   PROJECTID,
   GET_SUBMIT_REPORT,
   GET_SUBMIT_REPORT_SUCCESS,
-  GET_SUBMIT_REPORT_FAILURE
+  GET_SUBMIT_REPORT_FAILURE,
 } from './interface';
 
 export const setContent = createAction(CONTENT)<string[]>();
 export const setVideoUrl = createAction(VIDEOURL)<string>();
-export const getProjectId = createAction(PROJECTID)<number>();
+export const getProjectId = createAction(PROJECTID)<string>();
 
 export const setSaveReport = createAction(GET_SAVE_REPORT)<ReportContentRequest>();
 export const setSaveReportSuccess = createAction(GET_SAVE_REPORT_SUCCESS)();
 export const setSaveReportFailure = createAction(GET_SAVE_REPORT_FAILURE)<error>();
 
 export const setSubmitReport = createAction(GET_SUBMIT_REPORT)();
-export const setSubmitReportSuccess = createAction(GET_SUBMIT_REPORT_SUCCESS)<ReportContentRequest>();
+export const setSubmitReportSuccess = createAction(
+  GET_SUBMIT_REPORT_SUCCESS,
+)<ReportContentRequest>();
 export const setSubmitReportFailure = createAction(GET_SUBMIT_REPORT_FAILURE)<error>();
 
 export type writeReportActionType =
