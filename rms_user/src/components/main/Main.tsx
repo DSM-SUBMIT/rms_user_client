@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import * as S from './style';
 import Header from '../header';
 import ChooseField from './ChooseField';
@@ -13,6 +13,7 @@ interface Props {
   projectList: Array<ProjectListType>;
   totalPages: number;
   field: CheckStateType;
+  currentProjectId: number;
   setField: (payload: CheckStateType) => void;
   setPage: (payload: number) => void;
   setCurrentProjectId: (payload: number) => void;
@@ -20,8 +21,15 @@ interface Props {
 
 const Main: FC<Props> = props => {
   const { state } = useViewProject();
-  const { currentPage, projectList, totalPages, field, setField, setPage, setCurrentProjectId } =
-    props;
+  const {
+    projectList,
+    totalPages,
+    field,
+    currentProjectId,
+    setField,
+    setPage,
+    setCurrentProjectId,
+  } = props;
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const pageBtnClickHandler = (selectedItem: { selected: number }) => {
@@ -30,8 +38,10 @@ const Main: FC<Props> = props => {
 
   const projectViewModal = useMemo(() => {
     if (isOpenModal)
-      return <ProjectView setIsOpenModal={setIsOpenModal} projectId={currentPage} {...state} />;
-  }, [isOpenModal, state, currentPage]);
+      return (
+        <ProjectView setIsOpenModal={setIsOpenModal} projectId={currentProjectId} {...state} />
+      );
+  }, [isOpenModal, state, currentProjectId]);
 
   return (
     <>
