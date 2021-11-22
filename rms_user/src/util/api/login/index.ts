@@ -28,6 +28,7 @@ export const refreshToken = async () => {
     localStorage.setItem('access_token', data.accessToken);
     return data;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
