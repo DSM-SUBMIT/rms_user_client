@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from '../../../../style';
 
 export const SmallModalWrapper = styled.div`
   width: 100%;

@@ -4,11 +4,10 @@ import Header from '../header';
 import ProjectContent from './projectcontent';
 import { PROJECT, CREATE_PROJECT, ProjectListType } from '../../constance/mypage';
 import { Plus } from '../../assets';
-import ProjectCreate from '../modal/create';
 import { useModal } from '../../util/hooks/modal';
 import useViewMyProject from '../../util/hooks/viewMyProject';
 import MyProjectView from '../modal/view/myProjectView';
-import { Link } from 'react-router-dom';
+
 interface Props {
   currentPage: number;
   name: string;
@@ -23,15 +22,7 @@ interface Props {
 
 const MyPage: FC<Props> = props => {
   const { state } = useViewMyProject();
-  const {
-    name,
-    email,
-    projectList,
-    studentNumber,
-    setCurrentProjectId,
-    currentPage,
-    currentProjectId,
-  } = props;
+  const { name, email, projectList, studentNumber, setCurrentProjectId, currentProjectId } = props;
   const { setState } = useModal();
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 

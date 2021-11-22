@@ -1,10 +1,6 @@
 import { getMypage } from '../../../../util/api/mypage';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { GET_MYPAGE_FEED } from '../../action/mypage/interface';
-import { reducerType } from '../../reducer';
-import MypageState from '../../reducer/mypage/interface';
-
-const getStateFunc = (state: reducerType): MypageState => state.mypage;
 
 const mypageGetSaga = function* (): any {
   const type = 'MYPAGE/GET_MYPAGE_FEED';
