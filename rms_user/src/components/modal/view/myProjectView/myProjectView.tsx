@@ -30,6 +30,7 @@ interface Props {
   isPlanSubmitted: boolean;
   isReportAccepted: boolean;
   isReportSubmitted: boolean;
+  writer: boolean;
 }
 
 const MyPorjectView: FC<Props> = props => {
@@ -60,7 +61,7 @@ const MyPorjectView: FC<Props> = props => {
           <S.TopBox>
             <S.Classification>[{props.projectType}]</S.Classification>
             <S.ProjectName>{props.projectName}</S.ProjectName>
-            <S.ModifyBtn onClick={onClickModifyModal}>수정하기</S.ModifyBtn>
+            {props.writer ? <S.ModifyBtn onClick={onClickModifyModal}>수정하기</S.ModifyBtn> : null}
           </S.TopBox>
           <S.Box>
             {props.fieldList &&
@@ -79,7 +80,11 @@ const MyPorjectView: FC<Props> = props => {
                       <S.NumberName>{data.name}</S.NumberName>
                       <S.Email>{data.email}</S.Email>
                       {roles.map((data, index) => {
-                        return <S.Role key={index}>{data}</S.Role>;
+                        if (data === ' ') {
+                          return;
+                        } else {
+                          return <S.Role key={index}>{data}</S.Role>;
+                        }
                       })}
                     </S.NumberBox>
                   );
@@ -88,18 +93,28 @@ const MyPorjectView: FC<Props> = props => {
           </S.TeamBox>
           <S.TechStatckBox>
             <S.TechStatck>{TechStatck}</S.TechStatck>
-            {techStacks.map((data, index) => {
-              return <S.Statck key={index}>{data}</S.Statck>;
-            })}
+            <S.StatckBox>
+              {techStacks.map((data, index) => {
+                return <S.Statck key={index}>{data}</S.Statck>;
+              })}
+            </S.StatckBox>
           </S.TechStatckBox>
           <S.WriteBox>
             <S.WriteText>{Plan}</S.WriteText>
             <div>
-              {props.isPlanSubmitted === true &&
-              props.isPlanAccepted === true ? null : props.isPlanSubmitted === false ? null : (
-                <S.Btn>수정하기</S.Btn>
+              {props.writer ? (
+                (props.isPlanSubmitted === true &&
+                props.isPlanAccepted === true ? null : props.isPlanSubmitted === false ? null : (
+                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>수정하기</S.Btn>
+                )) ||
+                (props.isPlanSubmitted === true ? (
+                  <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
+                ) : (
+                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>작성하기</S.Btn>
+                ))
+              ) : (
+                <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
               )}
-              {props.isPlanSubmitted === true ? <S.Btn>보러가기</S.Btn> : <S.Btn>작성하기</S.Btn>}
             </div>
           </S.WriteBox>
           <S.WriteBox>
@@ -107,13 +122,13 @@ const MyPorjectView: FC<Props> = props => {
             <div>
               {props.isReportSubmitted === true &&
               props.isReportAccepted === true ? null : props.isReportSubmitted === false ? null : (
-                <S.Btn>수정하기</S.Btn>
+                <S.Btn to={'/write/report' + `${props.projectId}`}>수정하기</S.Btn>
               )}
               {props.isPlanAccepted === true ? (
                 props.isReportSubmitted === true ? (
-                  <S.Btn>보러가기</S.Btn>
+                  <S.Btn to={'detail-report/' + `${props.projectId}`}>보러가기</S.Btn>
                 ) : (
-                  <S.Btn>작성하기</S.Btn>
+                  <S.Btn to={'/write/report/' + `${props.projectId}`}>작성하기</S.Btn>
                 )
               ) : null}
             </div>
@@ -131,10 +146,14 @@ const MyPorjectView: FC<Props> = props => {
             </S.UrlBox>
           </S.GitBox>
           <S.GuitarBox>
-            <S.GuitarText>{Api}</S.GuitarText>
-            <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
-            <S.GuitarText>{Details}</S.GuitarText>
-            <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>
+            <div>
+              <S.GuitarText>{Api}</S.GuitarText>
+              <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
+            </div>
+            <div>
+              <S.GuitarText>{Details}</S.GuitarText>
+              <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>
+            </div>
           </S.GuitarBox>
         </S.ContentBox>
       </S.ProjectViewBox>

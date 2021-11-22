@@ -18,7 +18,7 @@ export const getRequestWithAccessToken = (
 ) => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'https://user-api.dsm-rms.com',
+    baseURL: 'https://user-api.dsm-rms.com/',
     headers: {
       Authorization: `Bearer ${token}`,
       withCredentials: true,
