@@ -1,5 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { SUBTITLE } from '../../constance/detailReport';
+import MarkdownRender from './markdown/MarkdownRender';
 import * as S from './style';
 
 interface Props {
@@ -23,7 +24,7 @@ const WritedReport: FC<Props> = props => {
     <S.ReportPage>
       {subTitle}
       <S.ReportContentBox isSecondPage={isSecondPage}>
-        <p>{content}</p>
+        <MarkdownRender markdown={content} />
       </S.ReportContentBox>
     </S.ReportPage>
   );
