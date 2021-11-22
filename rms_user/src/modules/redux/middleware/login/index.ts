@@ -44,12 +44,15 @@ export const refreshTokenSaga = function* (action: any) {
     localStorage.setItem('access_token', response.accessToken);
     yield call(callback);
   } catch (error: any) {
+    console.log(error);
     if (error.response?.data) {
+      console.log(1);
       yield put({
         type: FAILURE,
         payload: { ...error.response.data, type: type },
       });
     } else {
+      console.log(2);
       yield put({
         type: FAILURE,
         payload: {
