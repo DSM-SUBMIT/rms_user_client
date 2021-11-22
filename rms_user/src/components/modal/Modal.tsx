@@ -14,7 +14,6 @@ import useViewMyProject from '../../util/hooks/viewMyProject';
 
 const Modal: FC = (): any => {
   const { state, setState } = useModal();
-  const useState = useUserList().state;
   const projectState = useProject().state;
   const setProjectState = useProject().setState;
   const setProjectModifyState = useProjectModify().setState;

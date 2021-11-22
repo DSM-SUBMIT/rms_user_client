@@ -28,6 +28,7 @@ const initState: ViewMyProjectState = {
   isPlanSubmitted: false,
   isReportAccepted: false,
   isReportSubmitted: false,
+  writer: false,
 };
 
 const ProjectModifyReducer = (

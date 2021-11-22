@@ -1,5 +1,11 @@
 import { loginActionType } from '../../action/login';
-import { CODE, TOKEN, TOKEN_FAILURE, TOKEN_SUCCESS } from '../../action/login/interface';
+import {
+  CODE,
+  REFRESH_TOKEN_FAILURE,
+  TOKEN,
+  TOKEN_FAILURE,
+  TOKEN_SUCCESS,
+} from '../../action/login/interface';
 import LoginState from './interface';
 
 const initState: LoginState = {
@@ -32,6 +38,11 @@ const loginReducer = (state: LoginState = initState, action: loginActionType): L
         ...state,
         error: action.payload,
         isSuccessGetToken: false,
+      };
+    case REFRESH_TOKEN_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
