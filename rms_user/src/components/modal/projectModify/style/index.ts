@@ -114,7 +114,6 @@ export const FieldBox = styled.div`
 `;
 
 export const Field = styled.div`
-  padding: 0px 4px;
   width: fit-content;
   height: 25px;
   background: #fdfdfd;
@@ -125,9 +124,15 @@ export const Field = styled.div`
   font-size: 12px;
   color: #386bee;
   padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
     margin: 0px 4px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -287,44 +292,50 @@ export const MemberBox = styled.div`
 `;
 
 export const Member = styled.div`
-  width: 515px;
-  height: 20px;
-  margin-bottom: 5px;
-  display: flex;
+  margin-bottom: 9px;
+  div {
+    margin-right: 5px;
+  }
 `;
 
 export const MemberName = styled.div`
-  width: 52px;
-  height: 18px;
+  width: fit-content;
+  padding: 0 5px;
+  height: 20px;
   background: #386bee;
   border-radius: 5px;
   font-size: 10px;
   align-items: center;
-  color: #ffffff;
-  align-items: center;
   text-align: center;
+  color: #ffffff;
+  display: inline-block;
 `;
 
 export const MemberEmail = styled.div`
-  width: 180px;
-  height: 18px;
+  width: fit-content;
+  height: 20px;
+  padding: 2px 10px;
   background: #386bee;
   border-radius: 5px;
-  margin: 0px 5px;
   font-size: 10px;
   align-items: center;
-  color: #ffffff;
-  align-items: center;
   text-align: center;
+  color: #ffffff;
+  display: inline-block;
 `;
 
 export const MemberRole = styled.input`
-  width: 340px;
-  height: 18px;
+  width: 280px;
+  height: 20px;
+  padding: 1px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #5f5f5f;
+  display: inline-block;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
-  border-radius: 5px;
   font-size: 10px;
   padding-left: 10px;
   color: #000000;

@@ -48,17 +48,6 @@ const MyPorjectView: FC<Props> = props => {
     dispatch({ type: GET_MY_PROJECT_CONTENTS });
   }, []);
 
-  const planBtn = () => {
-    if (props.isPlanSubmitted === true && props.isReportAccepted === true) {
-      return null;
-    } else if (props.isPlanSubmitted === true) {
-      <>
-        <S.Btn to={`/write/plan/${props.projectId}`}>수정하기</S.Btn>
-        <S.Btn to={`detail-plan/${props.projectId}`}>보러가기</S.Btn>
-      </>;
-    }
-  };
-
   const techStacks = (props.techStack || '').split(',');
   const gitHubs = (props.githubUrl || '').split(',');
 
@@ -135,12 +124,12 @@ const MyPorjectView: FC<Props> = props => {
                 (props.isReportSubmitted === true &&
                 props.isReportAccepted === true ? null : props.isReportSubmitted ===
                   false ? null : (
-                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>수정하기</S.Btn>
+                  <S.Btn to={`/write/report/${props.projectId}`}>수정하기</S.Btn>
                 )) ||
                 (props.isReportSubmitted === true ? (
-                  <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
+                  <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
                 ) : (
-                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>작성하기</S.Btn>
+                  <S.Btn to={`/write/report/${props.projectId}`}>작성하기</S.Btn>
                 ))
               ) : (
                 <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
