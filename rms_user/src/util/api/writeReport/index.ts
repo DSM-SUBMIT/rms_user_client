@@ -24,7 +24,7 @@ export const SubmitReport = async (accessToken: string, body: ReportContentReque
   try {
     await SaveReport(accessToken, body, id);
     const request = getRequestWithAccessToken(accessToken);
-    const response = await request.post(uri.writeReport + `/submit` + `/${id}`);
+    const response = await request.post(uri.writeReport + `/submit/${id}`);
     return response;
   } catch (error) {
     throw error;

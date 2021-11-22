@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import { ModalClose } from '../../../assets';
 import { useDispatch } from 'react-redux';
@@ -24,7 +24,7 @@ const DeleteBox: FC<Props> = props => {
     <>
       <S.SmallModalWrapper>
         <S.DeleteBox>
-          <img src={ModalClose} onClick={onClickDeleteClose} />
+          <img src={ModalClose} onClick={onClickDeleteClose} alt='modal close' />
           <S.Content>
             <S.Text>프로젝트를 삭제하시겠습니까?</S.Text>
             <S.DeleteBtn onClick={onClickDeleteBtn}>삭제하기</S.DeleteBtn>

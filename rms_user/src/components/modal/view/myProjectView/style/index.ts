@@ -66,7 +66,7 @@ export const ProjectName = styled.span`
 `;
 
 export const ModifyBtn = styled.div`
-  width: 60px;
+  width: 70px;
   height: 24px;
   left: 58%;
   top: 15.8%;
@@ -124,8 +124,10 @@ export const TeamName = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   font-size: 10px;
-  align-items: center;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #000000;
 `;
 
@@ -261,6 +263,9 @@ export const Statck = styled.div`
   color: #ffffff;
   display: inline-block;
   margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const WriteBox = styled.div`
@@ -282,6 +287,7 @@ export const WriteText = styled.span`
 `;
 
 export const Btn = styled(Link)`
+  display: flex;
   width: 70px;
   text-decoration: none;
   cursor: pointer;
@@ -294,6 +300,8 @@ export const Btn = styled(Link)`
   text-align: center;
   color: #5f5f5f;
   margin-left: 9px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const GitBox = styled.div`
@@ -358,6 +366,7 @@ export const GitAddressBox = styled.div`
   color: #000000;
   margin-bottom: 5px;
   padding: 2px 15px;
+  display: flex;
 `;
 
 export const GuitarBox = styled.div`

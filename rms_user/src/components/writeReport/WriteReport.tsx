@@ -1,4 +1,4 @@
-import React, { useState, FC, useEffect, createRef, useMemo } from 'react';
+import React, { useState, FC, useEffect, createRef } from 'react';
 import * as S from './style';
 import Header from '../header';
 import { Editor } from '@toast-ui/react-editor';

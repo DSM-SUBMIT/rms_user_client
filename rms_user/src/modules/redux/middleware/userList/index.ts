@@ -1,15 +1,11 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { reducerType } from '../../reducer';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { USERSLIST } from '../../action/porject/interface';
 import { getUserList } from '../../../../util/api/project';
-import userListState from '../../reducer/userList/interface';
-const getStateFunc = (state: reducerType): userListState => state.userList;
 
 const userListGetSaga = function* (): any {
   const type = 'PROJECT/GET_USERSLIST';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
-  const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
     const response = yield call(getUserList, accessToken);

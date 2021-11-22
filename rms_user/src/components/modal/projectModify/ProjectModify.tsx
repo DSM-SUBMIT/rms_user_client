@@ -10,7 +10,6 @@ import useViewMyProject from '../../../util/hooks/viewMyProject';
 import DeleteBox from '../delete';
 import ProjectTeam from '../team';
 import useUserList from '../../../util/hooks/userList';
-import useProjectModify from '../../../util/hooks/projectModify';
 import useProject from '../../../util/hooks/project';
 
 interface Props {
@@ -38,11 +37,9 @@ const ProjectModfiy: FC<Props> = props => {
   const { state } = useViewMyProject();
   const {
     setModalOff,
-    projectName,
     memberList,
     techStack,
     setTechStacks,
-    setMemberList,
     setFieldList,
     fieldList,
     setProjectName,
@@ -134,7 +131,7 @@ const ProjectModfiy: FC<Props> = props => {
 
   useEffect(() => {
     dispatch({ type: GET_MY_PROJECT_CONTENTS });
-  }, [GET_MY_PROJECT_CONTENTS]);
+  }, []);
 
   return (
     <>
@@ -188,7 +185,7 @@ const ProjectModfiy: FC<Props> = props => {
             <S.FieldChoiceBox>
               <S.FieldChoice onClick={fieldBoxModal}>
                 분야 선택
-                <img src={Arrow} />
+                <img src={Arrow} alt='arrow' />
               </S.FieldChoice>
             </S.FieldChoiceBox>
             <S.FieldBox>
@@ -199,7 +196,11 @@ const ProjectModfiy: FC<Props> = props => {
                     return (
                       <S.Field key={index}>
                         {item}
-                        <img src={FieldClose} onClick={() => onClickFieldX(item)} />
+                        <img
+                          src={FieldClose}
+                          onClick={() => onClickFieldX(item)}
+                          alt='field close'
+                        />
                       </S.Field>
                     );
                   })}
@@ -238,7 +239,7 @@ const ProjectModfiy: FC<Props> = props => {
                       return (
                         <S.Tag key={i}>
                           {tag.trim()}
-                          <img src={X} onClick={() => onClickX(tag)} />
+                          <img src={X} onClick={() => onClickX(tag)} alt='x' />
                         </S.Tag>
                       );
                     })}

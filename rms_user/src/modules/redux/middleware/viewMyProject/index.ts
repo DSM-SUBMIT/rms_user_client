@@ -3,15 +3,12 @@ import { reducerType } from '../../reducer';
 import { GET_MY_PROJECT_CONTENTS } from '../../action/viewProject/interface';
 import { getMyProjectView } from '../../../../util/api/viewProject';
 import MypageState from '../../reducer/mypage/interface';
-import ViewMyProjectState from '../../reducer/viewMyProject/interface';
-const getStateFunc = (state: reducerType): ViewMyProjectState => state.viewMyProject;
 const getMyPageStateFunc = (state: reducerType): MypageState => state.mypage;
 
 const viewMyProjectGetSaga = function* (): any {
   const type = 'MYPROJECT/GET_MY_PROJECT_CONTENTS';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
-  const state = yield select(getStateFunc);
   const MypageState = yield select(getMyPageStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {

@@ -1,7 +1,6 @@
-import { ProjectCreateType, ProjectModifyType, UrlType } from '../../../constance/project';
+import { ProjectCreateType, UrlType } from '../../../constance/project';
 import uri from '../../../constance/uri';
 import { reducerType } from '../../../modules/redux/reducer';
-import ViewMyProjectState from '../../../modules/redux/reducer/viewMyProject/interface';
 import { getRequestWithAccessToken } from '../default';
 
 export const projectCreateStateToRequest = (state: reducerType['project']): ProjectCreateType => {

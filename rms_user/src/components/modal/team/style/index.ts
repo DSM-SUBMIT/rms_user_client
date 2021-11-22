@@ -1,4 +1,3 @@
-import { check } from 'prettier';
 import styled from 'styled-components';
 import { color } from '../../../../style';
 

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import * as S from './style';
 import { ModalClose, Github, X } from '../../../assets';
 import { Api, Details, GitHub } from '../../../constance/project';
@@ -63,12 +63,12 @@ const OtherModify: FC<Props> = props => {
       <S.SmallModalWrapper>
         <S.ModifyBox>
           <S.Top>
-            <img src={ModalClose} onClick={onClickModifyClose} />
+            <img src={ModalClose} onClick={onClickModifyClose} alt='modal close' />
           </S.Top>
           <S.ContentBox>
             <S.GitBox>
               <S.GithubBox>
-                <img src={Github} />
+                <img src={Github} alt='github' />
                 <S.GitText>{GitHub}</S.GitText>
               </S.GithubBox>
               <S.GitInput
@@ -85,7 +85,7 @@ const OtherModify: FC<Props> = props => {
                       return (
                         <S.GitAddressBox key={i}>
                           <span>{git}</span>
-                          <img src={X} onClick={() => onClickX(git)} />
+                          <img src={X} onClick={() => onClickX(git)} alt='x' />
                         </S.GitAddressBox>
                       );
                     })}

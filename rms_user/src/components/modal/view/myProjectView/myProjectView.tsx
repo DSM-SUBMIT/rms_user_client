@@ -46,18 +46,7 @@ const MyPorjectView: FC<Props> = props => {
   };
   useEffect(() => {
     dispatch({ type: GET_MY_PROJECT_CONTENTS });
-  }, [GET_MY_PROJECT_CONTENTS]);
-
-  const planBtn = () => {
-    if (props.isPlanSubmitted === true && props.isReportAccepted === true) {
-      return null;
-    } else if (props.isPlanSubmitted === true) {
-      <>
-        <S.Btn to={'/write/plan/' + `${props.projectId}`}>수정하기</S.Btn>
-        <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
-      </>;
-    }
-  };
+  }, []);
 
   const techStacks = (props.techStack || '').split(',');
   const gitHubs = (props.githubUrl || '').split(',');
@@ -92,7 +81,7 @@ const MyPorjectView: FC<Props> = props => {
                       <S.Email>{data.email}</S.Email>
                       {roles.map((data, index) => {
                         if (data === ' ') {
-                          return;
+                          return <></>;
                         } else {
                           return <S.Role key={index}>{data}</S.Role>;
                         }
@@ -115,12 +104,12 @@ const MyPorjectView: FC<Props> = props => {
             <div>
               {props.writer ? (
                 props.isPlanSubmitted === true ? (
-                  <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
+                  <S.Btn to={`detail-plan/${props.projectId}`}>보러가기</S.Btn>
                 ) : (
-                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>작성하기</S.Btn>
+                  <S.Btn to={`/write/plan/${props.projectId}`}>작성하기</S.Btn>
                 )
               ) : (
-                <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
+                <S.Btn to={`detail-plan/${props.projectId}`}>보러가기</S.Btn>
               )}
             </div>
           </S.WriteBox>
@@ -129,15 +118,17 @@ const MyPorjectView: FC<Props> = props => {
             <div>
               {props.isPlanAccepted === true ? (
                 props.isReportSubmitted === true ? (
-                  <S.Btn to={'detail-report/' + `${props.projectId}`}>보러가기</S.Btn>
+                  <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
                 ) : (
-                  <S.Btn to={'/write/report/' + `${props.projectId}`}>작성하기</S.Btn>
+                  <S.Btn to={`/write/report/${props.projectId}`}>작성하기</S.Btn>
                 )
-              ) : null}
+              ) : (
+                <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
+              )}
             </div>
           </S.WriteBox>
           <S.GitBox>
-            <img src={Github} />
+            <img src={Github} alt='github' />
             <S.GitText>{GitHub}</S.GitText>
             <S.UrlBox>
               {props.githubUrl === ''
