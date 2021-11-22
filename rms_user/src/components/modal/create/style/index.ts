@@ -122,6 +122,9 @@ export const Field = styled.div`
   font-size: 12px;
   color: #386bee;
   padding-left: 10px;
+  display: flex;
+  align-items: center;
+
   img {
     margin: 0px 4px;
     cursor: pointer;
@@ -317,6 +320,9 @@ export const MemberName = styled.div`
   color: #ffffff;
   align-items: center;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const MemberEmail = styled.div`
@@ -330,6 +336,9 @@ export const MemberEmail = styled.div`
   color: #ffffff;
   align-items: center;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const MemberRole = styled.input`
