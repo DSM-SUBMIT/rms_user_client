@@ -282,7 +282,7 @@ export const WriteText = styled.span`
 `;
 
 export const Btn = styled(Link)`
-  width: 70px;
+  width: 100px;
   text-decoration: none;
   cursor: pointer;
   height: 24px;

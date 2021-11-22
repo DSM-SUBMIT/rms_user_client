@@ -131,17 +131,20 @@ const MyPorjectView: FC<Props> = props => {
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
             <div>
-              {props.isReportSubmitted === true &&
-              props.isReportAccepted === true ? null : props.isReportSubmitted === false ? null : (
-                <S.Btn to={`/write/report${props.projectId}`}>수정하기</S.Btn>
-              )}
-              {props.isPlanAccepted === true ? (
-                props.isReportSubmitted === true ? (
-                  <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
+              {props.writer ? (
+                (props.isReportSubmitted === true &&
+                props.isReportAccepted === true ? null : props.isReportSubmitted ===
+                  false ? null : (
+                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>수정하기</S.Btn>
+                )) ||
+                (props.isReportSubmitted === true ? (
+                  <S.Btn to={'detail-plan/' + `${props.projectId}`}>보러가기</S.Btn>
                 ) : (
-                  <S.Btn to={`/write/report/${props.projectId}`}>작성하기</S.Btn>
-                )
-              ) : null}
+                  <S.Btn to={'/write/plan/' + `${props.projectId}`}>작성하기</S.Btn>
+                ))
+              ) : (
+                <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
+              )}
             </div>
           </S.WriteBox>
           <S.GitBox>
