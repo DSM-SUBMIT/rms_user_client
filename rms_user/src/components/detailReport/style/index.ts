@@ -91,6 +91,7 @@ export const ReportContentBox = styled.div<{ isSecondPage?: boolean }>`
     margin: ${isSecondPage ? '10px auto' : '77px auto'};
   `}
   border: 1px solid black;
+  word-break: break-all;
   > p {
     font-size: 18px;
   }
