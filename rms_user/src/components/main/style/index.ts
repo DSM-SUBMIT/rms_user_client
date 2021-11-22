@@ -83,7 +83,7 @@ export const Project = styled.div`
   > div {
     display: flex;
     gap: 5px;
-    margin-top: 11px;
+    margin-top: 4px;
   }
 `;
 
@@ -116,4 +116,10 @@ export const ProjectField = styled.div`
     font-size: 10px;
     color: ${color.main};
   }
+`;
+
+export const NoProjectList = styled.p`
+  width: 526px;
+  margin: 50px 0px;
+  text-align: center;
 `;
