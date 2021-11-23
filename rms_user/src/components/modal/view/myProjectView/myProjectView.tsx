@@ -116,11 +116,15 @@ const MyPorjectView: FC<Props> = props => {
           <S.WriteBox>
             <S.WriteText>{Report}</S.WriteText>
             <div>
-              {props.isPlanAccepted === true ? (
-                props.isReportSubmitted === true ? (
-                  <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
+              {props.writer ? (
+                props.isPlanAccepted === true ? (
+                  props.isReportSubmitted === true ? (
+                    <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
+                  ) : (
+                    <S.Btn to={`/write/report/${props.projectId}`}>작성하기</S.Btn>
+                  )
                 ) : (
-                  <S.Btn to={`/write/report/${props.projectId}`}>작성하기</S.Btn>
+                  <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
                 )
               ) : (
                 <S.Btn to={`detail-report/${props.projectId}`}>보러가기</S.Btn>
@@ -140,14 +144,14 @@ const MyPorjectView: FC<Props> = props => {
             </S.UrlBox>
           </S.GitBox>
           <S.GuitarBox>
-            <div>
+            <S.CenterBox>
               <S.GuitarText>{Api}</S.GuitarText>
               <S.AddressBox>{props.serviceUrl == null ? text : props.serviceUrl}</S.AddressBox>
-            </div>
-            <div>
+            </S.CenterBox>
+            <S.CenterBox>
               <S.GuitarText>{Details}</S.GuitarText>
               <S.AddressBox>{props.docsUrl == null ? text : props.docsUrl}</S.AddressBox>
-            </div>
+            </S.CenterBox>
           </S.GuitarBox>
         </S.ContentBox>
       </S.ProjectViewBox>

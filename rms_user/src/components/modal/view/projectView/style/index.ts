@@ -225,7 +225,7 @@ export const StatckBox = styled.div`
 `;
 
 export const Statck = styled.div`
-  padding: 0px 10px;
+  padding: 2px 10px;
   width: fit-content;
   height: 20px;
   background: #386bee;
@@ -256,17 +256,21 @@ export const WriteText = styled.span`
 `;
 
 export const ViewBtn = styled(Link)`
-  width: 60px;
+  display: flex;
+  width: 70px;
   text-decoration: none;
+  cursor: pointer;
   height: 24px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
-  cursor: pointer;
   border-radius: 5px;
   font-size: 10px;
   text-align: center;
   color: #5f5f5f;
+  margin-left: 9px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const GitBox = styled.div`
@@ -324,9 +328,14 @@ export const GuitarBox = styled.div`
   padding: 12px 15px;
 `;
 
+export const CenterBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const AddressBox = styled.div`
   width: 403.01px;
-  box-sizing: border-box;
   height: 24px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
@@ -335,19 +344,24 @@ export const AddressBox = styled.div`
   font-size: 11px;
   color: #5f5f5f;
   display: inline-block;
-  padding: 1px 10px;
   margin-left: 11px;
   margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   :last-child {
-    margin-left: 18px;
+    margin-left: 48px;
   }
 `;
 
-export const GuitarText = styled.p`
+export const GuitarText = styled.span`
   font-size: 11px;
   text-align: center;
   color: #5f5f5f;
   display: inline-block;
+  :last-child {
+    margin-right: 7px;
+  }
 `;
 
 export const InputBox = styled.input`
