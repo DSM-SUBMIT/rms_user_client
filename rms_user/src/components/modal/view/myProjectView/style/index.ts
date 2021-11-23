@@ -258,13 +258,11 @@ export const Statck = styled.div`
   background: #386bee;
   border-radius: 5px;
   font-size: 10px;
-  align-items: center;
   text-align: center;
   color: #ffffff;
   display: inline-block;
   margin-right: 10px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   align-items: center;
 `;
 
@@ -381,7 +379,6 @@ export const GuitarBox = styled.div`
 
 export const AddressBox = styled.div`
   width: 403.01px;
-  box-sizing: border-box;
   height: 24px;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
@@ -390,19 +387,30 @@ export const AddressBox = styled.div`
   font-size: 11px;
   color: #5f5f5f;
   display: inline-block;
-  padding: 1px 10px;
   margin-left: 11px;
   margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   :last-child {
-    margin-left: 20px;
+    margin-left: 48px;
   }
 `;
 
-export const GuitarText = styled.p`
+export const CenterBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const GuitarText = styled.span`
   font-size: 11px;
   text-align: center;
   color: #5f5f5f;
   display: inline-block;
+  :last-child {
+    margin-right: 7px;
+  }
 `;
 
 export const InputBox = styled.input`
@@ -412,12 +420,12 @@ export const InputBox = styled.input`
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
-  margin-left: 11px;
+  margin-left: 4px;
   font-size: 10px;
   padding: 5px 15px;
   color: #aaaaaa;
   margin-bottom: 10px;
   :last-child {
-    margin-left: 18px;
+    margin-left: 12px;
   }
 `;

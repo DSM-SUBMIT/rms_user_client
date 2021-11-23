@@ -97,7 +97,7 @@ const ProjectCreate: FC<Props> = props => {
       if (language) {
         setTechStacks(techStack + (!!techStack ? ',' : '') + e.currentTarget.value + '');
         e.currentTarget.value = '';
-      } else alert('한글을 입력하세요.');
+      } else alert('영어를 입력하세요.');
     }
   };
 
