@@ -39,7 +39,10 @@ const OtherModify: FC<Props> = props => {
   const onAddressKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       setState.setGithubUrl(
-        state.githubUrl + (!!state.githubUrl ? ',' : '') + e.currentTarget.value + '',
+        (state.githubUrl !== null ? state.githubUrl : '') +
+          (!!state.githubUrl ? ',' : '') +
+          e.currentTarget.value +
+          '',
       );
       e.currentTarget.value = '';
     }

@@ -3,9 +3,11 @@ import * as S from './style';
 import { ModalClose } from '../../../assets';
 import { useDispatch } from 'react-redux';
 import { DELETE_PROJECT } from '../../../modules/redux/action/porject/interface';
+import { error } from '../../../models/error';
 
 interface Props {
   setIsOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+  error: error | null;
 }
 
 const DeleteBox: FC<Props> = props => {
@@ -17,7 +19,12 @@ const DeleteBox: FC<Props> = props => {
 
   const onClickDeleteBtn = () => {
     dispatch({ type: DELETE_PROJECT });
-    window.location.replace('/mypage');
+    if (props.error?.status === 401) {
+      alert('로그인 후 이용해 주세요.');
+      window.location.replace('/');
+    } else if (props.error?.status === 403) {
+      alert('권한이 없습니다.');
+    } else window.location.replace('/mypage');
   };
 
   return (
