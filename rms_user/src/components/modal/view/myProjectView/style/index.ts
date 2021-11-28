@@ -76,9 +76,25 @@ export const ModifyBtn = styled.div`
   border-radius: 5px;
   font-size: 10px;
   color: #5f5f5f;
-
   cursor: pointer;
   position: fixed;
+  padding-top: 3.5px;
+`;
+
+export const DeleteBtn = styled.div`
+  width: 70px;
+  height: 24px;
+  left: 63%;
+  top: 15.8%;
+  background: #fbfbfb;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #5f5f5f;
+  cursor: pointer;
+  position: fixed;
+  padding-top: 3.5px;
 `;
 
 export const Box = styled.div`
@@ -201,7 +217,7 @@ export const Email = styled.div`
 export const Role = styled.div`
   width: fit-content;
   height: 20px;
-  padding: 1px 8px;
+  padding: 2px 8px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
@@ -252,7 +268,7 @@ export const StatckBox = styled.div`
 `;
 
 export const Statck = styled.div`
-  padding: 2px 10px;
+  padding: 3px 10px;
   width: fit-content;
   height: 20px;
   background: #386bee;
@@ -394,6 +410,22 @@ export const AddressBox = styled.div`
   align-items: center;
   :last-child {
     margin-left: 48px;
+  }
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: ${color.main};
   }
 `;
 

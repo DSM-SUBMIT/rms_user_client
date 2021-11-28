@@ -123,7 +123,7 @@ export const Field = styled.div`
   margin-right: 8px;
   font-size: 12px;
   color: #386bee;
-  padding-left: 10px;
+  padding-left: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -300,7 +300,7 @@ export const Member = styled.div`
 
 export const MemberName = styled.div`
   width: fit-content;
-  padding: 0 5px;
+  padding: 3px 5px;
   height: 20px;
   background: #386bee;
   border-radius: 5px;
@@ -314,7 +314,7 @@ export const MemberName = styled.div`
 export const MemberEmail = styled.div`
   width: fit-content;
   height: 20px;
-  padding: 2px 10px;
+  padding: 5px 10px;
   background: #386bee;
   border-radius: 5px;
   font-size: 10px;

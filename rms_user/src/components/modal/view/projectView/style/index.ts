@@ -343,14 +343,30 @@ export const AddressBox = styled.div`
   border-radius: 5px;
   font-size: 11px;
   color: #5f5f5f;
-  display: inline-block;
   margin-left: 11px;
-  margin-bottom: 12px;
+  padding-left: 39px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   :last-child {
-    margin-left: 48px;
+    margin-left: 28px;
+  }
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: ${color.main};
   }
 `;
 
@@ -361,22 +377,5 @@ export const GuitarText = styled.span`
   display: inline-block;
   :last-child {
     margin-right: 7px;
-  }
-`;
-
-export const InputBox = styled.input`
-  width: 400px;
-  height: 24px;
-  background: #fbfbfb;
-  border: 1px solid #e5e5e5;
-  box-sizing: border-box;
-  border-radius: 5px;
-  margin-left: 11px;
-  font-size: 10px;
-  padding: 5px 15px;
-  color: #aaaaaa;
-  margin-bottom: 10px;
-  :last-child {
-    margin-left: 18px;
   }
 `;
