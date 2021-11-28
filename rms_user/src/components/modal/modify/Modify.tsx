@@ -13,7 +13,7 @@ const DeleteBox: FC<Props> = props => {
   };
 
   const onClickProjectOpen = () => {
-    props.setModalOn('projectModify');
+    alert('현재 개발 중인 기능입니다, 조금만 기다려 주세요.');
   };
 
   const onClickOtherOpen = () => {
