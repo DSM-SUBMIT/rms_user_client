@@ -45,8 +45,10 @@ const WriteReport: FC<Props> = props => {
 
   const SaveReport = () => {
     const editorInstance = EditorRef.current?.getInstance();
+    const formData = new FormData();
     if (window.confirm('보고서를 임시저장합니다') === true) {
       const contents = editorInstance?.getHTML() || '';
+      formData.append('file', state.videoUrl);
       dispatch({ type: GET_SAVE_REPORT });
     } else return;
   };
@@ -103,6 +105,7 @@ const WriteReport: FC<Props> = props => {
                 파일찾기
                 <input
                   type='file'
+                  name='file'
                   id='file'
                   style={{ display: 'none' }}
                   onChange={e => {
