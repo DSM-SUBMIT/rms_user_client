@@ -65,11 +65,17 @@ export const ProjectName = styled.span`
   text-align: center;
 `;
 
+export const ClickBtn = styled.div`
+  width: 150px;
+  left: 54%;
+  display: flex;
+  position: fixed;
+  top: 15.5%;
+`;
+
 export const ModifyBtn = styled.div`
   width: 70px;
   height: 24px;
-  left: 58%;
-  top: 15.8%;
   background: #fbfbfb;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
@@ -77,7 +83,7 @@ export const ModifyBtn = styled.div`
   font-size: 10px;
   color: #5f5f5f;
   cursor: pointer;
-  position: fixed;
+  margin-right: 8px;
   padding-top: 3.5px;
 `;
 
@@ -93,7 +99,6 @@ export const DeleteBtn = styled.div`
   font-size: 10px;
   color: #5f5f5f;
   cursor: pointer;
-  position: fixed;
   padding-top: 3.5px;
 `;
 
