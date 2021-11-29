@@ -70,12 +70,14 @@ const MyPorjectView: FC<Props> = props => {
             <S.TopBox>
               <S.Classification>[{props.projectType}]</S.Classification>
               <S.ProjectName>{props.projectName}</S.ProjectName>
-              {props.writer ? (
-                <S.ModifyBtn onClick={onClickModifyModal}>수정하기</S.ModifyBtn>
-              ) : null}
-              {props.writer ? (
-                <S.DeleteBtn onClick={onClickDeleteModalOpen}>삭제하기</S.DeleteBtn>
-              ) : null}
+              <S.ClickBtn>
+                {props.writer ? (
+                  <S.ModifyBtn onClick={onClickModifyModal}>수정하기</S.ModifyBtn>
+                ) : null}
+                {props.writer ? (
+                  <S.DeleteBtn onClick={onClickDeleteModalOpen}>삭제하기</S.DeleteBtn>
+                ) : null}
+              </S.ClickBtn>
             </S.TopBox>
             <S.Box>
               {props.fieldList &&

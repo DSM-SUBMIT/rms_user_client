@@ -27,14 +27,15 @@ export const DeleteBox = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 187px;
+  width: 200px;
   height: 77px;
   margin: auto;
+  align-items: center;
 `;
 
 export const Text = styled.p`
   text-align: center;
-  font-size: 14px;
+  font-size: 10px;
   color: #000000;
 `;
 
