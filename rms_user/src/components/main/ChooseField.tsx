@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import {
   CHOOSEFIELDTITLE,
@@ -18,7 +18,7 @@ const ChooseField: FC<Props> = props => {
 
   const clickBtnHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const dataId = event.currentTarget.dataset.id;
-    const clickField = dataId as unknown as DataIdType;
+    const clickField = (dataId as unknown) as DataIdType;
     setField({ ...field, [clickField]: !field[clickField] });
   };
 

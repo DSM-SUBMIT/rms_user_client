@@ -1,8 +1,5 @@
 import { viewProjectActionType } from '../../action/viewProject';
-import {
-  GET_MY_PROJECT_CONTENTS_SUCCESS,
-  GET_MY_PROJECT_CONTENTS_FAILURE,
-} from '../../action/viewProject/interface';
+import { GET_MY_PROJECT_CONTENTS_SUCCESS } from '../../action/viewProject/interface';
 import ViewMyProjectState from './interface';
 
 const initState: ViewMyProjectState = {

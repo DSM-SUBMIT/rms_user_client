@@ -1,4 +1,4 @@
-import { DELETE_PROJECT_SUCCESS, DELETE_PROJECT_FAILURE } from '../../action/porject/interface';
+import { DELETE_PROJECT_FAILURE } from '../../action/porject/interface';
 import { createProjectActionType } from '../../action/porject';
 import DeleteState from './interface';
 

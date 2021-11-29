@@ -1,11 +1,8 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { useModal } from '../../util/hooks/modal';
 import ModfiyNumber from './number';
 import ProjectCreate from './create';
-import ProjectTeam from './team';
-import useUserList from '../../util/hooks/userList';
 import useProject from '../../util/hooks/project';
-import DeleteBox from './delete';
 import Modify from './modify';
 import ProjectModfiy from './projectModify';
 import useProjectModify from '../../util/hooks/projectModify';

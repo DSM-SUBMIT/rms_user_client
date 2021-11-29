@@ -1,11 +1,10 @@
-import React, { FC, Suspense, useEffect } from "react";
-import { WritePlan } from "../../components";
-import DetailPlan from "../../components/detailPlan/DetailPlan";
-import { useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router";
-import { GET_DETAIL_PLAN } from "../../modules/redux/action/detailPlan/interface";
-import UseDetailPlan from "../../util/hooks/detailPlan";
-import UseWritePlan from "../../util/hooks/writePlan";
+import React, { FC, Suspense, useEffect } from 'react';
+import { WritePlan } from '../../components';
+import { useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router';
+import { GET_DETAIL_PLAN } from '../../modules/redux/action/detailPlan/interface';
+import UseDetailPlan from '../../util/hooks/detailPlan';
+import UseWritePlan from '../../util/hooks/writePlan';
 
 type DetailPlanParams = {
   id: string;

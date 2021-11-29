@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import * as S from './style';
 import { Search } from '../../../assets';
 import { useDispatch } from 'react-redux';

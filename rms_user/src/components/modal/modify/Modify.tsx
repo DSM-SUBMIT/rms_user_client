@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import { ModalClose } from '../../../assets';
 
@@ -13,7 +13,7 @@ const DeleteBox: FC<Props> = props => {
   };
 
   const onClickProjectOpen = () => {
-    props.setModalOn('projectModify');
+    alert('현재 개발 중인 기능입니다, 조금만 기다려 주세요.');
   };
 
   const onClickOtherOpen = () => {
@@ -24,7 +24,7 @@ const DeleteBox: FC<Props> = props => {
     <>
       <S.SmallModalWrapper>
         <S.ModifyBox>
-          <img src={ModalClose} onClick={onClickModifyClose} />
+          <img src={ModalClose} onClick={onClickModifyClose} alt='modal close' />
           <S.Text>수정하기</S.Text>
           <S.ContentBox>
             <S.ProjectBox>
