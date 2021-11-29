@@ -42,16 +42,13 @@ const ProjectCreate: FC<Props> = props => {
     memberList,
     fieldList,
     setModalOff,
-    setModalOn,
     setTechStacks,
-    setMemberList,
     setFieldList,
     setRole,
     setProjectType,
     setTeacher,
     setTeamName,
     setProjectName,
-    error,
   } = props;
   const userState = useUserList().state;
   const projectState = useProject().state;
@@ -100,7 +97,7 @@ const ProjectCreate: FC<Props> = props => {
       if (language) {
         setTechStacks(techStack + (!!techStack ? ',' : '') + e.currentTarget.value + '');
         e.currentTarget.value = '';
-      } else alert('한글을 입력하세요.');
+      } else alert('영어를 입력하세요.');
     }
   };
 
@@ -175,7 +172,7 @@ const ProjectCreate: FC<Props> = props => {
             <S.FieldChoiceBox>
               <S.FieldChoice onClick={fieldBoxModal}>
                 분야 선택
-                <img src={Arrow} />
+                <img src={Arrow} alt='arrow' />
               </S.FieldChoice>
             </S.FieldChoiceBox>
             <S.FieldBox>
@@ -186,7 +183,11 @@ const ProjectCreate: FC<Props> = props => {
                     return (
                       <S.Field key={index}>
                         {item}
-                        <img src={FieldClose} onClick={() => onClickFieldX(item)} />
+                        <img
+                          src={FieldClose}
+                          onClick={() => onClickFieldX(item)}
+                          alt='field close'
+                        />
                       </S.Field>
                     );
                   })}
@@ -225,7 +226,7 @@ const ProjectCreate: FC<Props> = props => {
                       return (
                         <S.Tag key={i}>
                           {tag.trim()}
-                          <img src={X} onClick={() => onClickX(tag)} />
+                          <img src={X} onClick={() => onClickX(tag)} alt='x' />
                         </S.Tag>
                       );
                     })}

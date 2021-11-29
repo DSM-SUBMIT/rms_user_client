@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from '../../../../style';
 
 export const SmallModalWrapper = styled.div`
   width: 100%;
@@ -47,12 +46,12 @@ export const ProjectBox = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   padding-top: 8px;
+  text-align: center;
 `;
 
 export const ProjectText = styled.span`
   font-size: 10px;
   color: #000000;
-  margin: 18px 12px;
 `;
 
 export const Btn = styled.button`
@@ -79,10 +78,10 @@ export const OtherBox = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   padding-top: 10px;
+  text-align: center;
 `;
 
 export const OtherText = styled.span`
   font-size: 12px;
-  margin: 28px 25px;
   color: #000000;
 `;

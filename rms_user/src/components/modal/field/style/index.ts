@@ -9,7 +9,7 @@ export const FieldBox = styled.div`
   border-radius: 5px;
   position: fixed;
   z-index: 8;
-  margin-top: 310px;
+  margin-top: 325px;
   margin-left: 35.4%;
 `;
 
@@ -30,4 +30,5 @@ export const FieldName = styled.p`
   font-family: Noto Sans KR;
   font-size: 2px;
   color: #5f5f5f;
+  margin-top: 2.8px;
 `;

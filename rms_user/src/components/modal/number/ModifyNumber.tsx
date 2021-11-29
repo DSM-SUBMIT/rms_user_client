@@ -32,7 +32,7 @@ const ModifyNumber: FC<Props> = props => {
   return (
     <S.ModalWrapper>
       <S.Box>
-        <img src={ModalClose} onClick={onClickNumberClose} />
+        <img src={ModalClose} onClick={onClickNumberClose} alt='modal close' />
         <S.Title>{TITLE}</S.Title>
         <S.Input
           defaultValue={stateMyProject.studentNumber}

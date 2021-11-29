@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import { useSelectState } from '../default';
 
 const useViewMyProject = () => {

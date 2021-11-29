@@ -61,13 +61,20 @@ const DetailReport: FC<Props> = props => {
     <S.DetailReport>
       <Header />
       <div id='pdf'>
-        <ReportFirstPage projectName={projectName} writer={writer} isTeam={isTeam} writerStudentNumber={writerStudentNumber} />
+        <ReportFirstPage
+          projectName={projectName}
+          writer={writer}
+          isTeam={isTeam}
+          writerStudentNumber={writerStudentNumber}
+        />
         {makeContentArray.map((data: string, id: number) => {
           return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
         })}
       </div>
-      <S.DownloadBtn onClick={downloadBtnClickHandler}>
-        <p>{DOWNLOAD}</p>
+      <S.DownloadBtn>
+        <div onClick={downloadBtnClickHandler}>
+          <p>{DOWNLOAD}</p>
+        </div>
       </S.DownloadBtn>
     </S.DetailReport>
   );

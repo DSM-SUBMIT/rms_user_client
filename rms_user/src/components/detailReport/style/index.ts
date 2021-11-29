@@ -91,6 +91,7 @@ export const ReportContentBox = styled.div<{ isSecondPage?: boolean }>`
     margin: ${isSecondPage ? '10px auto' : '77px auto'};
   `}
   border: 1px solid black;
+  word-break: break-all;
   > p {
     font-size: 18px;
   }
@@ -110,17 +111,22 @@ export const ReportContentTitle = styled.p`
 `;
 
 export const DownloadBtn = styled.div`
-  width: 150px;
-  height: 50px;
-  background-color: ${color.main};
-  border-radius: 5px;
+  width: 800px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0px 0px 970px;
-  cursor: pointer;
-  > p {
-    color: white;
-    font-size: 20px;
+  justify-content: end;
+  margin: 30px auto 55px auto;
+  > div {
+    width: 150px;
+    height: 50px;
+    background-color: ${color.main};
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    > p {
+      color: white;
+      font-size: 20px;
+    }
   }
 `;

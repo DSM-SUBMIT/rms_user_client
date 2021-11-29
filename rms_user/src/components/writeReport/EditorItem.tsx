@@ -1,8 +1,6 @@
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import React, { createRef, FC, useEffect } from 'react';
-import { setContent } from '../../modules/redux/action/writePlan';
-import { isNoSubstitutionTemplateLiteral } from 'typescript';
 
 interface EditorItemProps {
   page: number;
